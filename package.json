@@ -23,7 +23,8 @@
     "test:e2e": "scripts/e2e.sh",
     "brand:build": "node scripts/build-brand-assets.mjs",
     "brand:contrast": "node scripts/check-contrast.mjs",
-    "db:seed:demo": "scripts/seed-demo.sh"
+    "db:seed:demo": "scripts/seed-demo.sh",
+    "db:seed:user": "scripts/seed-demo-user.sh"
   },
   "devDependencies": {
     "prettier": "^3.3.3",

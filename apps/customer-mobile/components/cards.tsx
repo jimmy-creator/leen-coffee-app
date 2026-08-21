@@ -245,7 +245,8 @@ const styles = StyleSheet.create({
   },
 
   gridCard: {
-    flex: 1,
+    // No `flex` here on purpose — the caller owns the width. Mixing the flex
+    // shorthand with a flexGrow/flexBasis override is unreliable in Yoga.
     backgroundColor: colors.surface,
     borderRadius: 16,
     borderWidth: 1,

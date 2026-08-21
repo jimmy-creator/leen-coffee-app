@@ -133,6 +133,34 @@ ownership on, so a merchant can manage its own uploads later.
 
 Safe to re-run: roasteries match on name, coffees on (roastery, name).
 
+## Demo sign-in
+
+Phone auth is enabled on the project with fixed test numbers. Supabase matches
+a test number before it reaches the SMS provider, so sign-in works with no
+Twilio account attached.
+
+|       |                      |
+| ----- | -------------------- |
+| Phone | **+966 50 000 0000** |
+| Code  | **123456**           |
+
+`+966500000001` and `+966500000002` take the same code, for testing two sessions
+at once. All three sit in the 50-00000-0X block, which STC has never allocated —
+a test number is short-circuited before the provider, so one that collided with a
+real subscriber would stop that person receiving genuine codes.
+
+A number of all zeros cannot be used: Saudi mobiles are always `9665XXXXXXXX`,
+and the phone field rejects anything else before it sends.
+
+```bash
+SUPABASE_URL=… SUPABASE_SERVICE_KEY=… pnpm db:seed:user
+```
+
+That gives the account two saved addresses, 1,240 loyalty points at Qahwa Gold
+with ledger history, an active Explorer subscription, and one delivered order —
+so Profile, Rewards, Orders and Tracking all have something real on them rather
+than showing zeros.
+
 ## Row level security
 
 Every table in `public` has RLS enabled. Two rules, without exception:

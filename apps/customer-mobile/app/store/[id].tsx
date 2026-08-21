@@ -202,5 +202,6 @@ const styles = StyleSheet.create({
     backgroundColor: dangerTint(0.09),
   },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 14 },
-  gridItem: { width: '47.5%', flexGrow: 0, flexBasis: 'auto' },
+  // Two per row, accounting for the 14 px gutter between them.
+  gridItem: { width: '47.5%' },
 });

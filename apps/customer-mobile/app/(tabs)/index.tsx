@@ -386,7 +386,7 @@ const styles = StyleSheet.create({
     gap: 14,
   },
   // Two per row, accounting for the 14 px gutter between them.
-  gridItem: { width: '47.5%', flexGrow: 0, flexBasis: 'auto' },
+  gridItem: { width: '47.5%' },
 
   subsCard: {
     marginHorizontal: 20,
