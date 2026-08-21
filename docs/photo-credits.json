@@ -1,0 +1,576 @@
+{
+  "note": "Demo seed photography from Openverse, filtered to CC0 and public domain. No attribution is required; this file exists so the provenance stays checkable.",
+  "generated_by": "scripts/seed-demo-photos.mjs",
+  "images": [
+    {
+      "kind": "merchant-cover",
+      "subject": "Kaifa Roasters",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Fair_Mountain_Coffee_Roastery.jpg",
+      "title": "Fair Mountain Coffee Roastery",
+      "creator": "Swimdb",
+      "license": "cc0",
+      "source": "https://commons.wikimedia.org/w/index.php?curid=175499087",
+      "query": "coffee roastery"
+    },
+    {
+      "kind": "merchant-cover",
+      "subject": "Nakhla Coffee",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/1/12/Woman_at_counter_at_Ahrres_Coffee_Roastery_in_Summit_NJ.jpg",
+      "title": "Woman at counter at Ahrres Coffee Roastery in Summit NJ",
+      "creator": "Tomwsulcer",
+      "license": "cc0",
+      "source": "https://commons.wikimedia.org/w/index.php?curid=21268836",
+      "query": "coffee roastery"
+    },
+    {
+      "kind": "merchant-cover",
+      "subject": "Bayt Sabaa",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJlZXJhbmdlcGV4ZWxzMDM0NjMtaW1hZ2Uta3d2d3lxbHUuanBn.jpg",
+      "title": "Free coffee being roasted image",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/5918156/image-public-domain-coffee-food",
+      "query": "coffee roastery"
+    },
+    {
+      "kind": "merchant-cover",
+      "subject": "Dose Café",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYxNzEyOTg5LXdpa2ltZWRpYS1pbWFnZS1rb3diYWNuNy5qcGc.jpg",
+      "title": "Coffee beans machine",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/3283179/free-photo-image-roast-coffee-beans",
+      "query": "coffee roastery"
+    },
+    {
+      "kind": "merchant-cover",
+      "subject": "Barn's Origin",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/THXU08ODDE.jpg",
+      "title": "Restaurant Bar",
+      "creator": "Afta Putta Gunawan",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/restaurant-bar-THXU08ODDE",
+      "query": "coffee shop interior"
+    },
+    {
+      "kind": "merchant-cover",
+      "subject": "Half Million",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/KI4IDLRWIJ.jpg",
+      "title": "Restaurant Bar",
+      "creator": "Afta Putta Gunawan",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/restaurant-bar-KI4IDLRWIJ",
+      "query": "coffee shop interior"
+    },
+    {
+      "kind": "merchant-cover",
+      "subject": "Camel Step",
+      "src": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA2L3Vwd2s2MTczMDIzMy13aWtpbWVkaWEtaW1hZ2Uta293cXh0ZTguanBn.jpg",
+      "title": "Dials lights coffee machine",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/3303548/free-photo-image-espresso-machine-alloy-wheel-barista",
+      "query": "coffee shop interior"
+    },
+    {
+      "kind": "merchant-cover",
+      "subject": "Elixir Bunn",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYxNzE4MTAxLXdpa2ltZWRpYS1pbWFnZS1rb3diaXRoNC5qcGc.jpg",
+      "title": "simple interior coffee shop pair",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/3283405/free-photo-image-room-coffee-bar-cafe",
+      "query": "coffee shop interior"
+    },
+    {
+      "kind": "merchant-cover",
+      "subject": "Nabt Fenjan",
+      "src": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA0L3Vwd2s2MTcxNzY5OS13aWtpbWVkaWEtaW1hZ2Uta293cXVmZ3cuanBn.jpg",
+      "title": "Bar stools counter blinded windows",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/3303131/free-photo-image-window-shade-home-decoration-banister",
+      "query": "coffee shop interior"
+    },
+    {
+      "kind": "merchant-cover",
+      "subject": "Rukn Al Qahwa",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYxNzM4NjA4LXdpa2ltZWRpYS1pbWFnZS1rb3diazV1cC5qcGc.jpg",
+      "title": "Apartment interior wooden table framed",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/3283660/free-photo-image-wall-interior-desk",
+      "query": "coffee shop interior"
+    },
+    {
+      "kind": "merchant-cover",
+      "subject": "Sard Roasters",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHg1OTE1My1pbWFnZS1rd3lwNTcydy5qcGc.jpg",
+      "title": null,
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/5949260/free-public-domain-cc0-photo",
+      "query": "coffee shop interior"
+    },
+    {
+      "kind": "merchant-cover",
+      "subject": "Wadi Bunn",
+      "src": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA0L3Vwd2s2MTgwNDkwOS13aWtpbWVkaWEtaW1hZ2Uta293cTJuYzUuanBn.jpg",
+      "title": "Arched windows empty café",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/3301932/free-photo-image-interior-cafe",
+      "query": "coffee shop interior"
+    },
+    {
+      "kind": "merchant-cover",
+      "subject": "Mazaj Coffee",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYxNzE3Nzg5LXdpa2ltZWRpYS1pbWFnZS1rb3diZ2xhNi5qcGc.jpg",
+      "title": "White theme cafe",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/3283414/free-photo-image-coffee-shop-tabletop",
+      "query": "coffee shop interior"
+    },
+    {
+      "kind": "product",
+      "subject": "Jazan Khawlani Natural",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/X2JNLNHCT9.jpg",
+      "title": "Coffee Beans",
+      "creator": "Negative Space",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/coffee-beans-X2JNLNHCT9",
+      "query": "coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Ethiopia Guji Washed",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Green_arabica_coffee_beans.jpg",
+      "title": "Green arabica coffee beans",
+      "creator": "Roger Burger",
+      "license": "cc0",
+      "source": "https://commons.wikimedia.org/w/index.php?curid=84555762",
+      "query": "coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Espresso Blend No. 4",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/OTQJFKY0L7.jpg",
+      "title": "Coffee Beans",
+      "creator": "fireskystudios.com",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/coffee-beans-OTQJFKY0L7",
+      "query": "coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Yemen Haraz Anaerobic",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Coffee-Beans.jpg",
+      "title": "Coffee-Beans",
+      "creator": "Evan-Amos",
+      "license": "cc0",
+      "source": "https://commons.wikimedia.org/w/index.php?curid=16894154",
+      "query": "coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Colombia Huila Washed",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/RGTFS21RRA.jpg",
+      "title": "Coffee Beans",
+      "creator": "Ylanite Koppens",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/coffee-beans-RGTFS21RRA",
+      "query": "coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Ethiopia Sidamo Natural",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/X2HTBSJDKF.jpg",
+      "title": "Coffee Beans",
+      "creator": "Anastasia Zhenina",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/coffee-beans-X2HTBSJDKF",
+      "query": "coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "House Espresso",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/DAGKLM3VK1.jpg",
+      "title": "Coffee Beans",
+      "creator": "Skitter Photo",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/coffee-beans-DAGKLM3VK1",
+      "query": "coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Kenya Nyeri AA",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/LQ33FE82WJ.jpg",
+      "title": "Coffee Beans",
+      "creator": "Negative Space",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/coffee-beans-LQ33FE82WJ",
+      "query": "coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Guatemala Antigua",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/XO4IJW5K20.jpg",
+      "title": "Coffee Bean",
+      "creator": "Kari Shea",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/coffee-bean-XO4IJW5K20",
+      "query": "coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Rwanda Nyamasheke",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/PM0QDTADIN.jpg",
+      "title": "Coffee Beans",
+      "creator": "Michal Jarmoluk",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/coffee-beans-PM0QDTADIN",
+      "query": "coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Dark Roast No. 7",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/ESQSDQ5GPI.jpg",
+      "title": "Coffee Bean",
+      "creator": "Toa Heftiba",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/coffee-bean-ESQSDQ5GPI",
+      "query": "coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Panama Boquete Geisha",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/ARXUSAK8GB.jpg",
+      "title": "Coffee Beans",
+      "creator": "Helena Lopes",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/coffee-beans-ARXUSAK8GB",
+      "query": "coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Burundi Kayanza",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/418RUBKWQR.jpg",
+      "title": "Coffee Bean",
+      "creator": "Joshua Newton",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/coffee-bean-418RUBKWQR",
+      "query": "coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Costa Rica Tarrazú Honey",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/IQV87P70CC.jpg",
+      "title": "Coffee Beans",
+      "creator": "Matthew Henry",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/coffee-beans-IQV87P70CC",
+      "query": "coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Flat White Blend",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/BDXQUWMKL4.jpg",
+      "title": "Coffee Bean",
+      "creator": "Micha%u0142%20Grosicki",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/coffee-bean-BDXQUWMKL4",
+      "query": "coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Yemen Mokha Matari",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZmw0NzczMzQyNjAxMi1pbWFnZS1reWJlZXViMC5qcGc.jpg",
+      "title": "Roasted coffee beans background",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/6042182/photo-image-background-public-domain-coffee",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Ethiopia Gedeb Anaerobic",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJjb2ZmZWVfYmVhbnNfY29mZmVlX2RyaW5rXzMtaW1hZ2Uta3liZHh5NWUuanBn.jpg",
+      "title": "Roasted coffee beans background",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/6039153/photo-image-background-public-domain-coffee",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Colombia Pink Bourbon",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJjb2ZmZWVfY29mZmVlX2JlYW5zX2NhZmVfMTktaW1hZ2Uta3liZHk3czYuanBn.jpg",
+      "title": "Roasted coffee beans background",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/6039156/photo-image-background-public-domain-coffee",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Comp Espresso Lot",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJjb2ZmZWVfY29mZmVlX2JlYW5zX2NhZmVfMjEtaW1hZ2Uta3liZHllZHEuanBn.jpg",
+      "title": "Roasted coffee beans background",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/6039150/photo-image-background-public-domain-coffee",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Saudi Al Dayer Lot",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJjb2ZmZWVfY29mZmVlX2JlYW5zX2NhZmVfMjMtaW1hZ2Uta3liZHlocDAuanBn.jpg",
+      "title": "Roasted coffee beans plate",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/6039162/photo-image-background-public-domain-coffee",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Peru Cajamarca",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJjb2ZmZWVfY29mZmVlX2JlYW5zX2NhZmVfOS1pbWFnZS1reWJkeWJqci5qcGc.jpg",
+      "title": "Roasted coffee beans background",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/6039170/photo-image-background-public-domain-coffee",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Indonesia Sumatra",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZmw0NzczMzQyODU2Mi1pbWFnZS1reWJlZXB4aS5qcGc.jpg",
+      "title": "Roasted coffee beans background",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/6042176/photo-image-background-public-domain-coffee",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Turkish Grind Blend",
+      "src": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL2ZyY29mZmVlX2NvZmZlZV9iZWFuc19yb2FzdGVkXzgtaW1hZ2Uta3liYnNiNG8uanBn.jpg",
+      "title": "Roasted coffee beans background",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/6026185/photo-image-background-public-domain-coffee",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Honduras Marcala",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJjb2ZmZWVfY29mZmVlX2JlYW5zX2NhZmVfOC1pbWFnZS1reWJkeTI1MC5qcGc.jpg",
+      "title": "Roasted coffee beans background",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/6039152/photo-image-background-public-domain-coffee",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Ethiopia Yirgacheffe",
+      "src": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL2JzMjMyLWltYWdlLWt3dng2OHF6LmpwZw.jpg",
+      "title": "Free roasted coffee beans close",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/5919592/photo-image-textures-public-domain-coffee",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Tanzania Mbeya",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJjb2ZmZWVfY29mZmVlX2JlYW5zX2NhZmVfMjItaW1hZ2Uta3liZHk2NmguanBn.jpg",
+      "title": "Roasted coffee beans plate",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/6039174/photo-image-background-public-domain-coffee",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "V60 Daily Driver",
+      "src": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA0L3Vwd2s2MTcxMzU0OS13aWtpbWVkaWEtaW1hZ2Uta293bGxwMTEuanBn.jpg",
+      "title": "Roasted coffee beans background",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/3293868/free-photo-image-cafe-coffee-beans-animal",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "El Salvador Santa Ana",
+      "src": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL2JzMjI1LWltYWdlLWt3dng0OWt5LmpwZw.jpg",
+      "title": "Free roasted coffee beans image",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/5919308/image-public-domain-plant-black",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Saudi Qahwa Blend",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJjb2ZmZWVfY29mZmVlX2JlYW5zX2NhZmVfMTUtaW1hZ2Uta3liZHluZ20uanBn.jpg",
+      "title": "Roasted coffee beans background",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/6039410/photo-image-background-public-domain-coffee",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Hejazi Roast",
+      "src": "https://pd.w.org/2025/02/8067af4d11d36bb4.79727483-2048x1536.jpg",
+      "title": "Metal pot with roasted coffee beans on a stove, surrounded by rustic and earthy surroundings. Viñales, Cuba.",
+      "creator": "Carlos Longarela",
+      "license": "cc0",
+      "source": "https://wordpress.org/photos/photo/8067af4d11/",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Najdi Dark",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJjb2ZmZWVfYmVhbnNfY29mZmVlX2JlYW5zLWJfMjQtaW1hZ2Uta3liZHpjYXMuanBn.jpg",
+      "title": "Roasted coffee beans background",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/6039520/photo-image-background-public-domain-coffee",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Ramadan Special",
+      "src": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL2ZyY29mZmVlX2NvZmZlZV9iZWFuc19jYWZlXzIwLWltYWdlLWt5YmJzNGlzLmpwZw.jpg",
+      "title": "Roasted coffee beans plate",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/6026183/photo-image-background-public-domain-coffee",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Uganda Sipi Falls",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZmwzMzkwODU5ODUyOC1pbWFnZS1reWJla3VwYy5qcGc.jpg",
+      "title": "Roasted coffee beans background",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/6043080/photo-image-background-public-domain-coffee",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Mexico Chiapas",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJjb2ZmZWVfY29mZmVlX2JlYW5zX2NhZmVfMTYtaW1hZ2Uta3liZHk5ZmcuanBn.jpg",
+      "title": "Roasted coffee beans background",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/6039158/photo-image-background-public-domain-coffee",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Slow Roast Filter",
+      "src": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJjb2ZmZWVfY29mZmVlX2JlYW5zX2JlYW5zXzctaW1hZ2Uta3liZHlrOWkuanBn.jpg",
+      "title": "Roasted coffee beans background",
+      "creator": null,
+      "license": "cc0",
+      "source": "https://www.rawpixel.com/image/6039402/photo-image-background-public-domain-coffee",
+      "query": "roasted coffee beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Cortado Blend",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/UKPXEXD4TT.jpg",
+      "title": "Antique Coffee",
+      "creator": "Tom Swinnen",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/antique-coffee-UKPXEXD4TT",
+      "query": "espresso beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Asir Khawlani Washed",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/ZM7EROU6P0.jpg",
+      "title": "Cafe Coffee",
+      "creator": "Freestocks.org",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/cafe-coffee-ZM7EROU6P0",
+      "query": "espresso beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Faifa Terrace Lot",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/CQQMILRZPU.jpg",
+      "title": "Coffee Cup",
+      "creator": "phatonlaphat thongsriphong",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/coffee-cup-CQQMILRZPU",
+      "query": "espresso beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Highland Espresso",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/S62T5URQJZ.jpg",
+      "title": "Coffee Latte",
+      "creator": "David Bares",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/coffee-latte-S62T5URQJZ",
+      "query": "espresso beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Rijal Almaa Micro Lot",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/FJJL3EKUR2.jpg",
+      "title": "Pouring Morning",
+      "creator": "Burst",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/pouring-morning-FJJL3EKUR2",
+      "query": "espresso beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Brazil Cerrado",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/RKCUY4OYTF.jpg",
+      "title": "Bowl Coffee",
+      "creator": "Burst",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/bowl-coffee-RKCUY4OYTF",
+      "query": "espresso beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Vietnam Da Lat",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/O97MUX3RBS.jpg",
+      "title": "Red Coffee",
+      "creator": "Burst",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/red-coffee-O97MUX3RBS",
+      "query": "espresso beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Iced Latte Blend",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/FJXYCIFWNK.jpg",
+      "title": "Cafe Bar",
+      "creator": "Eneida Nieves",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/cafe-bar-FJXYCIFWNK",
+      "query": "espresso beans"
+    },
+    {
+      "kind": "product",
+      "subject": "Nicaragua Jinotega",
+      "src": "https://cdn.stocksnap.io/img-thumbs/960w/UMCR916WUF.jpg",
+      "title": "Vintage Alarm",
+      "creator": "Aphiwat Chuangchoem",
+      "license": "cc0",
+      "source": "https://stocksnap.io/photo/vintage-alarm-UMCR916WUF",
+      "query": "espresso beans"
+    }
+  ]
+}
