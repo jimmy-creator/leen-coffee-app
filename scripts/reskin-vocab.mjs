@@ -20,7 +20,10 @@ const SWAPS = [
   ["tone?: 'espresso' | 'cream';", "tone?: 'brand' | 'light';"],
   ['tone="cream"', 'tone="light"'],
   ["const onCream = tone === 'cream';", "const onDark = tone === 'light';"],
-  ['const foreground = onCream ? colors.ink : colors.bg;', 'const foreground = onDark ? colors.ink : colors.bg;'],
+  [
+    'const foreground = onCream ? colors.ink : colors.bg;',
+    'const foreground = onDark ? colors.ink : colors.bg;',
+  ],
   ['onCream && { backgroundColor: colors.bg },', 'onDark && { backgroundColor: colors.bg },'],
 
   // Comments.
@@ -33,10 +36,13 @@ const SWAPS = [
     ' * They exist so that the brand green and the 14 px corner radius are',
   ],
   [
-    "  /** `cream` inverts the button for the dark onboarding and confirmation screens. */",
-    "  /** `light` inverts the button for the dark onboarding and confirmation screens. */",
+    '  /** `cream` inverts the button for the dark onboarding and confirmation screens. */',
+    '  /** `light` inverts the button for the dark onboarding and confirmation screens. */',
   ],
-  ['  /** `dark` sits on the espresso/forest headers. */', '  /** `dark` sits on the brand-green headers. */'],
+  [
+    '  /** `dark` sits on the espresso/forest headers. */',
+    '  /** `dark` sits on the brand-green headers. */',
+  ],
   [
     '          the bottom so the buttons sit on solid espresso. */}',
     '          the bottom so the buttons sit on solid brand green. */}',

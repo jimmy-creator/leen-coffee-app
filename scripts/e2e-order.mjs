@@ -40,8 +40,15 @@ try {
   if (signInError) throw signInError;
 
   // The auth trigger should have created the profile and loyalty rows.
-  const { data: profile } = await customer.from('profiles').select('id, role, locale').maybeSingle();
-  check('sign-up creates a profile', profile?.id === userId, `role=${profile?.role} locale=${profile?.locale}`);
+  const { data: profile } = await customer
+    .from('profiles')
+    .select('id, role, locale')
+    .maybeSingle();
+  check(
+    'sign-up creates a profile',
+    profile?.id === userId,
+    `role=${profile?.role} locale=${profile?.locale}`,
+  );
 
   const { data: loyalty } = await customer
     .from('loyalty_accounts')
@@ -54,7 +61,9 @@ try {
     .from('products')
     .select('id, name_en, base_price_minor, merchant_id')
     .order('id');
-  check('catalogue is readable', (products?.length ?? 0) === 4, `${products?.length} coffees`);
+  // Not pinned to a count: the demo catalogue grows, and this test is about
+  // whether RLS lets a customer read it, not how big it is.
+  check('catalogue is readable', (products?.length ?? 0) >= 4, `${products?.length} coffees`);
 
   // Two coffees from two different roasteries, so the order has to split.
   const first = products.find((p) => p.merchant_id === products[0].merchant_id);
@@ -77,36 +86,49 @@ try {
   check('customer can save an address', !address.error, address.error?.message ?? '');
 
   ordered.push({ id: first.id, qty: 1 }, { id: other.id, qty: 2 });
-  await customer
-    .from('cart_items')
-    .insert([
-      { user_id: userId, product_id: first.id, qty: 1, grind: 'espresso', weight_g: 500 },
-      { user_id: userId, product_id: other.id, qty: 2, grind: 'whole_bean', weight_g: 250 },
-    ]);
+  await customer.from('cart_items').insert([
+    { user_id: userId, product_id: first.id, qty: 1, grind: 'espresso', weight_g: 500 },
+    { user_id: userId, product_id: other.id, qty: 2, grind: 'whole_bean', weight_g: 250 },
+  ]);
 
   // Server-side pricing. 500 g is 1.85x the reference price; 250 g is 1x.
-  const expectedSubtotal =
-    Math.round(first.base_price_minor * 1.85) + other.base_price_minor * 2;
+  const expectedSubtotal = Math.round(first.base_price_minor * 1.85) + other.base_price_minor * 2;
 
   const { data: preview } = await customer.rpc('preview_cart_total', {
     p_fulfilment: 'standard',
     p_promo_code: 'LEEN12',
   });
   const p = preview[0];
-  check('subtotal uses the bag-size multiplier', p.subtotal_minor === expectedSubtotal,
-    `${p.subtotal_minor} vs ${expectedSubtotal}`);
+  check(
+    'subtotal uses the bag-size multiplier',
+    p.subtotal_minor === expectedSubtotal,
+    `${p.subtotal_minor} vs ${expectedSubtotal}`,
+  );
   check('promo code applies', p.discount_minor === 1200, `discount=${p.discount_minor}`);
   const expectedVat = Math.round((p.subtotal_minor - p.discount_minor + p.delivery_minor) * 0.15);
-  check('VAT is 15% of goods+delivery after discount', p.vat_minor === expectedVat,
-    `${p.vat_minor} vs ${expectedVat}`);
-  check('total adds up', p.total_minor === p.subtotal_minor - p.discount_minor + p.delivery_minor + p.vat_minor);
+  check(
+    'VAT is 15% of goods+delivery after discount',
+    p.vat_minor === expectedVat,
+    `${p.vat_minor} vs ${expectedVat}`,
+  );
+  check(
+    'total adds up',
+    p.total_minor === p.subtotal_minor - p.discount_minor + p.delivery_minor + p.vat_minor,
+  );
 
   // A client must not be able to write an order directly — no INSERT policy.
   const direct = await customer.from('orders').insert({
-    code: 'LN-HACK', customer_id: userId, payment_method: 'mada',
-    subtotal_minor: 0, total_minor: 0,
+    code: 'LN-HACK',
+    customer_id: userId,
+    payment_method: 'mada',
+    subtotal_minor: 0,
+    total_minor: 0,
   });
-  check('direct order INSERT is refused by RLS', Boolean(direct.error), direct.error?.code ?? 'NO ERROR');
+  check(
+    'direct order INSERT is refused by RLS',
+    Boolean(direct.error),
+    direct.error?.code ?? 'NO ERROR',
+  );
 
   const { data: placed, error: placeError } = await customer.rpc('place_order', {
     p_fulfilment: 'standard',
@@ -116,15 +138,22 @@ try {
   });
   check('place_order succeeds', !placeError, placeError?.message ?? '');
   const order = placed[0];
-  check('order total matches the preview', order.total_minor === p.total_minor,
-    `${order.total_minor} vs ${p.total_minor}`);
+  check(
+    'order total matches the preview',
+    order.total_minor === p.total_minor,
+    `${order.total_minor} vs ${p.total_minor}`,
+  );
 
   // One sub-order per roastery.
   const { data: subs } = await customer
     .from('sub_orders')
     .select('id, merchant_id, subtotal_minor, commission_minor')
     .eq('order_id', order.order_id);
-  check('basket splits into one sub-order per roastery', subs.length === 2, `${subs.length} sub-orders`);
+  check(
+    'basket splits into one sub-order per roastery',
+    subs.length === 2,
+    `${subs.length} sub-orders`,
+  );
   const commissionOk = subs.every(
     (s) => s.commission_minor === Math.round(s.subtotal_minor * 0.12),
   );
@@ -138,18 +167,26 @@ try {
     .select('points, lifetime_points')
     .maybeSingle();
   const expectedPoints = Math.floor(p.subtotal_minor / 100);
-  check('loyalty points awarded on the goods subtotal', afterLoyalty.points === expectedPoints,
-    `${afterLoyalty.points} vs ${expectedPoints}`);
+  check(
+    'loyalty points awarded on the goods subtotal',
+    afterLoyalty.points === expectedPoints,
+    `${afterLoyalty.points} vs ${expectedPoints}`,
+  );
 
   const { data: stockAfter } = await customer
     .from('products')
     .select('id, stock_qty')
     .eq('id', other.id)
     .single();
-  check('stock decremented by the ordered quantity', typeof stockAfter.stock_qty === 'number',
-    `${other.name_en} now ${stockAfter.stock_qty}`);
+  check(
+    'stock decremented by the ordered quantity',
+    typeof stockAfter.stock_qty === 'number',
+    `${other.name_en} now ${stockAfter.stock_qty}`,
+  );
 
-  const { data: tracking } = await customer.rpc('order_tracking', { p_order_code: order.order_code });
+  const { data: tracking } = await customer.rpc('order_tracking', {
+    p_order_code: order.order_code,
+  });
   check('order_tracking returns the order', tracking.length === 2, `${tracking.length} legs`);
 
   // Another customer must not be able to read this one's order.
@@ -176,8 +213,16 @@ try {
   // Put the seed back: the run consumed a promo use and some stock.
   await admin.from('promo_codes').update({ uses: 0 }).eq('code', 'LEEN12');
   for (const line of ordered) {
-    const { data: row } = await admin.from('products').select('stock_qty').eq('id', line.id).single();
-    if (row) await admin.from('products').update({ stock_qty: row.stock_qty + line.qty }).eq('id', line.id);
+    const { data: row } = await admin
+      .from('products')
+      .select('stock_qty')
+      .eq('id', line.id)
+      .single();
+    if (row)
+      await admin
+        .from('products')
+        .update({ stock_qty: row.stock_qty + line.qty })
+        .eq('id', line.id);
   }
   console.log('seed restored');
 }

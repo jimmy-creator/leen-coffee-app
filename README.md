@@ -112,6 +112,27 @@ tappable controls, held at 3:1 against every surface. `ink4` is lighter and is
 for genuinely disabled elements only — an inactive tab is still a control
 somebody has to be able to read.
 
+## Demo catalogue
+
+`supabase/seed.sql` holds the three roasteries and four coffees from the
+signed-off design — that is the canonical fixture. On top of it,
+`scripts/seed-demo-catalogue.mjs` adds ten more Saudi roasteries and forty
+more coffees so the app looks populated when it is being shown, and generates
+a placeholder image for every roastery and product:
+
+```bash
+SUPABASE_URL=… SUPABASE_SERVICE_KEY=… pnpm db:seed:demo
+```
+
+The imagery is drawn locally rather than pulled from a stock service. A
+hotlinked picsum URL breaks the moment the demo is shown on a locked-down
+network, and looks nothing like coffee. These are a bag silhouette coloured by
+roast level and a gradient cover carrying the lotus, uploaded to Supabase
+Storage under `<merchant_id>/…` — the layout the storage policies key
+ownership on, so a merchant can manage its own uploads later.
+
+Safe to re-run: roasteries match on name, coffees on (roastery, name).
+
 ## Row level security
 
 Every table in `public` has RLS enabled. Two rules, without exception:

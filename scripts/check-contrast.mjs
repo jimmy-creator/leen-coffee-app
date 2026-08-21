@@ -6,10 +6,21 @@
  * than eyeballed. Body text wants 4.5:1; large text and non-text UI want 3:1.
  */
 const P = {
-  brand: '#1C3819', brandDeep: '#122611', brandMid: '#2C5127',
-  accent: '#C8A45C', live: '#4C9A5E', danger: '#C0452F', dangerInk: '#8E2F22',
-  bg: '#F6F5F0', surface: '#FFFFFF', surfaceAlt: '#EAEAE1', surfaceSoft: '#F0EFE8',
-  ink: '#171C15', ink2: '#566052', ink3: '#7F887C', ink4: '#A6AE9F',
+  brand: '#1C3819',
+  brandDeep: '#122611',
+  brandMid: '#2C5127',
+  accent: '#C8A45C',
+  live: '#4C9A5E',
+  danger: '#C0452F',
+  dangerInk: '#8E2F22',
+  bg: '#F6F5F0',
+  surface: '#FFFFFF',
+  surfaceAlt: '#EAEAE1',
+  surfaceSoft: '#F0EFE8',
+  ink: '#171C15',
+  ink2: '#566052',
+  ink3: '#7F887C',
+  ink4: '#A6AE9F',
   onBrand: '#F6F5F0',
 };
 
@@ -25,23 +36,23 @@ const ratio = (a, b) => {
 
 // [label, foreground, background, minimum]
 const PAIRS = [
-  ['body ink on page',        P.ink,       P.bg,      4.5],
-  ['body ink on card',        P.ink,       P.surface, 4.5],
-  ['secondary text on page',  P.ink2,      P.bg,      4.5],
-  ['tertiary text on page',   P.ink3,      P.bg,      3.0],
+  ['body ink on page', P.ink, P.bg, 4.5],
+  ['body ink on card', P.ink, P.surface, 4.5],
+  ['secondary text on page', P.ink2, P.bg, 4.5],
+  ['tertiary text on page', P.ink3, P.bg, 3.0],
   // ink4 is disabled-state only, which WCAG 1.4.3/1.4.11 exempt. Inactive
   // tab glyphs are NOT disabled and use ink3, which is checked below.
-  ['inactive tab glyph',      P.ink3,      P.bg,      3.0],
-  ['link on page',            P.brandMid,  P.bg,      4.5],
-  ['cream on brand button',   P.onBrand,   P.brand,   4.5],
-  ['cream on brandMid card',  P.onBrand,   P.brandMid, 4.5],
-  ['cream on brandDeep',      P.onBrand,   P.brandDeep, 4.5],
-  ['accent on brand header',  P.accent,    P.brand,   3.0],
-  ['danger text on page',     P.dangerInk, P.bg,      4.5],
-  ['live pill text on page',  P.brandMid,  P.bg,      4.5],
-  ['ink on surfaceAlt',       P.ink,       P.surfaceAlt, 4.5],
-  ['tertiary on surfaceSoft', P.ink3,      P.surfaceSoft, 3.0],
-  ['tertiary on surfaceAlt',  P.ink3,      P.surfaceAlt, 3.0],
+  ['inactive tab glyph', P.ink3, P.bg, 3.0],
+  ['link on page', P.brandMid, P.bg, 4.5],
+  ['cream on brand button', P.onBrand, P.brand, 4.5],
+  ['cream on brandMid card', P.onBrand, P.brandMid, 4.5],
+  ['cream on brandDeep', P.onBrand, P.brandDeep, 4.5],
+  ['accent on brand header', P.accent, P.brand, 3.0],
+  ['danger text on page', P.dangerInk, P.bg, 4.5],
+  ['live pill text on page', P.brandMid, P.bg, 4.5],
+  ['ink on surfaceAlt', P.ink, P.surfaceAlt, 4.5],
+  ['tertiary on surfaceSoft', P.ink3, P.surfaceSoft, 3.0],
+  ['tertiary on surfaceAlt', P.ink3, P.surfaceAlt, 3.0],
 ];
 
 let worst = Infinity;

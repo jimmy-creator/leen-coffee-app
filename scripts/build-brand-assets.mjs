@@ -30,10 +30,18 @@ async function icon({ source, background, scale, out }) {
   const canvas = background
     ? sharp({ create: { width: SIZE, height: SIZE, channels: 4, background } })
     : sharp({
-        create: { width: SIZE, height: SIZE, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } },
+        create: {
+          width: SIZE,
+          height: SIZE,
+          channels: 4,
+          background: { r: 0, g: 0, b: 0, alpha: 0 },
+        },
       });
 
-  await canvas.composite([{ input: mark, gravity: 'center' }]).png().toFile(out);
+  await canvas
+    .composite([{ input: mark, gravity: 'center' }])
+    .png()
+    .toFile(out);
   console.log('wrote', out);
 }
 
@@ -54,14 +62,29 @@ for (const app of APPS) {
 
   // Store icon: mark on the app's field, generous margin so it survives the
   // rounded-rect crop iOS applies.
-  await icon({ source: 'brand/mark-white.png', background: app.field, scale: 0.66, out: `${out}/icon.png` });
+  await icon({
+    source: 'brand/mark-white.png',
+    background: app.field,
+    scale: 0.66,
+    out: `${out}/icon.png`,
+  });
 
   // Android adaptive foreground: transparent, and smaller still — OEM masks cut
   // aggressively, and anything outside the centre 62% can be clipped.
-  await icon({ source: 'brand/mark-white.png', background: null, scale: 0.5, out: `${out}/icon-adaptive.png` });
+  await icon({
+    source: 'brand/mark-white.png',
+    background: null,
+    scale: 0.5,
+    out: `${out}/icon-adaptive.png`,
+  });
 
   // Splash: the full lockup, on the splash background set in app.json.
-  await icon({ source: 'brand/lockup-white.png', background: null, scale: 0.62, out: `${out}/leen-logo.png` });
+  await icon({
+    source: 'brand/lockup-white.png',
+    background: null,
+    scale: 0.62,
+    out: `${out}/leen-logo.png`,
+  });
 
   writeFileSync(
     `${out}/README.md`,

@@ -73,7 +73,7 @@ for (const file of files) {
   const used = HELPERS.filter((h) => src.includes(h + '('));
 
   if (used.length > 0 && !src.includes("from '@leen/ui/palette'")) {
-    const importLine = "import { " + used.join(', ') + " } from '@leen/ui/palette';";
+    const importLine = 'import { ' + used.join(', ') + " } from '@leen/ui/palette';";
     // Slot it beside the theme import so the colour imports stay together.
     const themeImport = /^import \{[^}]*\} from '(\.\.\/)*lib\/theme';$/m;
     src = themeImport.test(src)
