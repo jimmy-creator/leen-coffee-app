@@ -1,0 +1,329 @@
+{
+  "common": {
+    "appName": "لین کافی",
+    "retry": "دوبارہ کوشش",
+    "cancel": "منسوخ",
+    "save": "محفوظ کریں",
+    "close": "بند کریں",
+    "seeAll": "سب دیکھیں",
+    "change": "تبدیل کریں",
+    "edit": "ترمیم",
+    "delete": "حذف کریں",
+    "confirm": "تصدیق کریں",
+    "back": "واپس",
+    "done": "مکمل",
+    "free": "مفت",
+    "or": "یا",
+    "somethingWrong": "کچھ غلط ہو گیا",
+    "language": "زبان",
+    "arabic": "عربی",
+    "english": "EN",
+    "languageNote": "مصنوعات کے نام اور ذائقے کی تفصیل ہر بھٹی کی طرف سے عربی یا انگریزی میں آتی ہے۔ باقی ایپ اسی زبان میں ہوگی جو آپ یہاں منتخب کریں۔"
+  },
+  "onboarding": {
+    "title": "سعودی خصوصی کافی، بھٹی سے سیدھی آپ کے دروازے تک۔",
+    "subtitle": "درجنوں آزاد سعودی بھٹیوں کی ایک ہی ٹوکری۔ خریدنے سے پہلے بھوننے کی تاریخ دیکھیں۔",
+    "getStarted": "اکاؤنٹ بنائیں",
+    "browseGuest": "بطور مہمان دیکھیں"
+  },
+  "auth": {
+    "title": "آپ کا موبائل نمبر",
+    "subtitle": "ہم ایک کوڈ بھیجتے ہیں۔ کوئی پاس ورڈ یاد رکھنے کی ضرورت نہیں۔",
+    "phoneLabel": "موبائل نمبر",
+    "phonePlaceholder": "5X XXX XXXX",
+    "sendCode": "کوڈ بھیجیں",
+    "continueApple": "Apple کے ساتھ جاری رکھیں",
+    "continueNafath": "نفاذ کے ساتھ جاری رکھیں",
+    "legal": "جاری رکھ کر آپ لین کافی کی شرائط استعمال اور رازداری کی پالیسی سے اتفاق کرتے ہیں۔",
+    "otpTitle": "کوڈ درج کریں",
+    "resendIn": "دوبارہ بھیجنا {{seconds}} سیکنڈ میں",
+    "resend": "کوڈ دوبارہ بھیجیں",
+    "invalidPhone": "5 سے شروع ہونے والا سعودی موبائل نمبر درج کریں۔",
+    "invalidOtp": "کوڈ مطابقت نہیں رکھتا۔ دوبارہ کوشش کریں۔",
+    "sendFailed": "ہم کوڈ نہیں بھیج سکے۔ تھوڑی دیر بعد کوشش کریں۔",
+    "signOut": "سائن آؤٹ",
+    "signIn": "سائن ان",
+    "signInToContinue": "جاری رکھنے کے لیے سائن ان کریں"
+  },
+  "home": {
+    "deliverTo": "ترسیل کا پتہ",
+    "pickAddress": "پتہ منتخب کریں",
+    "searchPlaceholder": "دانے، بھٹیاں، آلات تلاش کریں",
+    "thisWeek": "اس ہفتے",
+    "roasters": "آپ کے قریب بھٹیاں",
+    "freshRoast": "تازہ بھنی ہوئی",
+    "freshRoastSub": "پچھلے پانچ دنوں میں بھنی ہوئی",
+    "errorTitle": "صفحہ تازہ نہیں ہو سکا",
+    "errorBody": "آپ آف لائن ہیں۔ آخری محفوظ شدہ نسخہ دکھایا جا رہا ہے۔",
+    "emptyTitle": "ابھی کچھ نہیں",
+    "emptyBody": "ہر ہفتے نئی بھٹیاں لین میں شامل ہو رہی ہیں۔ جلد دوبارہ دیکھیں۔"
+  },
+  "categories": {
+    "all": "سب",
+    "beans": "دانے",
+    "espresso": "ایسپریسو",
+    "filter": "فلٹر",
+    "saudiCoffee": "سعودی قہوہ",
+    "gear": "آلات"
+  },
+  "search": {
+    "resultCount_one": "{{count}} نتیجہ",
+    "resultCount_other": "{{count}} نتائج",
+    "emptyTitle": "کوئی نتیجہ نہیں",
+    "emptyBody": "وسیع فلٹر آزمائیں، یا جازان یا گوجی جیسے منبع سے تلاش کریں۔",
+    "clearFilters": "فلٹر ہٹائیں",
+    "filters": {
+      "saudiOrigin": "سعودی منبع",
+      "lightRoast": "ہلکی بھنائی",
+      "underEighty": "80 ریال سے کم",
+      "espresso": "ایسپریسو",
+      "freeDelivery": "مفت ترسیل"
+    }
+  },
+  "store": {
+    "delivery": "ترسیل",
+    "products": "مصنوعات",
+    "since": "قائم",
+    "tabs": {
+      "all": "سب",
+      "beans": "دانے",
+      "subscriptions": "سبسکرپشن",
+      "gear": "آلات",
+      "about": "تعارف"
+    },
+    "closed": "ابھی بند ہے",
+    "closedBody": "یہ بھٹی اس وقت آرڈر نہیں لے رہی۔"
+  },
+  "product": {
+    "perWeight": "{{weight}} کے لیے · ٹیکس شامل",
+    "grind": "پسائی",
+    "weight": "وزن",
+    "roastedAgo_one": "{{count}} دن پہلے بھنی",
+    "roastedAgo_other": "{{count}} دن پہلے بھنی",
+    "roastedToday": "آج بھنی ہوئی",
+    "freshnessNote": "لین کا ہر پیکٹ بھوننے کی تاریخ دکھاتا ہے۔ 21 دن سے پرانی کوئی چیز نہیں بھیجی جاتی۔",
+    "about": "اس کافی کے بارے میں",
+    "addToCart": "ٹوکری میں ڈالیں",
+    "outOfStock": "دستیاب نہیں",
+    "inCartAdd": "ٹوکری میں {{count}} — ایک اور شامل کریں",
+    "specs": {
+      "origin": "منبع",
+      "process": "طریقہ کار",
+      "altitude": "بلندی",
+      "variety": "قسم"
+    },
+    "grinds": {
+      "whole_bean": "ثابت دانے",
+      "espresso": "ایسپریسو",
+      "filter": "V60 / فلٹر",
+      "turkish": "ترکی / سعودی"
+    },
+    "roasts": {
+      "light": "ہلکی",
+      "medium": "درمیانی",
+      "medium_dark": "درمیانی گہری",
+      "dark": "گہری"
+    },
+    "processes": {
+      "washed": "دھلی ہوئی",
+      "natural": "قدرتی",
+      "honey": "شہد",
+      "anaerobic": "بے ہوا",
+      "pulped_natural": "گودا نکالی قدرتی"
+    },
+    "weights": {
+      "250": "250 گرام",
+      "500": "500 گرام",
+      "1000": "1 کلو"
+    }
+  },
+  "cart": {
+    "title": "ٹوکری",
+    "emptyTitle": "آپ کی ٹوکری خالی ہے",
+    "emptyBody": "سعودی بھٹیوں کے دانے اور آلات ایک کلک کی دوری پر ہیں۔",
+    "startShopping": "خریداری شروع کریں",
+    "merchantSubtotal": "دکاندار کا میزان",
+    "promoPlaceholder": "پرومو کوڈ",
+    "apply": "لاگو کریں",
+    "promoApplied": "رعایت لاگو ہو گئی",
+    "promoInvalid": "یہ کوڈ درست نہیں ہے۔",
+    "checkout": "آرڈر مکمل کریں"
+  },
+  "totals": {
+    "subtotal": "میزان",
+    "delivery": "ترسیل",
+    "vat": "ویٹ 15%",
+    "promo": "رعایت",
+    "total": "کل"
+  },
+  "checkout": {
+    "title": "آرڈر مکمل کریں",
+    "deliveryAddress": "ترسیل کا پتہ",
+    "deliveryMethod": "ترسیل",
+    "payment": "ادائیگی",
+    "vatNote": "قیمتوں میں 15% ویٹ شامل ہے۔ ہر دکاندار الگ بھیجتا ہے۔",
+    "placeOrder": "آرڈر دیں",
+    "placing": "آپ کا آرڈر دیا جا رہا ہے…",
+    "noAddress": "جاری رکھنے کے لیے ترسیل کا پتہ شامل کریں",
+    "failed": "ہم آرڈر نہیں دے سکے۔ کوئی رقم نہیں کاٹی گئی۔",
+    "ship": {
+      "standard": "عام",
+      "standardSub": "آج، 35–60 منٹ",
+      "express": "فوری",
+      "expressSub": "30 منٹ کے اندر",
+      "pickup": "بھٹی سے وصول کریں",
+      "pickupSub": "20 منٹ میں تیار"
+    },
+    "pay": {
+      "mada": "مدى ڈیبٹ",
+      "apple_pay": "Apple Pay",
+      "stc_pay": "stc pay",
+      "cash_on_delivery": "ترسیل پر نقد"
+    },
+    "payBadge": {
+      "mada": "مدى",
+      "apple_pay": "NFC",
+      "stc_pay": "والٹ",
+      "cash_on_delivery": "نقد"
+    }
+  },
+  "orderDone": {
+    "title": "آرڈر کی تصدیق ہو گئی",
+    "subtitle": "{{merchant}} آپ کا آرڈر پیس رہی ہے۔ ڈرائیور روانہ ہوتے ہی آپ کو اطلاع ملے گی۔",
+    "trackOrder": "آرڈر ٹریک کریں",
+    "keepShopping": "خریداری جاری رکھیں"
+  },
+  "tracking": {
+    "orderNo": "آرڈر #{{code}}",
+    "arrives": "پہنچنے کا وقت {{time}}",
+    "steps": {
+      "pending": "آرڈر دیا گیا",
+      "confirmed": "بھٹی نے تصدیق کی",
+      "roasting": "آرڈر پر بھنائی اور پسائی",
+      "ready": "وصولی کے لیے تیار",
+      "picked_up": "{{name}} نے وصول کیا",
+      "delivered": "آپ کے دروازے پر",
+      "cancelled": "منسوخ"
+    },
+    "statusTitle": {
+      "pending": "بھٹی کے انتظار میں",
+      "confirmed": "تصدیق ہو گئی",
+      "roasting": "آپ کا آرڈر بھونا جا رہا ہے",
+      "ready": "ڈرائیور کے لیے تیار",
+      "picked_up": "ترسیل کے لیے روانہ",
+      "delivered": "پہنچا دیا گیا",
+      "cancelled": "آرڈر منسوخ"
+    },
+    "driver": "آپ کا ڈرائیور",
+    "callDriver": "ڈرائیور کو کال کریں",
+    "noOrders": "ابھی کوئی آرڈر نہیں",
+    "noOrdersBody": "آرڈر دینے کے بعد آپ کے آرڈر یہاں دکھائی دیں گے۔"
+  },
+  "orders": {
+    "title": "میرے آرڈر",
+    "itemCount_one": "{{count}} چیز",
+    "itemCount_other": "{{count}} چیزیں"
+  },
+  "subscriptions": {
+    "kicker": "سبسکرپشن",
+    "title": "ہر دو ہفتے بعد آپ کے دروازے پر دانے",
+    "subtitle": "بھنائی کا انداز چنیں، منبع ہم بدلتے رہیں گے۔ جب چاہیں روک دیں۔",
+    "cta": "پلان دیکھیں ←",
+    "frequency": "تعدد",
+    "perDelivery": "فی ترسیل",
+    "subscribe": "سبسکرائب کریں",
+    "mostPopular": "سب سے مقبول — سبسکرائب کریں",
+    "note": "سبسکرپشن آرڈر بھوننے کے اگلے دن بھیجے جاتے ہیں۔ بھٹی، پسائی یا وقفہ اپنے اکاؤنٹ سے بدلیں۔",
+    "freq": {
+      "weekly": "ہفتہ وار",
+      "biweekly": "ہر دو ہفتے",
+      "monthly": "ماہانہ"
+    },
+    "mine": "میری سبسکرپشنز",
+    "active": "فعال",
+    "paused": "روکی ہوئی",
+    "pause": "روکیں",
+    "resume": "دوبارہ شروع کریں",
+    "activeCount_one": "{{count}} فعال",
+    "activeCount_other": "{{count}} فعال",
+    "nextDelivery": "اگلی ترسیل {{date}}"
+  },
+  "loyalty": {
+    "title": "لین ریوارڈز",
+    "points": "پوائنٹس",
+    "tier": "درجہ",
+    "toNextTier": "اگلے درجے اور سال بھر مفت ترسیل کے لیے {{count}} پوائنٹس درکار ہیں۔",
+    "topTier": "آپ اعلیٰ ترین درجے پر ہیں۔ ترسیل ہمیشہ مفت۔",
+    "redeem": "استعمال کریں",
+    "locked": "بند",
+    "pointsCost": "{{count}} پوائنٹس",
+    "redeemed": "انعام حاصل کر لیا گیا",
+    "tiers": {
+      "qahwa_bronze": "قہوہ برانز",
+      "qahwa_silver": "قہوہ سلور",
+      "qahwa_gold": "قہوہ گولڈ",
+      "qahwa_black": "قہوہ بلیک"
+    }
+  },
+  "profile": {
+    "title": "میرا اکاؤنٹ",
+    "guest": "مہمان",
+    "guestBody": "اپنے آرڈر، انعامات اور پتے دیکھنے کے لیے سائن ان کریں۔",
+    "rows": {
+      "orders": "آرڈرز",
+      "subscriptions": "سبسکرپشنز",
+      "rewards": "لین ریوارڈز",
+      "addresses": "پتے",
+      "payment": "ادائیگی کے طریقے",
+      "support": "مدد اور معاونت"
+    }
+  },
+  "addresses": {
+    "title": "پتے",
+    "setDefault": "ڈیفالٹ بنائیں",
+    "default": "ڈیفالٹ",
+    "add": "+ نیا پتہ شامل کریں",
+    "emptyTitle": "ابھی کوئی پتہ نہیں",
+    "emptyBody": "ایک پتہ شامل کریں تاکہ ہمیں معلوم ہو کہ کافی کہاں پہنچانی ہے۔",
+    "form": {
+      "title": "نیا پتہ",
+      "label": "عنوان",
+      "labelPlaceholder": "گھر، دفتر…",
+      "street": "گلی",
+      "district": "علاقہ",
+      "city": "شہر",
+      "buildingNumber": "عمارت نمبر",
+      "postalCode": "پوسٹل کوڈ",
+      "additionalNumber": "اضافی نمبر",
+      "notes": "ڈرائیور کے لیے ہدایات",
+      "saveAddress": "پتہ محفوظ کریں",
+      "required": "گلی، علاقہ اور شہر ضروری ہیں۔"
+    },
+    "map": {
+      "title": "اپنا مقام منتخب کریں",
+      "hint": "نقشہ حرکت دیں تاکہ نشان آپ کی عمارت پر آ جائے۔ اسی سے ڈرائیور آپ کے دروازے تک پہنچے گا۔",
+      "confirm": "یہی مقام استعمال کریں",
+      "skip": "پتہ خود لکھیں",
+      "useMyLocation": "میرا مقام",
+      "pinned": "منتخب کردہ مقام",
+      "unavailable": "نقشہ دستیاب نہیں — پتہ خود لکھیں۔"
+    }
+  },
+  "tabs": {
+    "home": "ہوم",
+    "explore": "تلاش",
+    "subscribe": "سبسکرائب",
+    "cart": "ٹوکری",
+    "profile": "اکاؤنٹ"
+  },
+  "notifications": {
+    "title": "اطلاعات",
+    "emptyTitle": "ابھی کچھ نہیں",
+    "emptyBody": "آرڈر کی تازہ کاری اور لین کی پیشکشیں یہاں دکھائی دیں گی۔",
+    "orderConfirmedTitle": "آرڈر کی تصدیق ہو گئی",
+    "orderRoastingTitle": "آپ کا آرڈر بھونا جا رہا ہے",
+    "orderReadyTitle": "ڈرائیور کے لیے تیار",
+    "orderPickedUpTitle": "ترسیل کے لیے روانہ",
+    "orderDeliveredTitle": "پہنچا دیا گیا"
+  }
+}

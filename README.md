@@ -161,6 +161,32 @@ with ledger history, an active Explorer subscription, and one delivered order �
 so Profile, Rewards, Orders and Tracking all have something real on them rather
 than showing zeros.
 
+## Configuration
+
+No real credential is committed. `.env.example` documents the shape only.
+
+| Where                    | What supplies it                                    |
+| ------------------------ | --------------------------------------------------- |
+| Local dev (mobile + web) | `.env.local` in each app directory, gitignored      |
+| EAS builds               | EAS environment variables, per project, per profile |
+| Edge Functions           | Supabase function secrets                           |
+| Trigger → Edge Function  | Supabase Vault                                      |
+
+```bash
+eas env:list --environment preview      # from an app directory
+```
+
+The Supabase publishable key and the Mapbox `pk.` token are public by design —
+they ship inside the app binary whatever we do, and every table behind the
+first is under RLS. They are still kept out of git so they can be rotated
+without a commit, and so pointing the apps at the client's own Supabase and
+Mapbox accounts is a config change rather than a code change. GitHub push
+protection also blocks Mapbox tokens on sight, which is a reasonable default to
+work with rather than around.
+
+The service role key, the database password and the Supabase access token are
+genuinely secret and appear nowhere in the repo.
+
 ## Row level security
 
 Every table in `public` has RLS enabled. Two rules, without exception:

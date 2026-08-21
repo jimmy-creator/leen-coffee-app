@@ -17,7 +17,8 @@
     "somethingWrong": "Something went wrong",
     "language": "Language",
     "arabic": "عربي",
-    "english": "EN"
+    "english": "EN",
+    "languageNote": "Product names and tasting notes come from each roastery, in Arabic or English. The rest of the app follows the language you pick here."
   },
   "onboarding": {
     "title": "Saudi specialty coffee, from the roaster to your door.",
@@ -297,6 +298,15 @@
       "notes": "Notes for the driver",
       "saveAddress": "Save address",
       "required": "Street, district and city are required."
+    },
+    "map": {
+      "title": "Pin your location",
+      "hint": "Drag the map so the pin sits on your building. We use this to get the driver to your door.",
+      "confirm": "Use this location",
+      "skip": "Enter the address manually",
+      "useMyLocation": "My location",
+      "pinned": "PINNED LOCATION",
+      "unavailable": "Map unavailable — enter the address by hand."
     }
   },
   "tabs": {

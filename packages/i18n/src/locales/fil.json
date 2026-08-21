@@ -1,0 +1,329 @@
+{
+  "common": {
+    "appName": "Leen Coffee",
+    "retry": "Subukan ulit",
+    "cancel": "Kanselahin",
+    "save": "I-save",
+    "close": "Isara",
+    "seeAll": "Tingnan lahat",
+    "change": "Palitan",
+    "edit": "I-edit",
+    "delete": "Tanggalin",
+    "confirm": "Kumpirmahin",
+    "back": "Bumalik",
+    "done": "Tapos",
+    "free": "Libre",
+    "or": "o",
+    "somethingWrong": "May naging problema",
+    "language": "Wika",
+    "arabic": "Arabic",
+    "english": "EN",
+    "languageNote": "Ang pangalan ng produkto at tasting notes ay galing sa bawat roastery, sa Arabic o English. Ang iba pang bahagi ng app ay susunod sa wikang pipiliin mo rito."
+  },
+  "onboarding": {
+    "title": "Specialty coffee mula sa Saudi, diretso sa pintuan mo.",
+    "subtitle": "Isang basket para sa dose-dosenang independent na Saudi roaster. Makikita mo ang petsa ng pagbusa bago ka bumili.",
+    "getStarted": "Gumawa ng account",
+    "browseGuest": "Mag-browse bilang guest"
+  },
+  "auth": {
+    "title": "Ang numero mo",
+    "subtitle": "Magpapadala kami ng code. Walang password na kailangang tandaan.",
+    "phoneLabel": "Mobile number",
+    "phonePlaceholder": "5X XXX XXXX",
+    "sendCode": "Ipadala ang code",
+    "continueApple": "Magpatuloy gamit ang Apple",
+    "continueNafath": "Magpatuloy gamit ang Nafath",
+    "legal": "Sa pagpapatuloy, sumasang-ayon ka sa Terms of Use at Privacy Policy ng Leen Coffee.",
+    "otpTitle": "Ilagay ang code",
+    "resendIn": "Maipapadala ulit sa {{seconds}}s",
+    "resend": "Ipadala ulit ang code",
+    "invalidPhone": "Maglagay ng Saudi mobile number na nagsisimula sa 5.",
+    "invalidOtp": "Hindi tugma ang code. Subukan ulit.",
+    "sendFailed": "Hindi namin naipadala ang code. Subukan ulit maya-maya.",
+    "signOut": "Mag-sign out",
+    "signIn": "Mag-sign in",
+    "signInToContinue": "Mag-sign in para magpatuloy"
+  },
+  "home": {
+    "deliverTo": "IHAHATID SA",
+    "pickAddress": "Pumili ng address",
+    "searchPlaceholder": "Maghanap ng beans, roaster, kagamitan",
+    "thisWeek": "NGAYONG LINGGO",
+    "roasters": "Mga roaster malapit sa iyo",
+    "freshRoast": "Bagong busa",
+    "freshRoastSub": "Binusa sa nakaraang limang araw",
+    "errorTitle": "Hindi ma-refresh ang page",
+    "errorBody": "Offline ka. Ipinapakita ang huling na-save na bersyon.",
+    "emptyTitle": "Wala pa rito",
+    "emptyBody": "May bagong roaster na sumasali sa Leen kada linggo. Balikan mo mamaya."
+  },
+  "categories": {
+    "all": "Lahat",
+    "beans": "Beans",
+    "espresso": "Espresso",
+    "filter": "Filter",
+    "saudiCoffee": "Saudi qahwa",
+    "gear": "Kagamitan"
+  },
+  "search": {
+    "resultCount_one": "{{count}} resulta",
+    "resultCount_other": "{{count}} na resulta",
+    "emptyTitle": "Walang tugma",
+    "emptyBody": "Subukan ang mas malawak na filter, o maghanap ayon sa pinagmulan tulad ng Jazan o Guji.",
+    "clearFilters": "Alisin ang filter",
+    "filters": {
+      "saudiOrigin": "Mula sa Saudi",
+      "lightRoast": "Light roast",
+      "underEighty": "Wala pang 80 SAR",
+      "espresso": "Espresso",
+      "freeDelivery": "Libreng hatid"
+    }
+  },
+  "store": {
+    "delivery": "Paghahatid",
+    "products": "Produkto",
+    "since": "Mula pa",
+    "tabs": {
+      "all": "Lahat",
+      "beans": "Beans",
+      "subscriptions": "Subscription",
+      "gear": "Kagamitan",
+      "about": "Tungkol"
+    },
+    "closed": "Sarado ngayon",
+    "closedBody": "Hindi tumatanggap ng order ang roastery na ito sa ngayon."
+  },
+  "product": {
+    "perWeight": "para sa {{weight}} · kasama ang VAT",
+    "grind": "Giling",
+    "weight": "Timbang",
+    "roastedAgo_one": "Binusa {{count}} araw ang nakalipas",
+    "roastedAgo_other": "Binusa {{count}} na araw ang nakalipas",
+    "roastedToday": "Binusa ngayong araw",
+    "freshnessNote": "Bawat pakete ng Leen ay may petsa ng pagbusa. Walang ipinapadala na lampas 21 araw.",
+    "about": "Tungkol sa kapeng ito",
+    "addToCart": "Idagdag sa cart",
+    "outOfStock": "Wala nang stock",
+    "inCartAdd": "{{count}} sa cart — magdagdag pa",
+    "specs": {
+      "origin": "Pinagmulan",
+      "process": "Proseso",
+      "altitude": "Taas",
+      "variety": "Uri"
+    },
+    "grinds": {
+      "whole_bean": "Buong bean",
+      "espresso": "Espresso",
+      "filter": "V60 / filter",
+      "turkish": "Turkish / Saudi"
+    },
+    "roasts": {
+      "light": "LIGHT",
+      "medium": "MEDIUM",
+      "medium_dark": "MEDIUM DARK",
+      "dark": "DARK"
+    },
+    "processes": {
+      "washed": "Washed",
+      "natural": "Natural",
+      "honey": "Honey",
+      "anaerobic": "Anaerobic",
+      "pulped_natural": "Pulped natural"
+    },
+    "weights": {
+      "250": "250 g",
+      "500": "500 g",
+      "1000": "1 kg"
+    }
+  },
+  "cart": {
+    "title": "Cart",
+    "emptyTitle": "Walang laman ang cart mo",
+    "emptyBody": "Isang tap lang ang mga beans at kagamitan mula sa mga Saudi roaster.",
+    "startShopping": "Magsimulang mamili",
+    "merchantSubtotal": "Subtotal ng merchant",
+    "promoPlaceholder": "Promo code",
+    "apply": "Ilapat",
+    "promoApplied": "Nailapat ang promo",
+    "promoInvalid": "Hindi valid ang code na iyan.",
+    "checkout": "Mag-checkout"
+  },
+  "totals": {
+    "subtotal": "Subtotal",
+    "delivery": "Paghahatid",
+    "vat": "VAT 15%",
+    "promo": "Promo",
+    "total": "Kabuuan"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "deliveryAddress": "ADDRESS NG PAGHAHATID",
+    "deliveryMethod": "PAGHAHATID",
+    "payment": "BAYAD",
+    "vatNote": "Kasama na ang 15% VAT sa presyo. Hiwalay ang padala ng bawat merchant.",
+    "placeOrder": "I-order",
+    "placing": "Isinasagawa ang order mo…",
+    "noAddress": "Magdagdag ng address para magpatuloy",
+    "failed": "Hindi namin naisagawa ang order. Walang sinisingil.",
+    "ship": {
+      "standard": "Standard",
+      "standardSub": "Ngayon, 35–60 minuto",
+      "express": "Express",
+      "expressSub": "Sa loob ng 30 minuto",
+      "pickup": "Kunin sa roastery",
+      "pickupSub": "Handa sa 20 minuto"
+    },
+    "pay": {
+      "mada": "mada debit",
+      "apple_pay": "Apple Pay",
+      "stc_pay": "stc pay",
+      "cash_on_delivery": "Cash on delivery"
+    },
+    "payBadge": {
+      "mada": "MADA",
+      "apple_pay": "NFC",
+      "stc_pay": "WALLET",
+      "cash_on_delivery": "CASH"
+    }
+  },
+  "orderDone": {
+    "title": "Nakumpirma ang order",
+    "subtitle": "Ginigiling na ng {{merchant}} ang order mo. Aabisuhan ka kapag paalis na ang driver.",
+    "trackOrder": "I-track ang order",
+    "keepShopping": "Magpatuloy sa pamimili"
+  },
+  "tracking": {
+    "orderNo": "ORDER #{{code}}",
+    "arrives": "Darating ng {{time}}",
+    "steps": {
+      "pending": "Na-order na",
+      "confirmed": "Kinumpirma ng roastery",
+      "roasting": "Binubusa at ginigiling para sa order",
+      "ready": "Handa nang kunin",
+      "picked_up": "Kinuha ni {{name}}",
+      "delivered": "Nasa pintuan mo",
+      "cancelled": "Kanselado"
+    },
+    "statusTitle": {
+      "pending": "Naghihintay sa roastery",
+      "confirmed": "Nakumpirma",
+      "roasting": "Binubusa ang order mo",
+      "ready": "Handa na para sa driver",
+      "picked_up": "Papunta na",
+      "delivered": "Naihatid na",
+      "cancelled": "Kanselado ang order"
+    },
+    "driver": "Ang driver mo",
+    "callDriver": "Tawagan ang driver",
+    "noOrders": "Wala pang order",
+    "noOrdersBody": "Lalabas dito ang mga order mo kapag nag-order ka na."
+  },
+  "orders": {
+    "title": "Mga order ko",
+    "itemCount_one": "{{count}} item",
+    "itemCount_other": "{{count}} na item"
+  },
+  "subscriptions": {
+    "kicker": "SUBSCRIPTION",
+    "title": "Beans sa pintuan mo, kada dalawang linggo",
+    "subtitle": "Pumili ng roast profile, kami ang bahalang magpalit ng pinagmulan. Puwedeng ihinto anumang oras.",
+    "cta": "Tingnan ang mga plano →",
+    "frequency": "DALAS",
+    "perDelivery": "kada hatid",
+    "subscribe": "Mag-subscribe",
+    "mostPopular": "Pinakasikat — mag-subscribe",
+    "note": "Ipinapadala ang subscription order kinabukasan ng pagbusa. Palitan ang roaster, giling o ihinto ito mula sa account mo.",
+    "freq": {
+      "weekly": "Lingguhan",
+      "biweekly": "Kada 2 linggo",
+      "monthly": "Buwanan"
+    },
+    "mine": "Mga subscription ko",
+    "active": "Aktibo",
+    "paused": "Nakahinto",
+    "pause": "Ihinto",
+    "resume": "Ituloy",
+    "activeCount_one": "{{count}} aktibo",
+    "activeCount_other": "{{count}} aktibo",
+    "nextDelivery": "Susunod na hatid {{date}}"
+  },
+  "loyalty": {
+    "title": "Leen Rewards",
+    "points": "puntos",
+    "tier": "TIER",
+    "toNextTier": "{{count}} puntos pa para sa susunod na tier at libreng hatid sa loob ng isang taon.",
+    "topTier": "Nasa pinakamataas kang tier. Libre ang hatid, palagi.",
+    "redeem": "I-redeem",
+    "locked": "Naka-lock",
+    "pointsCost": "{{count}} puntos",
+    "redeemed": "Na-redeem ang reward",
+    "tiers": {
+      "qahwa_bronze": "Qahwa Bronze",
+      "qahwa_silver": "Qahwa Silver",
+      "qahwa_gold": "Qahwa Gold",
+      "qahwa_black": "Qahwa Black"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "guest": "Guest",
+    "guestBody": "Mag-sign in para makita ang mga order, reward at address mo.",
+    "rows": {
+      "orders": "Mga order",
+      "subscriptions": "Mga subscription",
+      "rewards": "Leen Rewards",
+      "addresses": "Mga address",
+      "payment": "Paraan ng bayad",
+      "support": "Tulong at suporta"
+    }
+  },
+  "addresses": {
+    "title": "Mga address",
+    "setDefault": "Gawing default",
+    "default": "Default",
+    "add": "+ Magdagdag ng address",
+    "emptyTitle": "Wala pang address",
+    "emptyBody": "Magdagdag ng isa para malaman namin kung saan dadalhin ang kape.",
+    "form": {
+      "title": "Bagong address",
+      "label": "Pangalan",
+      "labelPlaceholder": "Bahay, Opisina…",
+      "street": "Kalye",
+      "district": "Distrito",
+      "city": "Lungsod",
+      "buildingNumber": "Numero ng gusali",
+      "postalCode": "Postal code",
+      "additionalNumber": "Karagdagang numero",
+      "notes": "Paalala para sa driver",
+      "saveAddress": "I-save ang address",
+      "required": "Kailangan ang kalye, distrito at lungsod."
+    },
+    "map": {
+      "title": "I-pin ang lokasyon mo",
+      "hint": "Igalaw ang mapa hanggang mapatong ang pin sa gusali mo. Ito ang gagamitin para makarating ang driver sa pintuan mo.",
+      "confirm": "Gamitin ang lokasyong ito",
+      "skip": "Ako na lang magta-type ng address",
+      "useMyLocation": "Lokasyon ko",
+      "pinned": "NA-PIN NA LOKASYON",
+      "unavailable": "Walang mapa — i-type na lang ang address."
+    }
+  },
+  "tabs": {
+    "home": "Home",
+    "explore": "Tuklasin",
+    "subscribe": "Subscribe",
+    "cart": "Cart",
+    "profile": "Profile"
+  },
+  "notifications": {
+    "title": "Mga abiso",
+    "emptyTitle": "Wala pa",
+    "emptyBody": "Lalabas dito ang update sa order at mga alok ng Leen.",
+    "orderConfirmedTitle": "Nakumpirma ang order",
+    "orderRoastingTitle": "Binubusa ang order mo",
+    "orderReadyTitle": "Handa na para sa driver",
+    "orderPickedUpTitle": "Papunta na",
+    "orderDeliveredTitle": "Naihatid na"
+  }
+}

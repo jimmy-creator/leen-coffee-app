@@ -7,26 +7,20 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
-      "android": { "buildType": "apk" },
-      "env": {
-        "EXPO_PUBLIC_SUPABASE_URL": "https://nwedptckqbcktdqgoixr.supabase.co",
-        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "sb_publishable_cI_Z1Vf-eL8cGpbmaX7fTQ_lBgK53PV"
+      "android": {
+        "buildType": "apk"
       }
     },
     "preview": {
       "distribution": "internal",
-      "android": { "buildType": "apk" },
-      "env": {
-        "EXPO_PUBLIC_SUPABASE_URL": "https://nwedptckqbcktdqgoixr.supabase.co",
-        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "sb_publishable_cI_Z1Vf-eL8cGpbmaX7fTQ_lBgK53PV"
+      "android": {
+        "buildType": "apk"
       }
     },
     "production": {
       "autoIncrement": true,
-      "android": { "buildType": "app-bundle" },
-      "env": {
-        "EXPO_PUBLIC_SUPABASE_URL": "https://nwedptckqbcktdqgoixr.supabase.co",
-        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "sb_publishable_cI_Z1Vf-eL8cGpbmaX7fTQ_lBgK53PV"
+      "android": {
+        "buildType": "app-bundle"
       }
     }
   },

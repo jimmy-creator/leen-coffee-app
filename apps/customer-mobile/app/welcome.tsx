@@ -4,10 +4,9 @@ import { StatusBar } from 'expo-status-bar';
 import { useTranslation } from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import type { Locale } from '@leen/types';
+import { localeNames, type Locale } from '@leen/i18n';
 import { ImageSlot } from '../components/cards';
 import { OutlineButton, PrimaryButton, T } from '../components/primitives';
-import { setAppLanguage } from '../lib/i18n';
 import { colors, font } from '../lib/theme';
 import { onBrand, onSurface, brandTint } from '@leen/ui/palette';
 import { SEEN_ONBOARDING_KEY } from './index';
@@ -21,6 +20,7 @@ export default function Welcome() {
   const { t, i18n } = useTranslation();
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  const current = (i18n.language as Locale) in localeNames ? (i18n.language as Locale) : 'ar';
 
   async function go(path: '/auth' | '/(tabs)') {
     // Either choice counts as having seen onboarding — a guest should not be
@@ -46,27 +46,15 @@ export default function Welcome() {
         they cannot navigate — the switch in Profile is several taps away and
         also in Arabic.
       */}
-      <View style={[styles.langBar, { top: insets.top + 10 }]}>
-        {(['ar', 'en'] as Locale[]).map((locale) => {
-          const active = i18n.language === locale;
-          return (
-            <Pressable
-              key={locale}
-              onPress={() => void setAppLanguage(locale)}
-              hitSlop={6}
-              style={[styles.langPill, active && styles.langPillActive]}
-            >
-              <T
-                variant="micro"
-                color={active ? colors.ink : colors.bg}
-                style={{ fontSize: 12.5, fontFamily: font.semibold }}
-              >
-                {t(locale === 'ar' ? 'common.arabic' : 'common.english')}
-              </T>
-            </Pressable>
-          );
-        })}
-      </View>
+      <Pressable
+        onPress={() => router.push('/language')}
+        hitSlop={8}
+        style={[styles.langBar, { top: insets.top + 10 }]}
+      >
+        <T variant="micro" color={colors.bg} style={{ fontSize: 12.5, fontFamily: font.semibold }}>
+          {localeNames[current]}
+        </T>
+      </Pressable>
 
       <View style={[styles.content, { paddingBottom: insets.bottom + 46 }]}>
         <View style={{ gap: 14 }}>
@@ -124,12 +112,11 @@ const styles = StyleSheet.create({
     end: 20,
     flexDirection: 'row',
     gap: 4,
-    padding: 3,
+    paddingVertical: 7,
+    paddingHorizontal: 13,
     borderRadius: 10,
     backgroundColor: onSurface(0.4),
   },
-  langPill: { paddingVertical: 6, paddingHorizontal: 12, borderRadius: 8 },
-  langPillActive: { backgroundColor: colors.bg },
 
   dots: { flexDirection: 'row', gap: 6 },
   dot: {

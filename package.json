@@ -25,7 +25,8 @@
     "brand:contrast": "node scripts/check-contrast.mjs",
     "db:seed:demo": "scripts/seed-demo.sh",
     "db:seed:user": "scripts/seed-demo-user.sh",
-    "db:seed:photos": "scripts/seed-demo-photos.sh"
+    "db:seed:photos": "scripts/seed-demo-photos.sh",
+    "i18n:check": "node scripts/check-locales.mjs"
   },
   "devDependencies": {
     "prettier": "^3.3.3",

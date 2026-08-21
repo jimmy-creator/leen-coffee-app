@@ -3,10 +3,9 @@ import { I18nManager, Pressable, ScrollView, StyleSheet, View } from 'react-nati
 import { useRouter, type Href } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import type { Locale } from '@leen/types';
+import { localeNames, type Locale } from '@leen/i18n';
 import { supabase } from '../../lib/supabase';
 import { useSession } from '../../lib/session';
-import { setAppLanguage } from '../../lib/i18n';
 import { useFormat } from '../../lib/format';
 import { colors, border, font } from '../../lib/theme';
 import { onSurface, accentTint } from '@leen/ui/palette';
@@ -207,33 +206,25 @@ export default function Profile() {
  */
 function LanguageCard() {
   const { t, i18n } = useTranslation();
+  const router = useRouter();
+  const current = (i18n.language as Locale) in localeNames ? (i18n.language as Locale) : 'ar';
 
   return (
-    <Card style={styles.languageRow}>
-      <T variant="bodyLg" style={{ fontFamily: font.medium, fontSize: 14 }}>
-        {t('common.language')}
-      </T>
-      <View style={styles.segment}>
-        {(['ar', 'en'] as Locale[]).map((locale) => {
-          const active = i18n.language === locale;
-          return (
-            <Pressable
-              key={locale}
-              onPress={() => void setAppLanguage(locale)}
-              style={[styles.segmentItem, active && styles.segmentItemActive]}
-            >
-              <T
-                variant="micro"
-                color={active ? colors.ink : colors.ink3}
-                style={{ fontSize: 12.5 }}
-              >
-                {t(locale === 'ar' ? 'common.arabic' : 'common.english')}
-              </T>
-            </Pressable>
-          );
-        })}
-      </View>
-    </Card>
+    <Pressable onPress={() => router.push('/language')}>
+      <Card style={styles.languageRow}>
+        <T variant="bodyLg" style={{ fontFamily: font.medium, fontSize: 14 }}>
+          {t('common.language')}
+        </T>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+          <T variant="body" color={colors.ink2}>
+            {localeNames[current]}
+          </T>
+          <T variant="bodyLg" color={colors.ink3}>
+            {I18nManager.isRTL ? '‹' : '›'}
+          </T>
+        </View>
+      </Card>
+    </Pressable>
   );
 }
 

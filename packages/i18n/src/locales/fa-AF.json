@@ -1,0 +1,329 @@
+{
+  "common": {
+    "appName": "قهوهٔ لین",
+    "retry": "تلاش دوباره",
+    "cancel": "لغو",
+    "save": "ذخیره",
+    "close": "بستن",
+    "seeAll": "دیدن همه",
+    "change": "تغییر",
+    "edit": "ویرایش",
+    "delete": "حذف",
+    "confirm": "تأیید",
+    "back": "بازگشت",
+    "done": "انجام شد",
+    "free": "رایگان",
+    "or": "یا",
+    "somethingWrong": "مشکلی پیش آمد",
+    "language": "زبان",
+    "arabic": "عربی",
+    "english": "EN",
+    "languageNote": "نام محصولات و یادداشت‌های چشیدن از هر بریانگاه به عربی یا انگلیسی می‌آید. بقیهٔ برنامه از زبانی که اینجا انتخاب می‌کنید پیروی می‌کند."
+  },
+  "onboarding": {
+    "title": "قهوهٔ خاص سعودی، از بریانگاه مستقیم تا دروازهٔ شما.",
+    "subtitle": "یک سبد از دهها بریانگاه مستقل سعودی. تاریخ بریان‌کردن را پیش از خرید ببینید.",
+    "getStarted": "ایجاد حساب",
+    "browseGuest": "مرور به‌عنوان مهمان"
+  },
+  "auth": {
+    "title": "شمارهٔ موبایل شما",
+    "subtitle": "ما یک کد می‌فرستیم. نیازی به به‌خاطر سپردن رمز نیست.",
+    "phoneLabel": "شمارهٔ موبایل",
+    "phonePlaceholder": "5X XXX XXXX",
+    "sendCode": "ارسال کد",
+    "continueApple": "ادامه با Apple",
+    "continueNafath": "ادامه با نفاذ",
+    "legal": "با ادامه دادن، شرایط استفاده و سیاست حریم خصوصی قهوهٔ لین را می‌پذیرید.",
+    "otpTitle": "کد را وارد کنید",
+    "resendIn": "ارسال دوباره پس از {{seconds}} ثانیه",
+    "resend": "ارسال دوبارهٔ کد",
+    "invalidPhone": "شمارهٔ موبایل سعودی که با ۵ شروع می‌شود وارد کنید.",
+    "invalidOtp": "کد مطابقت ندارد. دوباره تلاش کنید.",
+    "sendFailed": "نتوانستیم کد را بفرستیم. کمی بعد تلاش کنید.",
+    "signOut": "خروج",
+    "signIn": "ورود",
+    "signInToContinue": "برای ادامه وارد شوید"
+  },
+  "home": {
+    "deliverTo": "تحویل به",
+    "pickAddress": "انتخاب آدرس",
+    "searchPlaceholder": "جستجوی دانه، بریانگاه، وسایل",
+    "thisWeek": "این هفته",
+    "roasters": "بریانگاه‌های نزدیک شما",
+    "freshRoast": "بریان تازه",
+    "freshRoastSub": "بریان‌شده در پنج روز گذشته",
+    "errorTitle": "صفحه تازه نشد",
+    "errorBody": "شما آفلاین هستید. آخرین نسخهٔ ذخیره‌شده نمایش داده می‌شود.",
+    "emptyTitle": "هنوز چیزی نیست",
+    "emptyBody": "هر هفته بریانگاه‌های تازه به لین می‌پیوندند. به‌زودی دوباره سر بزنید."
+  },
+  "categories": {
+    "all": "همه",
+    "beans": "دانه",
+    "espresso": "اسپرسو",
+    "filter": "فیلتر",
+    "saudiCoffee": "قهوهٔ سعودی",
+    "gear": "وسایل"
+  },
+  "search": {
+    "resultCount_one": "{{count}} نتیجه",
+    "resultCount_other": "{{count}} نتیجه",
+    "emptyTitle": "چیزی پیدا نشد",
+    "emptyBody": "فیلتر گسترده‌تری امتحان کنید، یا با منشأ مانند جازان یا گوجی جستجو کنید.",
+    "clearFilters": "پاک کردن فیلترها",
+    "filters": {
+      "saudiOrigin": "منشأ سعودی",
+      "lightRoast": "بریان روشن",
+      "underEighty": "کمتر از ۸۰ ریال",
+      "espresso": "اسپرسو",
+      "freeDelivery": "تحویل رایگان"
+    }
+  },
+  "store": {
+    "delivery": "تحویل",
+    "products": "محصولات",
+    "since": "از سال",
+    "tabs": {
+      "all": "همه",
+      "beans": "دانه",
+      "subscriptions": "اشتراک",
+      "gear": "وسایل",
+      "about": "دربارهٔ ما"
+    },
+    "closed": "اکنون بسته است",
+    "closedBody": "این بریانگاه در حال حاضر سفارش نمی‌پذیرد."
+  },
+  "product": {
+    "perWeight": "برای {{weight}} · با مالیات",
+    "grind": "آسیاب",
+    "weight": "وزن",
+    "roastedAgo_one": "{{count}} روز پیش بریان شده",
+    "roastedAgo_other": "{{count}} روز پیش بریان شده",
+    "roastedToday": "امروز بریان شده",
+    "freshnessNote": "هر بستهٔ لین تاریخ بریان‌شدن را نشان می‌دهد. چیزی کهنه‌تر از ۲۱ روز فرستاده نمی‌شود.",
+    "about": "دربارهٔ این قهوه",
+    "addToCart": "افزودن به سبد",
+    "outOfStock": "ناموجود",
+    "inCartAdd": "{{count}} در سبد — یکی دیگر اضافه کنید",
+    "specs": {
+      "origin": "منشأ",
+      "process": "فرآوری",
+      "altitude": "ارتفاع",
+      "variety": "نوع"
+    },
+    "grinds": {
+      "whole_bean": "دانهٔ کامل",
+      "espresso": "اسپرسو",
+      "filter": "V60 / فیلتر",
+      "turkish": "ترکی / سعودی"
+    },
+    "roasts": {
+      "light": "روشن",
+      "medium": "متوسط",
+      "medium_dark": "متوسط تیره",
+      "dark": "تیره"
+    },
+    "processes": {
+      "washed": "شسته",
+      "natural": "طبیعی",
+      "honey": "عسلی",
+      "anaerobic": "بی‌هوازی",
+      "pulped_natural": "طبیعی پوست‌گرفته"
+    },
+    "weights": {
+      "250": "۲۵۰ گرام",
+      "500": "۵۰۰ گرام",
+      "1000": "۱ کیلو"
+    }
+  },
+  "cart": {
+    "title": "سبد",
+    "emptyTitle": "سبد شما خالی است",
+    "emptyBody": "دانه‌ها و وسایل بریانگاه‌های سعودی یک لمس فاصله دارند.",
+    "startShopping": "شروع خرید",
+    "merchantSubtotal": "جمع فروشنده",
+    "promoPlaceholder": "کد تخفیف",
+    "apply": "اعمال",
+    "promoApplied": "تخفیف اعمال شد",
+    "promoInvalid": "این کد معتبر نیست.",
+    "checkout": "تکمیل سفارش"
+  },
+  "totals": {
+    "subtotal": "جمع",
+    "delivery": "تحویل",
+    "vat": "مالیات ۱۵٪",
+    "promo": "تخفیف",
+    "total": "مجموع"
+  },
+  "checkout": {
+    "title": "تکمیل سفارش",
+    "deliveryAddress": "آدرس تحویل",
+    "deliveryMethod": "تحویل",
+    "payment": "پرداخت",
+    "vatNote": "قیمت‌ها شامل ۱۵٪ مالیات است. هر فروشنده جداگانه می‌فرستد.",
+    "placeOrder": "ثبت سفارش",
+    "placing": "سفارش شما ثبت می‌شود…",
+    "noAddress": "برای ادامه آدرس تحویل اضافه کنید",
+    "failed": "نتوانستیم سفارش را ثبت کنیم. مبلغی کسر نشد.",
+    "ship": {
+      "standard": "عادی",
+      "standardSub": "امروز، ۳۵–۶۰ دقیقه",
+      "express": "سریع",
+      "expressSub": "در ۳۰ دقیقه",
+      "pickup": "دریافت از بریانگاه",
+      "pickupSub": "در ۲۰ دقیقه آماده"
+    },
+    "pay": {
+      "mada": "مدى دبیت",
+      "apple_pay": "Apple Pay",
+      "stc_pay": "stc pay",
+      "cash_on_delivery": "پرداخت هنگام تحویل"
+    },
+    "payBadge": {
+      "mada": "مدى",
+      "apple_pay": "NFC",
+      "stc_pay": "کیف پول",
+      "cash_on_delivery": "نقد"
+    }
+  },
+  "orderDone": {
+    "title": "سفارش تأیید شد",
+    "subtitle": "{{merchant}} سفارش شما را آسیاب می‌کند. هنگام حرکت راننده خبر می‌دهیم.",
+    "trackOrder": "پیگیری سفارش",
+    "keepShopping": "ادامهٔ خرید"
+  },
+  "tracking": {
+    "orderNo": "سفارش #{{code}}",
+    "arrives": "رسیدن {{time}}",
+    "steps": {
+      "pending": "سفارش ثبت شد",
+      "confirmed": "بریانگاه تأیید کرد",
+      "roasting": "بریان و آسیاب بر اساس سفارش",
+      "ready": "آمادهٔ تحویل",
+      "picked_up": "{{name}} تحویل گرفت",
+      "delivered": "دم دروازهٔ شما",
+      "cancelled": "لغو شد"
+    },
+    "statusTitle": {
+      "pending": "در انتظار بریانگاه",
+      "confirmed": "تأیید شد",
+      "roasting": "سفارش شما بریان می‌شود",
+      "ready": "آماده برای راننده",
+      "picked_up": "در راه شماست",
+      "delivered": "تحویل داده شد",
+      "cancelled": "سفارش لغو شد"
+    },
+    "driver": "رانندهٔ شما",
+    "callDriver": "تماس با راننده",
+    "noOrders": "هنوز سفارشی نیست",
+    "noOrdersBody": "پس از ثبت سفارش، اینجا نمایش داده می‌شود."
+  },
+  "orders": {
+    "title": "سفارش‌های من",
+    "itemCount_one": "{{count}} قلم",
+    "itemCount_other": "{{count}} قلم"
+  },
+  "subscriptions": {
+    "kicker": "اشتراک",
+    "title": "هر دو هفته دانه دم دروازهٔ شما",
+    "subtitle": "درجهٔ بریان را انتخاب کنید، منشأ را ما تغییر می‌دهیم. هر وقت خواستید متوقف کنید.",
+    "cta": "دیدن پلان‌ها ←",
+    "frequency": "تکرار",
+    "perDelivery": "برای هر تحویل",
+    "subscribe": "اشتراک",
+    "mostPopular": "پرطرفدارترین — اشتراک",
+    "note": "سفارش‌های اشتراکی روز پس از بریان فرستاده می‌شوند. بریانگاه، آسیاب یا توقف را از حساب خود تغییر دهید.",
+    "freq": {
+      "weekly": "هفتگی",
+      "biweekly": "هر دو هفته",
+      "monthly": "ماهانه"
+    },
+    "mine": "اشتراک‌های من",
+    "active": "فعال",
+    "paused": "متوقف",
+    "pause": "توقف",
+    "resume": "ادامه",
+    "activeCount_one": "{{count}} فعال",
+    "activeCount_other": "{{count}} فعال",
+    "nextDelivery": "تحویل بعدی {{date}}"
+  },
+  "loyalty": {
+    "title": "پاداش‌های لین",
+    "points": "امتیاز",
+    "tier": "سطح",
+    "toNextTier": "{{count}} امتیاز تا سطح بعدی و یک سال تحویل رایگان.",
+    "topTier": "شما در بالاترین سطح هستید. تحویل همیشه رایگان.",
+    "redeem": "استفاده",
+    "locked": "قفل",
+    "pointsCost": "{{count}} امتیاز",
+    "redeemed": "پاداش دریافت شد",
+    "tiers": {
+      "qahwa_bronze": "قهوهٔ برنزی",
+      "qahwa_silver": "قهوهٔ نقره‌ای",
+      "qahwa_gold": "قهوهٔ طلایی",
+      "qahwa_black": "قهوهٔ سیاه"
+    }
+  },
+  "profile": {
+    "title": "حساب من",
+    "guest": "مهمان",
+    "guestBody": "برای دیدن سفارش‌ها، پاداش‌ها و آدرس‌ها وارد شوید.",
+    "rows": {
+      "orders": "سفارش‌ها",
+      "subscriptions": "اشتراک‌ها",
+      "rewards": "پاداش‌های لین",
+      "addresses": "آدرس‌ها",
+      "payment": "روش‌های پرداخت",
+      "support": "کمک و پشتیبانی"
+    }
+  },
+  "addresses": {
+    "title": "آدرس‌ها",
+    "setDefault": "پیش‌فرض کردن",
+    "default": "پیش‌فرض",
+    "add": "+ افزودن آدرس تازه",
+    "emptyTitle": "هنوز آدرسی نیست",
+    "emptyBody": "یک آدرس اضافه کنید تا بدانیم قهوه را کجا برسانیم.",
+    "form": {
+      "title": "آدرس تازه",
+      "label": "نام",
+      "labelPlaceholder": "خانه، دفتر…",
+      "street": "سرک",
+      "district": "ناحیه",
+      "city": "شهر",
+      "buildingNumber": "شمارهٔ ساختمان",
+      "postalCode": "کد پستی",
+      "additionalNumber": "شمارهٔ اضافی",
+      "notes": "یادداشت برای راننده",
+      "saveAddress": "ذخیرهٔ آدرس",
+      "required": "سرک، ناحیه و شهر لازم است."
+    },
+    "map": {
+      "title": "موقعیت خود را مشخص کنید",
+      "hint": "نقشه را حرکت دهید تا نشانگر روی ساختمان شما بنشیند. راننده با همین به دروازهٔ شما می‌رسد.",
+      "confirm": "استفاده از این موقعیت",
+      "skip": "آدرس را خودم می‌نویسم",
+      "useMyLocation": "موقعیت من",
+      "pinned": "موقعیت انتخاب‌شده",
+      "unavailable": "نقشه در دسترس نیست — آدرس را دستی وارد کنید."
+    }
+  },
+  "tabs": {
+    "home": "خانه",
+    "explore": "جستجو",
+    "subscribe": "اشتراک",
+    "cart": "سبد",
+    "profile": "حساب"
+  },
+  "notifications": {
+    "title": "اعلان‌ها",
+    "emptyTitle": "هنوز چیزی نیست",
+    "emptyBody": "به‌روزرسانی سفارش‌ها و پیشنهادهای لین اینجا نمایش داده می‌شود.",
+    "orderConfirmedTitle": "سفارش تأیید شد",
+    "orderRoastingTitle": "سفارش شما بریان می‌شود",
+    "orderReadyTitle": "آماده برای راننده",
+    "orderPickedUpTitle": "در راه شماست",
+    "orderDeliveredTitle": "تحویل داده شد"
+  }
+}

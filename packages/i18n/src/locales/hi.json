@@ -1,0 +1,329 @@
+{
+  "common": {
+    "appName": "लीन कॉफ़ी",
+    "retry": "पुनः प्रयास",
+    "cancel": "रद्द करें",
+    "save": "सहेजें",
+    "close": "बंद करें",
+    "seeAll": "सभी देखें",
+    "change": "बदलें",
+    "edit": "संपादित करें",
+    "delete": "हटाएँ",
+    "confirm": "पुष्टि करें",
+    "back": "वापस",
+    "done": "पूर्ण",
+    "free": "मुफ़्त",
+    "or": "या",
+    "somethingWrong": "कुछ गड़बड़ हो गई",
+    "language": "भाषा",
+    "arabic": "अरबी",
+    "english": "EN",
+    "languageNote": "उत्पादों के नाम और स्वाद विवरण हर भट्टी से अरबी या अंग्रेज़ी में आते हैं। बाकी ऐप वही भाषा अपनाएगा जो आप यहाँ चुनेंगे।"
+  },
+  "onboarding": {
+    "title": "सऊदी स्पेशलिटी कॉफ़ी, भट्टी से सीधे आपके दरवाज़े तक।",
+    "subtitle": "दर्जनों स्वतंत्र सऊदी भट्टियों की एक ही टोकरी। खरीदने से पहले भूनने की तारीख़ देखें।",
+    "getStarted": "खाता बनाएँ",
+    "browseGuest": "अतिथि के रूप में देखें"
+  },
+  "auth": {
+    "title": "आपका मोबाइल नंबर",
+    "subtitle": "हम एक कोड भेजते हैं। कोई पासवर्ड याद रखने की ज़रूरत नहीं।",
+    "phoneLabel": "मोबाइल नंबर",
+    "phonePlaceholder": "5X XXX XXXX",
+    "sendCode": "कोड भेजें",
+    "continueApple": "Apple से जारी रखें",
+    "continueNafath": "नफ़ाथ से जारी रखें",
+    "legal": "जारी रखकर आप लीन कॉफ़ी की उपयोग शर्तों और गोपनीयता नीति से सहमत होते हैं।",
+    "otpTitle": "कोड दर्ज करें",
+    "resendIn": "पुनः भेजना {{seconds}} सेकंड में",
+    "resend": "कोड फिर भेजें",
+    "invalidPhone": "5 से शुरू होने वाला सऊदी मोबाइल नंबर दर्ज करें।",
+    "invalidOtp": "यह कोड मेल नहीं खाया। फिर कोशिश करें।",
+    "sendFailed": "हम कोड नहीं भेज सके। थोड़ी देर बाद कोशिश करें।",
+    "signOut": "साइन आउट",
+    "signIn": "साइन इन",
+    "signInToContinue": "जारी रखने के लिए साइन इन करें"
+  },
+  "home": {
+    "deliverTo": "डिलीवरी का पता",
+    "pickAddress": "पता चुनें",
+    "searchPlaceholder": "बीन्स, भट्टियाँ, उपकरण खोजें",
+    "thisWeek": "इस सप्ताह",
+    "roasters": "आपके पास की भट्टियाँ",
+    "freshRoast": "ताज़ा भुनी हुई",
+    "freshRoastSub": "पिछले पाँच दिनों में भुनी हुई",
+    "errorTitle": "पेज ताज़ा नहीं हो सका",
+    "errorBody": "आप ऑफ़लाइन हैं। अंतिम सहेजा गया संस्करण दिखाया जा रहा है।",
+    "emptyTitle": "अभी कुछ नहीं",
+    "emptyBody": "हर सप्ताह नई भट्टियाँ लीन से जुड़ रही हैं। जल्द फिर देखें।"
+  },
+  "categories": {
+    "all": "सभी",
+    "beans": "बीन्स",
+    "espresso": "एस्प्रेसो",
+    "filter": "फ़िल्टर",
+    "saudiCoffee": "सऊदी क़हवा",
+    "gear": "उपकरण"
+  },
+  "search": {
+    "resultCount_one": "{{count}} परिणाम",
+    "resultCount_other": "{{count}} परिणाम",
+    "emptyTitle": "कोई मेल नहीं",
+    "emptyBody": "व्यापक फ़िल्टर आज़माएँ, या जाज़ान या गुजी जैसे स्रोत से खोजें।",
+    "clearFilters": "फ़िल्टर हटाएँ",
+    "filters": {
+      "saudiOrigin": "सऊदी स्रोत",
+      "lightRoast": "हल्की भुनाई",
+      "underEighty": "80 रियाल से कम",
+      "espresso": "एस्प्रेसो",
+      "freeDelivery": "मुफ़्त डिलीवरी"
+    }
+  },
+  "store": {
+    "delivery": "डिलीवरी",
+    "products": "उत्पाद",
+    "since": "स्थापित",
+    "tabs": {
+      "all": "सभी",
+      "beans": "बीन्स",
+      "subscriptions": "सदस्यता",
+      "gear": "उपकरण",
+      "about": "परिचय"
+    },
+    "closed": "अभी बंद है",
+    "closedBody": "यह भट्टी इस समय ऑर्डर नहीं ले रही।"
+  },
+  "product": {
+    "perWeight": "{{weight}} के लिए · कर सहित",
+    "grind": "पिसाई",
+    "weight": "वज़न",
+    "roastedAgo_one": "{{count}} दिन पहले भुनी",
+    "roastedAgo_other": "{{count}} दिन पहले भुनी",
+    "roastedToday": "आज भुनी हुई",
+    "freshnessNote": "लीन का हर पैकेट भूनने की तारीख़ दिखाता है। 21 दिन से पुराना कुछ नहीं भेजा जाता।",
+    "about": "इस कॉफ़ी के बारे में",
+    "addToCart": "टोकरी में डालें",
+    "outOfStock": "उपलब्ध नहीं",
+    "inCartAdd": "टोकरी में {{count}} — एक और डालें",
+    "specs": {
+      "origin": "स्रोत",
+      "process": "प्रक्रिया",
+      "altitude": "ऊँचाई",
+      "variety": "किस्म"
+    },
+    "grinds": {
+      "whole_bean": "साबुत बीन्स",
+      "espresso": "एस्प्रेसो",
+      "filter": "V60 / फ़िल्टर",
+      "turkish": "तुर्की / सऊदी"
+    },
+    "roasts": {
+      "light": "हल्की",
+      "medium": "मध्यम",
+      "medium_dark": "मध्यम गहरी",
+      "dark": "गहरी"
+    },
+    "processes": {
+      "washed": "धुली हुई",
+      "natural": "प्राकृतिक",
+      "honey": "हनी",
+      "anaerobic": "अवायवीय",
+      "pulped_natural": "पल्प्ड नैचुरल"
+    },
+    "weights": {
+      "250": "250 ग्राम",
+      "500": "500 ग्राम",
+      "1000": "1 किलो"
+    }
+  },
+  "cart": {
+    "title": "टोकरी",
+    "emptyTitle": "आपकी टोकरी खाली है",
+    "emptyBody": "सऊदी भट्टियों के बीन्स और उपकरण एक टैप दूर हैं।",
+    "startShopping": "खरीदारी शुरू करें",
+    "merchantSubtotal": "विक्रेता उपयोग",
+    "promoPlaceholder": "प्रोमो कोड",
+    "apply": "लागू करें",
+    "promoApplied": "छूट लागू हुई",
+    "promoInvalid": "यह कोड मान्य नहीं है।",
+    "checkout": "ऑर्डर पूरा करें"
+  },
+  "totals": {
+    "subtotal": "उप-योग",
+    "delivery": "डिलीवरी",
+    "vat": "वैट 15%",
+    "promo": "छूट",
+    "total": "कुल"
+  },
+  "checkout": {
+    "title": "ऑर्डर पूरा करें",
+    "deliveryAddress": "डिलीवरी का पता",
+    "deliveryMethod": "डिलीवरी",
+    "payment": "भुगतान",
+    "vatNote": "कीमतों में 15% वैट शामिल है। हर विक्रेता अलग भेजता है।",
+    "placeOrder": "ऑर्डर करें",
+    "placing": "आपका ऑर्डर दिया जा रहा है…",
+    "noAddress": "जारी रखने के लिए डिलीवरी पता जोड़ें",
+    "failed": "हम ऑर्डर नहीं दे सके। कोई राशि नहीं काटी गई।",
+    "ship": {
+      "standard": "सामान्य",
+      "standardSub": "आज, 35–60 मिनट",
+      "express": "तेज़",
+      "expressSub": "30 मिनट के भीतर",
+      "pickup": "भट्टी से लें",
+      "pickupSub": "20 मिनट में तैयार"
+    },
+    "pay": {
+      "mada": "मदा डेबिट",
+      "apple_pay": "Apple Pay",
+      "stc_pay": "stc pay",
+      "cash_on_delivery": "डिलीवरी पर नकद"
+    },
+    "payBadge": {
+      "mada": "मदा",
+      "apple_pay": "NFC",
+      "stc_pay": "वॉलेट",
+      "cash_on_delivery": "नकद"
+    }
+  },
+  "orderDone": {
+    "title": "ऑर्डर की पुष्टि हुई",
+    "subtitle": "{{merchant}} आपका ऑर्डर पीस रही है। ड्राइवर के निकलते ही आपको सूचना मिलेगी।",
+    "trackOrder": "ऑर्डर ट्रैक करें",
+    "keepShopping": "खरीदारी जारी रखें"
+  },
+  "tracking": {
+    "orderNo": "ऑर्डर #{{code}}",
+    "arrives": "पहुँचने का समय {{time}}",
+    "steps": {
+      "pending": "ऑर्डर दिया गया",
+      "confirmed": "भट्टी ने पुष्टि की",
+      "roasting": "ऑर्डर पर भुनाई और पिसाई",
+      "ready": "लेने के लिए तैयार",
+      "picked_up": "{{name}} ने उठाया",
+      "delivered": "आपके दरवाज़े पर",
+      "cancelled": "रद्द"
+    },
+    "statusTitle": {
+      "pending": "भट्टी की प्रतीक्षा में",
+      "confirmed": "पुष्टि हो गई",
+      "roasting": "आपका ऑर्डर भुना जा रहा है",
+      "ready": "ड्राइवर के लिए तैयार",
+      "picked_up": "डिलीवरी के लिए निकला",
+      "delivered": "पहुँचा दिया गया",
+      "cancelled": "ऑर्डर रद्द"
+    },
+    "driver": "आपका ड्राइवर",
+    "callDriver": "ड्राइवर को कॉल करें",
+    "noOrders": "अभी कोई ऑर्डर नहीं",
+    "noOrdersBody": "ऑर्डर करने के बाद आपके ऑर्डर यहाँ दिखेंगे।"
+  },
+  "orders": {
+    "title": "मेरे ऑर्डर",
+    "itemCount_one": "{{count}} वस्तु",
+    "itemCount_other": "{{count}} वस्तुएँ"
+  },
+  "subscriptions": {
+    "kicker": "सदस्यता",
+    "title": "हर दो सप्ताह आपके दरवाज़े पर बीन्स",
+    "subtitle": "भुनाई चुनें, स्रोत हम बदलते रहेंगे। जब चाहें रोकें।",
+    "cta": "प्लान देखें →",
+    "frequency": "आवृत्ति",
+    "perDelivery": "प्रति डिलीवरी",
+    "subscribe": "सदस्यता लें",
+    "mostPopular": "सबसे लोकप्रिय — सदस्यता लें",
+    "note": "सदस्यता ऑर्डर भुनाई के अगले दिन भेजे जाते हैं। भट्टी, पिसाई या विराम अपने खाते से बदलें।",
+    "freq": {
+      "weekly": "साप्ताहिक",
+      "biweekly": "हर दो सप्ताह",
+      "monthly": "मासिक"
+    },
+    "mine": "मेरी सदस्यताएँ",
+    "active": "सक्रिय",
+    "paused": "रुकी हुई",
+    "pause": "रोकें",
+    "resume": "फिर शुरू करें",
+    "activeCount_one": "{{count}} सक्रिय",
+    "activeCount_other": "{{count}} सक्रिय",
+    "nextDelivery": "अगली डिलीवरी {{date}}"
+  },
+  "loyalty": {
+    "title": "लीन रिवॉर्ड्स",
+    "points": "अंक",
+    "tier": "स्तर",
+    "toNextTier": "अगले स्तर और साल भर मुफ़्त डिलीवरी के लिए {{count}} अंक चाहिए।",
+    "topTier": "आप उच्चतम स्तर पर हैं। डिलीवरी हमेशा मुफ़्त।",
+    "redeem": "इस्तेमाल करें",
+    "locked": "बंद",
+    "pointsCost": "{{count}} अंक",
+    "redeemed": "पुरस्कार प्राप्त हुआ",
+    "tiers": {
+      "qahwa_bronze": "क़हवा ब्रॉन्ज़",
+      "qahwa_silver": "क़हवा सिल्वर",
+      "qahwa_gold": "क़हवा गोल्ड",
+      "qahwa_black": "क़हवा ब्लैक"
+    }
+  },
+  "profile": {
+    "title": "मेरा खाता",
+    "guest": "अतिथि",
+    "guestBody": "अपने ऑर्डर, पुरस्कार और पते देखने के लिए साइन इन करें।",
+    "rows": {
+      "orders": "ऑर्डर",
+      "subscriptions": "सदस्यताएँ",
+      "rewards": "लीन रिवॉर्ड्स",
+      "addresses": "पते",
+      "payment": "भुगतान के तरीके",
+      "support": "सहायता"
+    }
+  },
+  "addresses": {
+    "title": "पते",
+    "setDefault": "डिफ़ॉल्ट बनाएँ",
+    "default": "डिफ़ॉल्ट",
+    "add": "+ नया पता जोड़ें",
+    "emptyTitle": "अभी कोई पता नहीं",
+    "emptyBody": "एक पता जोड़ें ताकि हमें पता हो कि कॉफ़ी कहाँ पहुँचानी है।",
+    "form": {
+      "title": "नया पता",
+      "label": "नाम",
+      "labelPlaceholder": "घर, दफ़्तर…",
+      "street": "सड़क",
+      "district": "इलाक़ा",
+      "city": "शहर",
+      "buildingNumber": "भवन संख्या",
+      "postalCode": "पिन कोड",
+      "additionalNumber": "अतिरिक्त संख्या",
+      "notes": "ड्राइवर के लिए निर्देश",
+      "saveAddress": "पता सहेजें",
+      "required": "सड़क, इलाक़ा और शहर आवश्यक हैं।"
+    },
+    "map": {
+      "title": "अपना स्थान चुनें",
+      "hint": "नक़्शा खिसकाएँ ताकि पिन आपकी इमारत पर आ जाए। इसी से ड्राइवर आपके दरवाज़े तक पहुँचेगा।",
+      "confirm": "यही स्थान चुनें",
+      "skip": "पता खुद लिखें",
+      "useMyLocation": "मेरा स्थान",
+      "pinned": "चुना गया स्थान",
+      "unavailable": "नक़्शा उपलब्ध नहीं — पता खुद लिखें।"
+    }
+  },
+  "tabs": {
+    "home": "होम",
+    "explore": "खोजें",
+    "subscribe": "सदस्यता",
+    "cart": "टोकरी",
+    "profile": "खाता"
+  },
+  "notifications": {
+    "title": "सूचनाएँ",
+    "emptyTitle": "अभी कुछ नहीं",
+    "emptyBody": "ऑर्डर अपडेट और लीन के ऑफ़र यहाँ दिखेंगे।",
+    "orderConfirmedTitle": "ऑर्डर की पुष्टि हुई",
+    "orderRoastingTitle": "आपका ऑर्डर भुना जा रहा है",
+    "orderReadyTitle": "ड्राइवर के लिए तैयार",
+    "orderPickedUpTitle": "डिलीवरी के लिए निकला",
+    "orderDeliveredTitle": "पहुँचा दिया गया"
+  }
+}
