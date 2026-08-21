@@ -68,7 +68,7 @@ export default async function Home() {
                 <h3 className="text-[15px] font-semibold text-ink">
                   {pickLocale(m.name_en, m.name_ar, LOCALE)}
                 </h3>
-                <span className="shrink-0 rounded-full bg-[rgba(217,144,47,0.12)] px-2.5 py-1 text-xs font-semibold text-ink">
+                <span className="shrink-0 rounded-full bg-accent-tint px-2.5 py-1 text-xs font-semibold text-ink">
                   {m.rating} ★
                 </span>
               </div>

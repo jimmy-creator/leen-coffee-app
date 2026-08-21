@@ -18,7 +18,7 @@ interface IconProps {
 
 const strokeFor = (active?: boolean) => (active ? 1.8 : 1.5);
 
-export function HomeIcon({ size = 21, color = colors.ink4, active }: IconProps) {
+export function HomeIcon({ size = 21, color = colors.ink3, active }: IconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 20 20" fill="none">
       <Path
@@ -32,7 +32,7 @@ export function HomeIcon({ size = 21, color = colors.ink4, active }: IconProps) 
   );
 }
 
-export function SearchIcon({ size = 21, color = colors.ink4, active }: IconProps) {
+export function SearchIcon({ size = 21, color = colors.ink3, active }: IconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 20 20" fill="none">
       <Circle cx={9} cy={9} r={6.4} stroke={color} strokeWidth={strokeFor(active)} />
@@ -46,7 +46,7 @@ export function SearchIcon({ size = 21, color = colors.ink4, active }: IconProps
   );
 }
 
-export function SubscribeIcon({ size = 21, color = colors.ink4, active }: IconProps) {
+export function SubscribeIcon({ size = 21, color = colors.ink3, active }: IconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 20 20" fill="none">
       <Path
@@ -60,7 +60,7 @@ export function SubscribeIcon({ size = 21, color = colors.ink4, active }: IconPr
   );
 }
 
-export function BagIcon({ size = 21, color = colors.ink4, active }: IconProps) {
+export function BagIcon({ size = 21, color = colors.ink3, active }: IconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 20 20" fill="none">
       <Path
@@ -74,7 +74,7 @@ export function BagIcon({ size = 21, color = colors.ink4, active }: IconProps) {
   );
 }
 
-export function UserIcon({ size = 21, color = colors.ink4, active }: IconProps) {
+export function UserIcon({ size = 21, color = colors.ink3, active }: IconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 20 20" fill="none">
       <Path
@@ -88,7 +88,7 @@ export function UserIcon({ size = 21, color = colors.ink4, active }: IconProps) 
   );
 }
 
-export function StarIcon({ size = 12, color = colors.gold }: IconProps) {
+export function StarIcon({ size = 12, color = colors.accent }: IconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 12 12">
       <Path d="M6 1l1.5 3.2L11 4.7 8.5 7.1 9.1 11 6 9.2 2.9 11l.6-3.9L1 4.7l3.5-.5z" fill={color} />
@@ -115,7 +115,7 @@ export function BellIcon({ size = 15, color = colors.ink }: IconProps) {
   );
 }
 
-export function PinIcon({ size = 16, color = colors.brown }: IconProps) {
+export function PinIcon({ size = 16, color = colors.brandMid }: IconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 16 16" fill="none">
       <Path d="M8 14s5-4.2 5-7.6A5 5 0 003 6.4C3 9.8 8 14 8 14z" stroke={color} strokeWidth={1.4} />

@@ -97,7 +97,7 @@ export default function Otp() {
               key={i}
               style={[
                 styles.cell,
-                { borderColor: digit ? colors.espresso : border.soft },
+                { borderColor: digit ? colors.brand : border.soft },
                 // Mark where the next digit will land.
                 i === code.length && !verifying ? styles.cellFocused : null,
               ]}
@@ -123,13 +123,13 @@ export default function Otp() {
       />
 
       {error ? (
-        <T variant="caption" color={colors.red}>
+        <T variant="caption" color={colors.danger}>
           {error}
         </T>
       ) : null}
 
       <Pressable onPress={() => void resend()} disabled={secondsLeft > 0} hitSlop={8}>
-        <T variant="caption" color={secondsLeft > 0 ? colors.ink3 : colors.brown}>
+        <T variant="caption" color={secondsLeft > 0 ? colors.ink3 : colors.brandMid}>
           {secondsLeft > 0 ? t('auth.resendIn', { seconds: f.num(secondsLeft) }) : t('auth.resend')}
         </T>
       </Pressable>
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  cellFocused: { borderColor: colors.caramel },
+  cellFocused: { borderColor: colors.accent },
   hiddenInput: {
     position: 'absolute',
     opacity: 0,

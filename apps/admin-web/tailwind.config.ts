@@ -2,7 +2,8 @@ import type { Config } from 'tailwindcss';
 
 /**
  * Tailwind reads the Leen tokens from CSS variables (packages/ui/tokens.css)
- * rather than redeclaring the hex values, so the palette has exactly one home.
+ * rather than redeclaring the hex values, so the palette has exactly one home
+ * and dark mode is a variable swap rather than a second set of classes.
  */
 const config: Config = {
   darkMode: 'class',
@@ -14,25 +15,36 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        espresso: 'var(--leen-espresso)',
+        brand: {
+          DEFAULT: 'var(--leen-brand)',
+          deep: 'var(--leen-brand-deep)',
+          mid: 'var(--leen-brand-mid)',
+        },
+        accent: 'var(--leen-accent)',
+        // Pre-mixed tints; see tokens.css for why these are not opacity modifiers.
+        'brand-tint': 'var(--leen-brand-tint)',
+        'accent-tint': 'var(--leen-accent-tint)',
+        'live-tint': 'var(--leen-live-tint)',
+        'danger-tint': 'var(--leen-danger-tint)',
+        live: 'var(--leen-live)',
+        danger: {
+          DEFAULT: 'var(--leen-danger)',
+          ink: 'var(--leen-danger-ink)',
+        },
         ink: {
           DEFAULT: 'var(--leen-ink)',
           2: 'var(--leen-ink-2)',
           3: 'var(--leen-ink-3)',
+          4: 'var(--leen-ink-4)',
         },
-        brown: 'var(--leen-brown)',
-        caramel: 'var(--leen-caramel)',
-        forest: 'var(--leen-forest)',
-        leafgreen: 'var(--leen-green)',
-        danger: 'var(--leen-red)',
-        gold: 'var(--leen-gold)',
+        page: 'var(--leen-bg)',
         canvas: 'var(--leen-canvas)',
         surface: {
           DEFAULT: 'var(--leen-surface)',
           alt: 'var(--leen-surface-alt)',
           soft: 'var(--leen-surface-soft)',
+          muted: 'var(--leen-surface-muted)',
         },
-        page: 'var(--leen-bg)',
         hair: 'var(--leen-hair)',
         line: 'var(--leen-border)',
       },

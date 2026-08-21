@@ -7,7 +7,9 @@
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "icon": "./assets/icon.png",
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.leencoffee.delivery"
@@ -16,7 +18,7 @@
       "package": "com.leencoffee.delivery",
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon-adaptive.png",
-        "backgroundColor": "#1F4D3A"
+        "backgroundColor": "#2C5127"
       },
       "permissions": [
         "android.permission.ACCESS_COARSE_LOCATION",
@@ -39,7 +41,7 @@
           "image": "./assets/leen-logo.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#1F4D3A"
+          "backgroundColor": "#2C5127"
         }
       ],
       [
@@ -51,7 +53,7 @@
       [
         "expo-notifications",
         {
-          "color": "#3B2418"
+          "color": "#1C3819"
         }
       ]
     ],
@@ -60,6 +62,7 @@
       "eas": {
         "projectId": "d46eca7e-c0e4-4b71-aba8-0292048edef5"
       }
-    }
+    },
+    "backgroundColor": "#2C5127"
   }
 }

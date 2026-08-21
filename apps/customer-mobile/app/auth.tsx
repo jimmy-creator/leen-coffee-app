@@ -14,6 +14,7 @@ import { isSaudiMobile, toE164 } from '@leen/lib';
 import { supabase } from '../lib/supabase';
 import { BackButton, OutlineButton, PrimaryButton, T } from '../components/primitives';
 import { colors, border, font } from '../lib/theme';
+import { onSurface } from '@leen/ui/palette';
 
 /**
  * Phone entry. Leen signs in with an SMS one-time code — no password, which is
@@ -100,7 +101,7 @@ export default function Auth() {
             />
           </View>
           {error ? (
-            <T variant="caption" color={colors.red}>
+            <T variant="caption" color={colors.danger}>
               {error}
             </T>
           ) : null}
@@ -172,5 +173,5 @@ const styles = StyleSheet.create({
     writingDirection: 'ltr',
   },
   divider: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  line: { flex: 1, height: 1, backgroundColor: 'rgba(33,23,18,0.1)' },
+  line: { flex: 1, height: 1, backgroundColor: onSurface(0.1) },
 });

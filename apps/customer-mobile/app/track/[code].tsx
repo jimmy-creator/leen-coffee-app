@@ -8,6 +8,7 @@ import { fetchOrderTracking } from '../../lib/queries';
 import { supabase } from '../../lib/supabase';
 import { useFormat } from '../../lib/format';
 import { colors, border, font } from '../../lib/theme';
+import { onSurface, liveTint } from '@leen/ui/palette';
 import { ImageSlot } from '../../components/cards';
 import { PhoneIcon, TruckIcon } from '../../components/icons';
 import { BackButton, Card, Num, Skeleton, T } from '../../components/primitives';
@@ -143,7 +144,7 @@ export default function Track() {
                     <View
                       style={[
                         styles.stepDot,
-                        done && { backgroundColor: colors.green },
+                        done && { backgroundColor: colors.live },
                         active && styles.stepDotActive,
                         !done && !active && styles.stepDotIdle,
                       ]}
@@ -152,13 +153,13 @@ export default function Track() {
                       <View
                         style={[
                           styles.stepLine,
-                          { backgroundColor: done ? colors.green : 'rgba(33,23,18,0.12)' },
+                          { backgroundColor: done ? colors.live : onSurface(0.12) },
                         ]}
                       />
                     ) : null}
                   </View>
                   <View style={{ flex: 1, paddingBottom: 18, gap: 3 }}>
-                    <T variant="label" color={i <= currentIndex ? colors.ink : '#A79A90'}>
+                    <T variant="label" color={i <= currentIndex ? colors.ink : colors.ink3}>
                       {t(`tracking.steps.${step}`, { name: riderName ?? '' })}
                     </T>
                   </View>
@@ -223,14 +224,14 @@ export default function Track() {
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: colors.bg },
 
-  map: { height: 330, backgroundColor: '#E9E3DA', overflow: 'hidden' },
+  map: { height: 330, backgroundColor: colors.canvas, overflow: 'hidden' },
   mapRoadV: {
     position: 'absolute',
     top: 0,
     start: '22%',
     width: 34,
     height: '100%',
-    backgroundColor: '#F4EFE8',
+    backgroundColor: colors.surfaceSoft,
   },
   mapRoadH: {
     position: 'absolute',
@@ -238,7 +239,7 @@ const styles = StyleSheet.create({
     start: 0,
     end: 0,
     height: 28,
-    backgroundColor: '#F4EFE8',
+    backgroundColor: colors.surfaceSoft,
   },
   mapRoadH2: {
     position: 'absolute',
@@ -246,7 +247,7 @@ const styles = StyleSheet.create({
     start: 0,
     end: 0,
     height: 44,
-    backgroundColor: '#EDE6DC',
+    backgroundColor: colors.canvas,
   },
   driverPin: {
     position: 'absolute',
@@ -255,7 +256,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 999,
-    backgroundColor: colors.espresso,
+    backgroundColor: colors.brand,
     borderWidth: 3,
     borderColor: colors.bg,
     alignItems: 'center',
@@ -273,7 +274,7 @@ const styles = StyleSheet.create({
     paddingVertical: 9,
     paddingHorizontal: 14,
     borderRadius: 12,
-    backgroundColor: 'rgba(33,23,18,0.9)',
+    backgroundColor: onSurface(0.9),
   },
 
   // Overlap the map, as in the design.
@@ -289,14 +290,14 @@ const styles = StyleSheet.create({
 
   stepDot: { width: 14, height: 14, borderRadius: 999 },
   stepDotActive: {
-    backgroundColor: colors.green,
+    backgroundColor: colors.live,
     borderWidth: 5,
-    borderColor: 'rgba(46,125,91,0.18)',
+    borderColor: liveTint(0.18),
   },
   stepDotIdle: {
     backgroundColor: colors.surface,
     borderWidth: 1.5,
-    borderColor: 'rgba(33,23,18,0.16)',
+    borderColor: onSurface(0.16),
   },
   stepLine: { width: 1.5, flex: 1, minHeight: 22 },
 
@@ -312,7 +313,7 @@ const styles = StyleSheet.create({
     width: 42,
     height: 42,
     borderRadius: 13,
-    backgroundColor: colors.forest,
+    backgroundColor: colors.brandMid,
     alignItems: 'center',
     justifyContent: 'center',
   },

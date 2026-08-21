@@ -9,6 +9,7 @@ import { fetchProduct } from '../../lib/queries';
 import { useCart } from '../../lib/cart';
 import { useFormat } from '../../lib/format';
 import { colors, border, font } from '../../lib/theme';
+import { onBrand, onSurface, brandTint, accentTint } from '@leen/ui/palette';
 import { ImageSlot } from '../../components/cards';
 import { HeartIcon } from '../../components/icons';
 import {
@@ -101,7 +102,7 @@ export default function ProductDetail() {
               style={styles.merchantLink}
             >
               <View style={styles.merchantMark} />
-              <T variant="micro" color={colors.brown} style={{ fontSize: 12 }}>
+              <T variant="micro" color={colors.brandMid} style={{ fontSize: 12 }}>
                 {f.pick(product.merchants?.name_en, product.merchants?.name_ar)}
               </T>
             </Pressable>
@@ -123,7 +124,7 @@ export default function ProductDetail() {
               <View style={styles.noteChips}>
                 {noteChips.map((note) => (
                   <View key={note} style={styles.noteChip}>
-                    <T variant="micro" color={colors.brown} style={{ fontSize: 11.5 }}>
+                    <T variant="micro" color={colors.brandMid} style={{ fontSize: 11.5 }}>
                       {note}
                     </T>
                   </View>
@@ -189,12 +190,12 @@ export default function ProductDetail() {
             <View style={styles.freshness}>
               <View style={styles.freshnessDot} />
               <View style={{ flex: 1, gap: 4 }}>
-                <T variant="label" color={colors.forest}>
+                <T variant="label" color={colors.brandMid}>
                   {roastAge <= 0
                     ? t('product.roastedToday')
                     : t('product.roastedAgo', { count: roastAge })}
                 </T>
-                <T variant="caption" color="#3F6455">
+                <T variant="caption" color={colors.ink2}>
                   {t('product.freshnessNote')}
                 </T>
               </View>
@@ -205,7 +206,7 @@ export default function ProductDetail() {
             <T variant="label" style={{ fontSize: 14 }}>
               {t('product.about')}
             </T>
-            <T variant="body" color="#5F534C" style={{ lineHeight: 24 }}>
+            <T variant="body" color={colors.ink2} style={{ lineHeight: 24 }}>
               {f.pick(product.about_en, product.about_ar)}
             </T>
           </View>
@@ -219,7 +220,7 @@ export default function ProductDetail() {
             hitSlop={4}
             style={styles.stepperButton}
           >
-            <T variant="h3" color={colors.brown} style={{ lineHeight: 24 }}>
+            <T variant="h3" color={colors.brandMid} style={{ lineHeight: 24 }}>
               −
             </T>
           </Pressable>
@@ -227,7 +228,7 @@ export default function ProductDetail() {
             {f.num(qty)}
           </Num>
           <Pressable onPress={() => setQty((q) => q + 1)} hitSlop={4} style={styles.stepperButton}>
-            <T variant="h3" color={colors.brown} style={{ lineHeight: 24 }}>
+            <T variant="h3" color={colors.brandMid} style={{ lineHeight: 24 }}>
               +
             </T>
           </Pressable>
@@ -280,7 +281,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 12,
-    backgroundColor: 'rgba(248,244,238,0.92)',
+    backgroundColor: onBrand(0.92),
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -294,7 +295,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     paddingHorizontal: 11,
     borderRadius: 999,
-    backgroundColor: 'rgba(197,139,85,0.14)',
+    backgroundColor: accentTint(0.14),
   },
 
   specGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 11 },
@@ -309,15 +310,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 12,
     alignItems: 'flex-start',
-    backgroundColor: 'rgba(31,77,58,0.07)',
+    backgroundColor: brandTint(0.07),
     borderWidth: 1,
-    borderColor: 'rgba(31,77,58,0.16)',
+    borderColor: brandTint(0.16),
   },
   freshnessDot: {
     width: 8,
     height: 8,
     borderRadius: 9,
-    backgroundColor: colors.green,
+    backgroundColor: colors.live,
     marginTop: 6,
   },
 
@@ -329,7 +330,7 @@ const styles = StyleSheet.create({
     paddingTop: 14,
     backgroundColor: colors.bg,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(33,23,18,0.08)',
+    borderTopColor: onSurface(0.08),
   },
   stepper: {
     flexDirection: 'row',
@@ -342,5 +343,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
   },
   stepperButton: { width: 36, height: 44, alignItems: 'center', justifyContent: 'center' },
-  footerDivider: { width: 1, height: 18, backgroundColor: 'rgba(248,244,238,0.28)' },
+  footerDivider: { width: 1, height: 18, backgroundColor: onBrand(0.28) },
 });

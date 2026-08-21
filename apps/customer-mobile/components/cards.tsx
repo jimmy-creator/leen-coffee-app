@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { variantPriceMinor } from '@leen/lib';
 import { useFormat } from '../lib/format';
 import { colors, border, font } from '../lib/theme';
+import { onBrand, onSurface, brandTint } from '@leen/ui/palette';
 import { Num, T } from './primitives';
 import { StarIcon } from './icons';
 
@@ -88,7 +89,7 @@ export function ProductCard({
       <View style={styles.gridImage}>
         <ImageSlot uri={product.image_url} />
         <View style={styles.roastBadge}>
-          <T variant="micro" color={colors.brown} style={{ letterSpacing: 0.6 }}>
+          <T variant="micro" color={colors.brandMid} style={{ letterSpacing: 0.6 }}>
             {t(`product.roasts.${product.roast_level}`)}
           </T>
         </View>
@@ -211,12 +212,12 @@ export function MerchantCard({
         <View style={styles.merchantMeta}>
           <View style={styles.inlineRow}>
             <StarIcon />
-            <Num variant="caption" color={colors.brown} style={{ fontFamily: font.medium }}>
+            <Num variant="caption" color={colors.brandMid} style={{ fontFamily: font.medium }}>
               {f.num(merchant.rating)}
             </Num>
           </View>
           <View style={styles.dot} />
-          <T variant="caption" color={colors.brown} style={{ fontFamily: font.medium }}>
+          <T variant="caption" color={colors.brandMid} style={{ fontFamily: font.medium }}>
             {`${f.num(merchant.eta_min_minutes)}–${f.num(merchant.eta_max_minutes)}`}
           </T>
         </View>
@@ -239,7 +240,7 @@ const styles = StyleSheet.create({
     height: 34,
     borderRadius: 14,
     borderWidth: 1.5,
-    borderColor: 'rgba(90,56,38,0.28)',
+    borderColor: brandTint(0.28),
     transform: [{ rotate: '-18deg' }],
   },
 
@@ -259,7 +260,7 @@ const styles = StyleSheet.create({
     paddingVertical: 3.5,
     paddingHorizontal: 8,
     borderRadius: 999,
-    backgroundColor: 'rgba(248,244,238,0.92)',
+    backgroundColor: onBrand(0.92),
   },
   gridBody: { padding: 12, gap: 6, flex: 1 },
   gridFooter: {
@@ -274,7 +275,7 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     borderRadius: 10,
-    backgroundColor: colors.espresso,
+    backgroundColor: colors.brand,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -301,5 +302,5 @@ const styles = StyleSheet.create({
   },
   merchantMeta: { flexDirection: 'row', alignItems: 'center', gap: 9 },
   inlineRow: { flexDirection: 'row', alignItems: 'center', gap: 3 },
-  dot: { width: 3, height: 3, borderRadius: 3, backgroundColor: 'rgba(33,23,18,0.2)' },
+  dot: { width: 3, height: 3, borderRadius: 3, backgroundColor: onSurface(0.2) },
 });

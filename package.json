@@ -20,7 +20,9 @@
     "db:types": "supabase gen types typescript --local > packages/api-client/src/database.types.ts",
     "db:link": "supabase link --project-ref nwedptckqbcktdqgoixr",
     "db:types:remote": "supabase gen types typescript --linked --schema public > packages/api-client/src/database.types.ts",
-    "test:e2e": "scripts/e2e.sh"
+    "test:e2e": "scripts/e2e.sh",
+    "brand:build": "node scripts/build-brand-assets.mjs",
+    "brand:contrast": "node scripts/check-contrast.mjs"
   },
   "devDependencies": {
     "prettier": "^3.3.3",

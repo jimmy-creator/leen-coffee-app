@@ -9,6 +9,7 @@ import { useSession } from '../../lib/session';
 import { setAppLanguage } from '../../lib/i18n';
 import { useFormat } from '../../lib/format';
 import { colors, border, font } from '../../lib/theme';
+import { onSurface, accentTint } from '@leen/ui/palette';
 import { ImageSlot } from '../../components/cards';
 import { Card, OutlineButton, PrimaryButton, T } from '../../components/primitives';
 import { UserIcon } from '../../components/icons';
@@ -90,7 +91,7 @@ export default function Profile() {
           <View style={styles.body}>
             <Card style={styles.guestCard}>
               <View style={styles.guestIcon}>
-                <UserIcon size={28} color={colors.caramel} />
+                <UserIcon size={28} color={colors.accent} />
               </View>
               <T variant="title">{t('profile.guest')}</T>
               <T variant="body" color={colors.ink2} style={{ textAlign: 'center', maxWidth: 250 }}>
@@ -143,7 +144,7 @@ export default function Profile() {
                       {row.meta}
                     </T>
                   ) : null}
-                  <T variant="bodyLg" color="#B5A79C">
+                  <T variant="bodyLg" color={colors.ink3}>
                     {I18nManager.isRTL ? '‹' : '›'}
                   </T>
                 </Pressable>
@@ -210,7 +211,7 @@ const styles = StyleSheet.create({
     width: 74,
     height: 74,
     borderRadius: 999,
-    backgroundColor: 'rgba(197,139,85,0.14)',
+    backgroundColor: accentTint(0.14),
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -232,7 +233,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 13,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(33,23,18,0.05)',
+    borderBottomColor: onSurface(0.05),
   },
   rowMark: { width: 34, height: 34, borderRadius: 11, backgroundColor: colors.surfaceSoft },
 

@@ -6,6 +6,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { searchProducts, type SearchFilters } from '../../lib/queries';
 import { useFormat } from '../../lib/format';
 import { colors, border, font } from '../../lib/theme';
+import { onSurface } from '@leen/ui/palette';
 import { ProductRow } from '../../components/cards';
 import { SearchIcon } from '../../components/icons';
 import { Chip, EmptyState, OutlineButton, Skeleton, T } from '../../components/primitives';
@@ -111,7 +112,7 @@ export default function Explore() {
         </View>
       ) : results.length === 0 ? (
         <EmptyState
-          icon={<SearchIcon size={26} color={colors.caramel} />}
+          icon={<SearchIcon size={26} color={colors.accent} />}
           title={t('search.emptyTitle')}
           body={t('search.emptyBody')}
           action={<OutlineButton label={t('search.clearFilters')} onPress={clearAll} />}
@@ -144,7 +145,7 @@ const styles = StyleSheet.create({
     gap: 13,
     backgroundColor: colors.bg,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(33,23,18,0.06)',
+    borderBottomColor: onSurface(0.06),
   },
   input: {
     height: 46,

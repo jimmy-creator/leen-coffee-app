@@ -9,6 +9,7 @@ import { useSession } from '../../lib/session';
 import { previewCartTotal } from '../../lib/queries';
 import { useFormat } from '../../lib/format';
 import { colors, border, font } from '../../lib/theme';
+import { onSurface } from '@leen/ui/palette';
 import { BagIcon } from '../../components/icons';
 import {
   Card,
@@ -121,7 +122,7 @@ export default function CartScreen() {
       <View style={styles.root}>
         <Header insets={insets.top} title={t('cart.title')} />
         <EmptyState
-          icon={<BagIcon size={28} color={colors.caramel} />}
+          icon={<BagIcon size={28} color={colors.accent} />}
           title={t('cart.emptyTitle')}
           body={t('cart.emptyBody')}
           action={
@@ -180,7 +181,7 @@ export default function CartScreen() {
                     }
                     style={styles.stepperButton}
                   >
-                    <T variant="title" color={colors.brown} style={{ lineHeight: 20 }}>
+                    <T variant="title" color={colors.brandMid} style={{ lineHeight: 20 }}>
                       −
                     </T>
                   </Pressable>
@@ -194,7 +195,7 @@ export default function CartScreen() {
                     }
                     style={styles.stepperButton}
                   >
-                    <T variant="title" color={colors.brown} style={{ lineHeight: 20 }}>
+                    <T variant="title" color={colors.brandMid} style={{ lineHeight: 20 }}>
                       +
                     </T>
                   </Pressable>
@@ -231,12 +232,12 @@ export default function CartScreen() {
             />
           </View>
           {promoError ? (
-            <T variant="caption" color={colors.red}>
+            <T variant="caption" color={colors.danger}>
               {t('cart.promoInvalid')}
             </T>
           ) : null}
           {appliedPromo && totals && totals.discount_minor > 0 ? (
-            <T variant="caption" color={colors.green}>
+            <T variant="caption" color={colors.live}>
               {t('cart.promoApplied')}
             </T>
           ) : null}
@@ -278,7 +279,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingBottom: 14,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(33,23,18,0.06)',
+    borderBottomColor: onSurface(0.06),
   },
   scroll: { padding: 20, gap: 16, paddingBottom: 24 },
 
@@ -289,7 +290,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(33,23,18,0.06)',
+    borderBottomColor: onSurface(0.06),
   },
   inlineRow: { flexDirection: 'row', alignItems: 'center', gap: 9 },
   merchantMark: { width: 26, height: 26, borderRadius: 8, backgroundColor: colors.canvas },
@@ -301,7 +302,7 @@ const styles = StyleSheet.create({
     gap: 12,
     alignItems: 'center',
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(33,23,18,0.05)',
+    borderBottomColor: onSurface(0.05),
   },
   lineThumb: { width: 58, height: 58, borderRadius: 11, backgroundColor: colors.surfaceAlt },
   stepper: {
@@ -331,7 +332,7 @@ const styles = StyleSheet.create({
     borderRadius: 13,
     borderWidth: 1,
     borderStyle: 'dashed',
-    borderColor: 'rgba(33,23,18,0.22)',
+    borderColor: onSurface(0.22),
     fontFamily: font.medium,
     fontSize: 13.5,
     color: colors.ink,
@@ -344,6 +345,6 @@ const styles = StyleSheet.create({
     paddingTop: 14,
     backgroundColor: colors.bg,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(33,23,18,0.08)',
+    borderTopColor: onSurface(0.08),
   },
 });

@@ -80,6 +80,38 @@ Everything else follows from that:
 signed-in customer going through RLS — including that a direct `INSERT` into
 `orders` is refused and that promo codes are not enumerable.
 
+## Brand
+
+The identity is the client's logo (`brand/leen-coffee-logo.pdf`): a lotus mark
+and wordmark in white on a deep forest green, **#1C3819**. There is no second
+brand hue, so the warmth a coffee product needs comes from a single brass
+accent (**#C8A45C**) used sparingly, and from neutrals that are warm rather
+than blue-grey.
+
+`brand/mark-white.png` and `brand/lockup-white.png` are transparent masters
+lifted from that PDF. App icons are generated from them:
+
+```bash
+pnpm brand:build       # regenerate every app icon from the masters
+pnpm brand:contrast    # WCAG check across the palette
+```
+
+The icon uses the lotus alone, not the full lockup — at 48 px on a home screen
+the wordmark is an illegible smudge, while the lotus is distinctive at any size.
+The lockup is used for the splash, where there is room to read it.
+
+**Tints go through the alpha helpers in `@leen/ui/palette`, never as a literal
+`rgba()` in a screen.** Re-skinning this app from its first palette meant
+rewriting about a hundred hand-written rgba values across twenty files; the
+helpers (`onBrand`, `onSurface`, `brandTint`, `accentTint`, `liveTint`,
+`dangerTint`) exist so the next change is one file. The web apps get the same
+values as CSS variables from `@leen/ui/tokens.css`.
+
+One palette rule worth knowing: `ink3` is tertiary text _and_ inactive-but-
+tappable controls, held at 3:1 against every surface. `ink4` is lighter and is
+for genuinely disabled elements only — an inactive tab is still a control
+somebody has to be able to read.
+
 ## Row level security
 
 Every table in `public` has RLS enabled. Two rules, without exception:

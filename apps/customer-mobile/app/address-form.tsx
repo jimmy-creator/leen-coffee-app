@@ -128,7 +128,7 @@ export default function AddressForm() {
         <Field label={t('addresses.form.notes')} value={notes} onChange={setNotes} multiline />
 
         {error ? (
-          <T variant="caption" color={colors.red}>
+          <T variant="caption" color={colors.danger}>
             {error}
           </T>
         ) : null}

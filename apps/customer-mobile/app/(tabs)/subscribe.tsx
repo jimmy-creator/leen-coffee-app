@@ -9,6 +9,7 @@ import { supabase } from '../../lib/supabase';
 import { useSession } from '../../lib/session';
 import { useFormat } from '../../lib/format';
 import { colors, border, font } from '../../lib/theme';
+import { onBrand, accentTint, liveTint } from '@leen/ui/palette';
 import { Card, Num, PrimaryButton, SelectTile, Skeleton, T } from '../../components/primitives';
 
 type Plan = Awaited<ReturnType<typeof fetchSubscriptionPlans>>[number];
@@ -89,13 +90,13 @@ export default function Subscribe() {
         contentContainerStyle={{ paddingBottom: 30 }}
       >
         <View style={[styles.hero, { paddingTop: insets.top + 14 }]}>
-          <T variant="kicker" color="rgba(248,244,238,0.6)">
+          <T variant="kicker" color={onBrand(0.6)}>
             {t('subscriptions.kicker')}
           </T>
           <T variant="h2" color={colors.bg} style={{ maxWidth: 280 }}>
             {t('subscriptions.title')}
           </T>
-          <T variant="body" color="rgba(248,244,238,0.72)" style={{ maxWidth: 290 }}>
+          <T variant="body" color={onBrand(0.72)} style={{ maxWidth: 290 }}>
             {t('subscriptions.subtitle')}
           </T>
         </View>
@@ -125,20 +126,20 @@ export default function Subscribe() {
                       style={[
                         styles.statusPill,
                         sub.status === 'active'
-                          ? { backgroundColor: 'rgba(46,125,91,0.12)' }
+                          ? { backgroundColor: liveTint(0.12) }
                           : { backgroundColor: colors.surfaceAlt },
                       ]}
                     >
                       <T
                         variant="micro"
-                        color={sub.status === 'active' ? colors.green : colors.ink3}
+                        color={sub.status === 'active' ? colors.live : colors.ink3}
                       >
                         {t(`subscriptions.${sub.status === 'active' ? 'active' : 'paused'}`)}
                       </T>
                     </View>
                     <T
                       variant="micro"
-                      color={colors.brown}
+                      color={colors.brandMid}
                       onPress={() => void togglePause(sub)}
                       style={{ fontFamily: font.semibold }}
                     >
@@ -205,7 +206,7 @@ export default function Subscribe() {
                     <View style={styles.perks}>
                       {(perks ?? []).map((perk) => (
                         <View key={perk} style={styles.perk}>
-                          <T variant="micro" color={colors.brown} style={{ fontSize: 11 }}>
+                          <T variant="micro" color={colors.brandMid} style={{ fontSize: 11 }}>
                             {perk}
                           </T>
                         </View>
@@ -221,10 +222,10 @@ export default function Subscribe() {
                       style={[
                         { height: 46 },
                         featured
-                          ? { backgroundColor: colors.forest }
+                          ? { backgroundColor: colors.brandMid }
                           : { backgroundColor: colors.surfaceSoft },
                       ]}
-                      tone={featured ? 'espresso' : 'cream'}
+                      tone={featured ? 'brand' : 'light'}
                     />
                   </Card>
                 );
@@ -233,7 +234,7 @@ export default function Subscribe() {
           )}
 
           <View style={styles.note}>
-            <T variant="caption" color={colors.brown}>
+            <T variant="caption" color={colors.brandMid}>
               {t('subscriptions.note')}
             </T>
           </View>
@@ -248,7 +249,7 @@ const styles = StyleSheet.create({
   hero: {
     paddingHorizontal: 20,
     paddingBottom: 20,
-    backgroundColor: colors.forest,
+    backgroundColor: colors.brandMid,
     gap: 9,
   },
   body: { padding: 20, gap: 22 },
@@ -264,8 +265,8 @@ const styles = StyleSheet.create({
   note: {
     padding: 16,
     borderRadius: 16,
-    backgroundColor: 'rgba(197,139,85,0.1)',
+    backgroundColor: accentTint(0.1),
     borderWidth: 1,
-    borderColor: 'rgba(197,139,85,0.25)',
+    borderColor: accentTint(0.25),
   },
 });

@@ -5,6 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { isSaudiMobile, toE164 } from '@leen/lib';
 import { supabase } from '../lib/supabase';
 import { colors, border, font } from '../lib/theme';
+import { onBrand } from '@leen/ui/palette';
 import { PrimaryButton, T } from '../components/primitives';
 
 /**
@@ -63,13 +64,13 @@ export default function SignIn() {
     >
       <View style={[styles.content, { paddingTop: insets.top + 80 }]}>
         <View style={{ gap: 8 }}>
-          <T variant="kicker" color={colors.caramel}>
+          <T variant="kicker" color={colors.accent}>
             LEEN · MERCHANT
           </T>
           <T variant="h1" color={colors.bg}>
             Your roastery
           </T>
-          <T variant="body" color="rgba(248,244,238,0.68)">
+          <T variant="body" color={onBrand(0.68)}>
             Sign in with the mobile number registered to the roastery.
           </T>
         </View>
@@ -78,7 +79,7 @@ export default function SignIn() {
           value={phone}
           onChangeText={setPhone}
           placeholder="5X XXX XXXX"
-          placeholderTextColor="rgba(248,244,238,0.4)"
+          placeholderTextColor={onBrand(0.4)}
           keyboardType="phone-pad"
           editable={!sent}
           style={styles.input}
@@ -89,7 +90,7 @@ export default function SignIn() {
             value={code}
             onChangeText={setCode}
             placeholder="Six-digit code"
-            placeholderTextColor="rgba(248,244,238,0.4)"
+            placeholderTextColor={onBrand(0.4)}
             keyboardType="number-pad"
             textContentType="oneTimeCode"
             maxLength={6}
@@ -98,14 +99,14 @@ export default function SignIn() {
         ) : null}
 
         {error ? (
-          <T variant="caption" color={colors.red}>
+          <T variant="caption" color={colors.danger}>
             {error}
           </T>
         ) : null}
 
         <PrimaryButton
           label={sent ? 'Verify' : 'Send the code'}
-          tone="cream"
+          tone="light"
           loading={busy}
           disabled={sent ? code.length < 6 : !isSaudiMobile(phone)}
           onPress={() => void (sent ? verify() : send())}
@@ -116,14 +117,14 @@ export default function SignIn() {
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: colors.espresso },
+  root: { flex: 1, backgroundColor: colors.brand },
   content: { flex: 1, paddingHorizontal: 24, gap: 20 },
   input: {
     height: 56,
     paddingHorizontal: 16,
     borderRadius: 14,
     borderWidth: 1,
-    borderColor: 'rgba(248,244,238,0.2)',
+    borderColor: onBrand(0.2),
     color: colors.bg,
     fontFamily: font.medium,
     fontSize: 16,

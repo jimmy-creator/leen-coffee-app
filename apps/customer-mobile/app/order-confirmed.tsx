@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colors } from '../lib/theme';
+import { onBrand, liveTint } from '@leen/ui/palette';
 import { CheckIcon } from '../components/icons';
 import { OutlineButton, PrimaryButton, T } from '../components/primitives';
 
@@ -36,7 +37,7 @@ export default function OrderConfirmed() {
 
       <T
         variant="body"
-        color="rgba(248,244,238,0.7)"
+        color={onBrand(0.7)}
         style={{ textAlign: 'center', maxWidth: 260, lineHeight: 24 }}
       >
         {/* The design names the roastery here. With a multi-roastery basket
@@ -46,7 +47,7 @@ export default function OrderConfirmed() {
       </T>
 
       {code ? (
-        <T variant="kicker" color={colors.caramel}>
+        <T variant="kicker" color={colors.accent}>
           {t('tracking.orderNo', { code })}
         </T>
       ) : null}
@@ -54,7 +55,7 @@ export default function OrderConfirmed() {
       <View style={{ gap: 11, alignSelf: 'stretch', marginTop: 8 }}>
         <PrimaryButton
           label={t('orderDone.trackOrder')}
-          tone="cream"
+          tone="light"
           onPress={() => router.replace(`/track/${code}`)}
         />
         <OutlineButton
@@ -70,7 +71,7 @@ export default function OrderConfirmed() {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: colors.espresso,
+    backgroundColor: colors.brand,
     alignItems: 'center',
     justifyContent: 'center',
     gap: 18,
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
     width: 88,
     height: 88,
     borderRadius: 999,
-    backgroundColor: 'rgba(46,125,91,0.2)',
+    backgroundColor: liveTint(0.2),
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
     width: 62,
     height: 62,
     borderRadius: 999,
-    backgroundColor: colors.green,
+    backgroundColor: colors.live,
     alignItems: 'center',
     justifyContent: 'center',
   },

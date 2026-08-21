@@ -10,6 +10,7 @@ import { useCart } from '../lib/cart';
 import { useSession } from '../lib/session';
 import { useFormat } from '../lib/format';
 import { colors, font } from '../lib/theme';
+import { onSurface, accentTint, dangerTint } from '@leen/ui/palette';
 import { PinIcon } from '../components/icons';
 import { BackButton, Card, Num, OptionRow, PrimaryButton, T } from '../components/primitives';
 import { TotalsCard, type Totals } from '../components/totals';
@@ -130,7 +131,7 @@ export default function Checkout() {
                     </T>
                   )}
                 </View>
-                <T variant="caption" color={colors.brown} style={{ fontFamily: font.semibold }}>
+                <T variant="caption" color={colors.brandMid} style={{ fontFamily: font.semibold }}>
                   {selected ? t('common.change') : t('addresses.add')}
                 </T>
               </Card>
@@ -208,7 +209,7 @@ export default function Checkout() {
 
         {error ? (
           <View style={styles.errorBox}>
-            <T variant="caption" color="#8E2F2F">
+            <T variant="caption" color={colors.dangerInk}>
               {error}
             </T>
           </View>
@@ -243,7 +244,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingBottom: 14,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(33,23,18,0.06)',
+    borderBottomColor: onSurface(0.06),
   },
   scroll: { padding: 20, gap: 22, paddingBottom: 24 },
 
@@ -258,7 +259,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 12,
-    backgroundColor: 'rgba(197,139,85,0.14)',
+    backgroundColor: accentTint(0.14),
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -271,15 +272,15 @@ const styles = StyleSheet.create({
   errorBox: {
     padding: 13,
     borderRadius: 13,
-    backgroundColor: 'rgba(201,75,75,0.09)',
+    backgroundColor: dangerTint(0.09),
     borderWidth: 1,
-    borderColor: 'rgba(201,75,75,0.25)',
+    borderColor: dangerTint(0.25),
   },
   footer: {
     paddingHorizontal: 20,
     paddingTop: 14,
     backgroundColor: colors.bg,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(33,23,18,0.08)',
+    borderTopColor: onSurface(0.08),
   },
 });

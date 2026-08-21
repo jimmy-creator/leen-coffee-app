@@ -22,11 +22,11 @@ const ORDER_DESK_COLUMNS = `
 `;
 
 const STATUS_STYLE: Record<string, string> = {
-  pending: 'bg-[rgba(201,75,75,0.12)] text-[#8E2F2F]',
-  confirmed: 'bg-[rgba(197,139,85,0.16)] text-brown',
-  roasting: 'bg-[rgba(197,139,85,0.16)] text-brown',
-  ready: 'bg-[rgba(46,125,91,0.14)] text-forest',
-  picked_up: 'bg-[rgba(46,125,91,0.14)] text-forest',
+  pending: 'bg-danger-tint text-danger-ink',
+  confirmed: 'bg-accent-tint text-brand-mid',
+  roasting: 'bg-accent-tint text-brand-mid',
+  ready: 'bg-live-tint text-brand-mid',
+  picked_up: 'bg-live-tint text-brand-mid',
   delivered: 'bg-surface-alt text-ink-3',
   cancelled: 'bg-surface-alt text-ink-3',
 };

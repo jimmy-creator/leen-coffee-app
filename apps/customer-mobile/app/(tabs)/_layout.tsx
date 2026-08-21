@@ -2,6 +2,7 @@ import { View, StyleSheet } from 'react-native';
 import { Tabs } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { colors, border, font } from '../../lib/theme';
+import { onBrand } from '@leen/ui/palette';
 import { useCart } from '../../lib/cart';
 import { useFormat } from '../../lib/format';
 import { BagIcon, HomeIcon, SearchIcon, SubscribeIcon, UserIcon } from '../../components/icons';
@@ -28,8 +29,8 @@ export default function TabsLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: colors.espresso,
-        tabBarInactiveTintColor: colors.ink4,
+        tabBarActiveTintColor: colors.brand,
+        tabBarInactiveTintColor: colors.ink3,
         tabBarStyle: styles.bar,
         tabBarLabelStyle: styles.label,
         tabBarItemStyle: { paddingTop: 4 },
@@ -81,7 +82,7 @@ export default function TabsLayout() {
 
 const styles = StyleSheet.create({
   bar: {
-    backgroundColor: 'rgba(248,244,238,0.97)',
+    backgroundColor: onBrand(0.97),
     borderTopWidth: 1,
     borderTopColor: border.hair,
     height: 88,
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
     height: 16,
     borderRadius: 999,
     paddingHorizontal: 4,
-    backgroundColor: colors.red,
+    backgroundColor: colors.danger,
     alignItems: 'center',
     justifyContent: 'center',
   },

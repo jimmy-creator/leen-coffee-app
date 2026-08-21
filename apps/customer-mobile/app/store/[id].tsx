@@ -8,6 +8,7 @@ import { fetchMerchant } from '../../lib/queries';
 import { useCart } from '../../lib/cart';
 import { useFormat } from '../../lib/format';
 import { colors, border, font } from '../../lib/theme';
+import { onSurface, accentTint, dangerTint } from '@leen/ui/palette';
 import { ImageSlot, ProductCard } from '../../components/cards';
 import { StarIcon } from '../../components/icons';
 import { BackButton, Card, Chip, Num, Skeleton, T } from '../../components/primitives';
@@ -93,10 +94,10 @@ export default function Store() {
 
               {!merchant.is_open ? (
                 <View style={styles.closed}>
-                  <T variant="label" color="#8E2F2F">
+                  <T variant="label" color={colors.dangerInk}>
                     {t('store.closed')}
                   </T>
-                  <T variant="caption" color="#96524F">
+                  <T variant="caption" color={colors.dangerInk}>
                     {t('store.closedBody')}
                   </T>
                 </View>
@@ -162,10 +163,10 @@ function Stat({ label, value }: { label: string; value: string }) {
 
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: colors.bg },
-  cover: { height: 210, backgroundColor: colors.espresso },
+  cover: { height: 210, backgroundColor: colors.brand },
   coverScrim: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(33,23,18,0.28)',
+    backgroundColor: onSurface(0.28),
   },
   coverBack: { position: 'absolute', start: 20 },
   // Pull the identity card up over the cover, as in the design.
@@ -177,7 +178,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     overflow: 'hidden',
     borderWidth: 1,
-    borderColor: 'rgba(33,23,18,0.08)',
+    borderColor: onSurface(0.08),
   },
   ratingPill: {
     flexDirection: 'row',
@@ -186,7 +187,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 9,
     borderRadius: 999,
-    backgroundColor: 'rgba(217,144,47,0.12)',
+    backgroundColor: accentTint(0.12),
   },
   stats: {
     flexDirection: 'row',
@@ -198,7 +199,7 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 12,
     gap: 3,
-    backgroundColor: 'rgba(201,75,75,0.09)',
+    backgroundColor: dangerTint(0.09),
   },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 14 },
   gridItem: { width: '47.5%', flexGrow: 0, flexBasis: 'auto' },

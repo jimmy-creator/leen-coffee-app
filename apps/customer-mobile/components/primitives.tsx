@@ -11,13 +11,14 @@ import {
   type ViewStyle,
 } from 'react-native';
 import { colors, border, font, type as typeScale } from '../lib/theme';
+import { onBrand, onSurface, accentTint, dangerTint } from '@leen/ui/palette';
 
 /**
  * The handful of shapes the design repeats on every screen: the primary
- * espresso button, the outline button, pill chips, the selection tile, the
+ * brand button, the outline button, pill chips, the selection tile, the
  * radio row, and the card.
  *
- * They exist so that the espresso colour and the 14 px corner radius are
+ * They exist so that the brand green and the 14 px corner radius are
  * written once. Screens compose these rather than restyling a bare Pressable.
  */
 
@@ -87,7 +88,7 @@ export function PrimaryButton({
   trailing,
   disabled,
   loading,
-  tone = 'espresso',
+  tone = 'brand',
   style,
 }: {
   label: string;
@@ -96,20 +97,20 @@ export function PrimaryButton({
   trailing?: ReactNode;
   disabled?: boolean;
   loading?: boolean;
-  /** `cream` inverts the button for the dark onboarding and confirmation screens. */
-  tone?: 'espresso' | 'cream';
+  /** `light` inverts the button for the dark onboarding and confirmation screens. */
+  tone?: 'brand' | 'light';
   style?: StyleProp<ViewStyle>;
 }) {
   const inactive = disabled || loading;
-  const onCream = tone === 'cream';
-  const foreground = onCream ? colors.ink : colors.bg;
+  const onDark = tone === 'light';
+  const foreground = onDark ? colors.ink : colors.bg;
 
   return (
     <Pressable
       onPress={inactive ? undefined : onPress}
       style={({ pressed }) => [
         styles.primary,
-        onCream && { backgroundColor: colors.bg },
+        onDark && { backgroundColor: colors.bg },
         trailing ? styles.primaryWithTrailing : null,
         inactive && styles.disabled,
         pressed && !inactive && styles.pressed,
@@ -140,13 +141,8 @@ export function OutlineButton({
   tone?: 'ink' | 'danger' | 'light';
   style?: StyleProp<ViewStyle>;
 }) {
-  const tint = tone === 'danger' ? colors.red : tone === 'light' ? colors.bg : colors.ink;
-  const line =
-    tone === 'danger'
-      ? 'rgba(201,75,75,0.3)'
-      : tone === 'light'
-        ? 'rgba(248,244,238,0.28)'
-        : border.soft;
+  const tint = tone === 'danger' ? colors.danger : tone === 'light' ? colors.bg : colors.ink;
+  const line = tone === 'danger' ? dangerTint(0.3) : tone === 'light' ? onBrand(0.28) : border.soft;
 
   return (
     <Pressable
@@ -169,7 +165,7 @@ export function BackButton({
   tone = 'light',
 }: {
   onPress: () => void;
-  /** `dark` sits on the espresso/forest headers. */
+  /** `dark` sits on the brand-green headers. */
   tone?: 'light' | 'dark' | 'floating';
 }) {
   // The glyph points the way "back" actually is for the current layout.
@@ -180,9 +176,9 @@ export function BackButton({
       hitSlop={10}
       style={({ pressed }) => [
         styles.iconSquare,
-        tone === 'dark' && { backgroundColor: 'transparent', borderColor: 'rgba(248,244,238,0.2)' },
+        tone === 'dark' && { backgroundColor: 'transparent', borderColor: onBrand(0.2) },
         tone === 'floating' && {
-          backgroundColor: 'rgba(248,244,238,0.92)',
+          backgroundColor: onBrand(0.92),
           borderColor: 'transparent',
         },
         pressed && styles.pressed,
@@ -218,7 +214,9 @@ export function Chip({
         pressed && styles.pressed,
       ]}
     >
-      <Text style={[styles.chipLabel, { color: active ? colors.bg : colors.brown }]}>{label}</Text>
+      <Text style={[styles.chipLabel, { color: active ? colors.bg : colors.brandMid }]}>
+        {label}
+      </Text>
     </Pressable>
   );
 }
@@ -241,8 +239,8 @@ export function SelectTile({
       style={({ pressed }) => [
         styles.selectTile,
         {
-          backgroundColor: active ? colors.espresso : colors.surface,
-          borderColor: active ? colors.espresso : border.soft,
+          backgroundColor: active ? colors.brand : colors.surface,
+          borderColor: active ? colors.brand : border.soft,
         },
         pressed && styles.pressed,
         style,
@@ -273,13 +271,11 @@ export function OptionRow({
       onPress={onPress}
       style={({ pressed }) => [
         styles.optionRow,
-        { borderColor: active ? colors.espresso : 'rgba(33,23,18,0.09)' },
+        { borderColor: active ? colors.brand : onSurface(0.09) },
         pressed && styles.pressed,
       ]}
     >
-      <View
-        style={[styles.radio, { borderColor: active ? colors.espresso : 'rgba(33,23,18,0.25)' }]}
-      >
+      <View style={[styles.radio, { borderColor: active ? colors.brand : onSurface(0.25) }]}>
         {active ? <View style={styles.radioDot} /> : null}
       </View>
       {children}
@@ -340,7 +336,7 @@ const styles = StyleSheet.create({
   primary: {
     height: 54,
     borderRadius: 14,
-    backgroundColor: colors.espresso,
+    backgroundColor: colors.brand,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
@@ -381,7 +377,7 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     borderWidth: 1,
   },
-  chipActive: { backgroundColor: colors.espresso, borderColor: colors.espresso },
+  chipActive: { backgroundColor: colors.brand, borderColor: colors.brand },
   chipIdle: { backgroundColor: colors.surface, borderColor: border.soft },
   chipLabel: { fontFamily: font.semibold, fontSize: 12.5 },
 
@@ -416,7 +412,7 @@ const styles = StyleSheet.create({
     width: 9,
     height: 9,
     borderRadius: 999,
-    backgroundColor: colors.espresso,
+    backgroundColor: colors.brand,
   },
 
   card: {
@@ -438,13 +434,13 @@ const styles = StyleSheet.create({
     width: 74,
     height: 74,
     borderRadius: 999,
-    backgroundColor: 'rgba(197,139,85,0.14)',
+    backgroundColor: accentTint(0.14),
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   skeleton: {
-    backgroundColor: '#EDE6DD',
+    backgroundColor: colors.canvas,
     borderRadius: 12,
   },
 });

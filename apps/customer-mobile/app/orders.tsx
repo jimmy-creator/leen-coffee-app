@@ -7,6 +7,7 @@ import { fetchMyOrders } from '../lib/queries';
 import { useSession } from '../lib/session';
 import { useFormat } from '../lib/format';
 import { colors, font } from '../lib/theme';
+import { onSurface, liveTint } from '@leen/ui/palette';
 import { BagIcon } from '../components/icons';
 import {
   BackButton,
@@ -59,7 +60,7 @@ export default function Orders() {
         </View>
       ) : orders.length === 0 ? (
         <EmptyState
-          icon={<BagIcon size={28} color={colors.caramel} />}
+          icon={<BagIcon size={28} color={colors.accent} />}
           title={t('tracking.noOrders')}
           body={t('tracking.noOrdersBody')}
           action={
@@ -95,11 +96,11 @@ export default function Orders() {
                       style={[
                         styles.statusPill,
                         isLive(order.status)
-                          ? { backgroundColor: 'rgba(46,125,91,0.12)' }
+                          ? { backgroundColor: liveTint(0.12) }
                           : { backgroundColor: colors.surfaceAlt },
                       ]}
                     >
-                      <T variant="micro" color={isLive(order.status) ? colors.green : colors.ink3}>
+                      <T variant="micro" color={isLive(order.status) ? colors.live : colors.ink3}>
                         {t(`tracking.statusTitle.${order.status}`)}
                       </T>
                     </View>
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingBottom: 14,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(33,23,18,0.06)',
+    borderBottomColor: onSurface(0.06),
   },
   scroll: { padding: 20, gap: 12 },
   cardHead: { flexDirection: 'row', alignItems: 'flex-start', gap: 12 },

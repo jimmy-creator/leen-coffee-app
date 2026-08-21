@@ -8,6 +8,7 @@ import { fetchLoyalty, redeemReward } from '../lib/queries';
 import { useSession } from '../lib/session';
 import { useFormat } from '../lib/format';
 import { colors, border, font } from '../lib/theme';
+import { onBrand, accentTint } from '@leen/ui/palette';
 import { StarIcon } from '../components/icons';
 import { BackButton, Card, EmptyState, Num, PrimaryButton, T } from '../components/primitives';
 
@@ -65,7 +66,7 @@ export default function Loyalty() {
     return (
       <View style={styles.root}>
         <EmptyState
-          icon={<StarIcon size={26} color={colors.caramel} />}
+          icon={<StarIcon size={26} color={colors.accent} />}
           title={t('profile.guest')}
           body={t('profile.guestBody')}
           action={<PrimaryButton label={t('auth.signIn')} onPress={() => router.push('/auth')} />}
@@ -103,20 +104,20 @@ export default function Loyalty() {
                 <Num variant="h3" color={colors.bg} style={{ fontSize: 19 }}>
                   {f.num(points)}
                 </Num>
-                <T variant="micro" color="rgba(248,244,238,0.6)" style={{ fontSize: 9.5 }}>
+                <T variant="micro" color={onBrand(0.6)} style={{ fontSize: 9.5 }}>
                   {t('loyalty.points')}
                 </T>
               </View>
             </View>
 
             <View style={{ gap: 6, flex: 1 }}>
-              <T variant="kicker" color={colors.caramel}>
+              <T variant="kicker" color={colors.accent}>
                 {t('loyalty.tier')}
               </T>
               <T variant="h3" color={colors.bg} style={{ fontSize: 19 }}>
                 {t(`loyalty.tiers.${tier}`)}
               </T>
-              <T variant="caption" color="rgba(248,244,238,0.7)">
+              <T variant="caption" color={onBrand(0.7)}>
                 {nextTier
                   ? t('loyalty.toNextTier', { count: nextTier.at - lifetime })
                   : t('loyalty.topTier')}
@@ -135,7 +136,7 @@ export default function Loyalty() {
             return (
               <Card key={reward.id} style={styles.rewardRow}>
                 <View style={styles.rewardIcon}>
-                  <StarIcon size={16} color={colors.caramel} />
+                  <StarIcon size={16} color={colors.accent} />
                 </View>
                 <View style={{ flex: 1, gap: 3 }}>
                   <T variant="label">{f.pick(reward.name_en, reward.name_ar)}</T>
@@ -149,7 +150,7 @@ export default function Loyalty() {
                   style={[
                     styles.redeemButton,
                     affordable
-                      ? { backgroundColor: colors.espresso }
+                      ? { backgroundColor: colors.brand }
                       : { backgroundColor: colors.surfaceAlt },
                   ]}
                 >
@@ -173,7 +174,7 @@ export default function Loyalty() {
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: colors.bg },
   header: {
-    backgroundColor: colors.espresso,
+    backgroundColor: colors.brand,
     paddingHorizontal: 20,
     paddingBottom: 26,
     gap: 20,
@@ -182,7 +183,7 @@ const styles = StyleSheet.create({
     width: 96,
     height: 96,
     borderRadius: 999,
-    backgroundColor: 'rgba(248,244,238,0.14)',
+    backgroundColor: onBrand(0.14),
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
@@ -193,7 +194,7 @@ const styles = StyleSheet.create({
     height: 96,
     borderRadius: 999,
     borderWidth: 6,
-    borderColor: colors.caramel,
+    borderColor: colors.accent,
     // Only the leading half of the ring is painted; rotating it sweeps the arc.
     borderRightColor: 'transparent',
     borderBottomColor: 'transparent',
@@ -202,7 +203,7 @@ const styles = StyleSheet.create({
     width: 74,
     height: 74,
     borderRadius: 999,
-    backgroundColor: colors.espresso,
+    backgroundColor: colors.brand,
     alignItems: 'center',
     justifyContent: 'center',
     gap: 1,
@@ -213,7 +214,7 @@ const styles = StyleSheet.create({
     width: 42,
     height: 42,
     borderRadius: 13,
-    backgroundColor: 'rgba(197,139,85,0.14)',
+    backgroundColor: accentTint(0.14),
     alignItems: 'center',
     justifyContent: 'center',
   },

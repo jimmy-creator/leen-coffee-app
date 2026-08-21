@@ -13,6 +13,7 @@ import {
   setOpen,
 } from '../lib/orders';
 import { colors, border, font } from '../lib/theme';
+import { onBrand, brandTint, accentTint, liveTint, dangerTint } from '@leen/ui/palette';
 import { Card, EmptyState, Num, OutlineButton, PrimaryButton, T } from '../components/primitives';
 
 type Board = Awaited<ReturnType<typeof fetchOrderBoard>>;
@@ -20,10 +21,10 @@ type Merchant = Awaited<ReturnType<typeof fetchMyMerchants>>[number];
 
 /** How each board status should read and colour. */
 const STATUS_TONE: Record<string, { label: string; color: string; bg: string }> = {
-  pending: { label: 'New', color: '#8E2F2F', bg: 'rgba(201,75,75,0.12)' },
-  confirmed: { label: 'Accepted', color: '#5A3826', bg: 'rgba(197,139,85,0.16)' },
-  roasting: { label: 'Roasting', color: '#5A3826', bg: 'rgba(197,139,85,0.16)' },
-  ready: { label: 'Ready', color: '#1F4D3A', bg: 'rgba(46,125,91,0.14)' },
+  pending: { label: 'New', color: colors.dangerInk, bg: dangerTint(0.12) },
+  confirmed: { label: 'Accepted', color: colors.brandMid, bg: accentTint(0.16) },
+  roasting: { label: 'Roasting', color: colors.brandMid, bg: accentTint(0.16) },
+  ready: { label: 'Ready', color: colors.brandMid, bg: liveTint(0.14) },
 };
 
 /** The button copy for advancing out of each status. */
@@ -82,7 +83,7 @@ export default function OrderBoard() {
     <View style={styles.root}>
       <View style={[styles.header, { paddingTop: insets.top + 12 }]}>
         <View style={{ flex: 1, gap: 3 }}>
-          <T variant="kicker" color="rgba(248,244,238,0.6)">
+          <T variant="kicker" color={onBrand(0.6)}>
             LEEN · MERCHANT
           </T>
           <T variant="h3" color={colors.bg}>
@@ -92,7 +93,7 @@ export default function OrderBoard() {
 
         {shop ? (
           <View style={{ alignItems: 'flex-end', gap: 4 }}>
-            <T variant="micro" color="rgba(248,244,238,0.6)">
+            <T variant="micro" color={onBrand(0.6)}>
               {shop.is_open ? 'Open' : 'Closed'}
             </T>
             <Switch
@@ -105,7 +106,7 @@ export default function OrderBoard() {
                 );
                 void setOpen(shop.id, v).then(load);
               }}
-              trackColor={{ true: colors.green, false: 'rgba(248,244,238,0.25)' }}
+              trackColor={{ true: colors.live, false: onBrand(0.25) }}
             />
           </View>
         ) : null}
@@ -155,7 +156,7 @@ export default function OrderBoard() {
                 <View style={{ gap: 6 }}>
                   {sub.order_items.map((item) => (
                     <View key={item.id} style={styles.itemRow}>
-                      <Num variant="label" color={colors.brown} style={{ minWidth: 26 }}>
+                      <Num variant="label" color={colors.brandMid} style={{ minWidth: 26 }}>
                         {`${item.qty}×`}
                       </Num>
                       <View style={{ flex: 1 }}>
@@ -182,7 +183,7 @@ export default function OrderBoard() {
                   />
                 ) : (
                   <View style={styles.waitingForRider}>
-                    <T variant="caption" color={colors.forest}>
+                    <T variant="caption" color={colors.brandMid}>
                       Waiting for a rider to collect
                     </T>
                   </View>
@@ -192,7 +193,7 @@ export default function OrderBoard() {
           })}
 
           <Pressable onPress={() => void signOut()} style={{ alignSelf: 'center', padding: 12 }}>
-            <T variant="caption" color={colors.red} style={{ fontFamily: font.semibold }}>
+            <T variant="caption" color={colors.danger} style={{ fontFamily: font.semibold }}>
               Sign out
             </T>
           </Pressable>
@@ -210,7 +211,7 @@ const styles = StyleSheet.create({
     gap: 12,
     paddingHorizontal: 20,
     paddingBottom: 16,
-    backgroundColor: colors.espresso,
+    backgroundColor: colors.brand,
   },
   list: { padding: 20, gap: 14 },
   cardHead: { flexDirection: 'row', alignItems: 'flex-start', gap: 12 },
@@ -227,7 +228,7 @@ const styles = StyleSheet.create({
   waitingForRider: {
     padding: 12,
     borderRadius: 12,
-    backgroundColor: 'rgba(46,125,91,0.09)',
+    backgroundColor: liveTint(0.09),
     alignItems: 'center',
   },
   emptyMark: {
@@ -235,7 +236,7 @@ const styles = StyleSheet.create({
     height: 34,
     borderRadius: 14,
     borderWidth: 1.5,
-    borderColor: 'rgba(90,56,38,0.28)',
+    borderColor: brandTint(0.28),
     transform: [{ rotate: '-18deg' }],
   },
 });

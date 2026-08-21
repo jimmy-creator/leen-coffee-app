@@ -49,7 +49,7 @@ export function TotalsCard({ totals }: { totals: Totals }) {
           </T>
           <Num
             variant={row.big ? 'h3' : 'body'}
-            color={row.good ? colors.green : colors.ink}
+            color={row.good ? colors.live : colors.ink}
             style={row.big ? { fontSize: 18 } : { fontFamily: font.medium, fontSize: 13 }}
           >
             {row.value}

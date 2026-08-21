@@ -16,6 +16,7 @@ import {
   setOnline,
 } from '../lib/deliveries';
 import { colors, border, font } from '../lib/theme';
+import { onBrand, brandTint, accentTint, dangerTint } from '@leen/ui/palette';
 import { Card, EmptyState, Num, OutlineButton, PrimaryButton, T } from '../components/primitives';
 
 type Job = Awaited<ReturnType<typeof fetchAvailableJobs>>[number];
@@ -104,7 +105,7 @@ export default function Jobs() {
     <View style={styles.root}>
       <View style={[styles.header, { paddingTop: insets.top + 12 }]}>
         <View style={{ flex: 1, gap: 3 }}>
-          <T variant="kicker" color="rgba(248,244,238,0.6)">
+          <T variant="kicker" color={onBrand(0.6)}>
             LEEN · RIDER
           </T>
           <T variant="h3" color={colors.bg}>
@@ -118,7 +119,7 @@ export default function Jobs() {
               setProfile((p) => (p ? { ...p, is_online: v } : p));
               void setOnline(userId, v).then(load);
             }}
-            trackColor={{ true: colors.caramel, false: 'rgba(248,244,238,0.25)' }}
+            trackColor={{ true: colors.accent, false: onBrand(0.25) }}
           />
         ) : null}
       </View>
@@ -137,7 +138,7 @@ export default function Jobs() {
       >
         {notice ? (
           <View style={styles.notice}>
-            <T variant="caption" color="#8E2F2F">
+            <T variant="caption" color={colors.dangerInk}>
               {notice}
             </T>
           </View>
@@ -157,11 +158,11 @@ export default function Jobs() {
                     <PrimaryButton
                       label={ADVANCE_LABEL[job.status] ?? 'Advance'}
                       onPress={() => void advanceJob(job.id, next).then(load)}
-                      style={{ height: 48, backgroundColor: colors.forest }}
+                      style={{ height: 48, backgroundColor: colors.brandMid }}
                     />
                   ) : (
                     <View style={styles.pendingRoastery}>
-                      <T variant="caption" color={colors.brown}>
+                      <T variant="caption" color={colors.brandMid}>
                         The roastery is still preparing this order
                       </T>
                     </View>
@@ -190,14 +191,14 @@ export default function Jobs() {
               <PrimaryButton
                 label="Accept"
                 onPress={() => void claim(job)}
-                style={{ height: 48, backgroundColor: colors.forest }}
+                style={{ height: 48, backgroundColor: colors.brandMid }}
               />
             </Card>
           ))
         )}
 
         <Pressable onPress={() => void signOut()} style={{ alignSelf: 'center', padding: 12 }}>
-          <T variant="caption" color={colors.red} style={{ fontFamily: font.semibold }}>
+          <T variant="caption" color={colors.danger} style={{ fontFamily: font.semibold }}>
             Sign out
           </T>
         </Pressable>
@@ -222,7 +223,7 @@ function JobHeader({ job }: { job: Job }) {
         </View>
         {job.orders?.payment_method === 'cash_on_delivery' ? (
           <View style={styles.cashPill}>
-            <T variant="micro" color="#8E2F2F">
+            <T variant="micro" color={colors.dangerInk}>
               COLLECT CASH
             </T>
           </View>
@@ -230,13 +231,13 @@ function JobHeader({ job }: { job: Job }) {
       </View>
 
       <View style={styles.legRow}>
-        <View style={[styles.legDot, { backgroundColor: colors.caramel }]} />
+        <View style={[styles.legDot, { backgroundColor: colors.accent }]} />
         <T variant="caption" color={colors.ink2} style={{ flex: 1 }}>
           {[job.merchants?.district_en, job.merchants?.city_en].filter(Boolean).join(', ')}
         </T>
       </View>
       <View style={styles.legRow}>
-        <View style={[styles.legDot, { backgroundColor: colors.green }]} />
+        <View style={[styles.legDot, { backgroundColor: colors.live }]} />
         <T variant="caption" color={colors.ink2} style={{ flex: 1 }}>
           {snapshot
             ? [snapshot.street, snapshot.district, snapshot.city].filter(Boolean).join(', ')
@@ -262,7 +263,7 @@ const styles = StyleSheet.create({
     gap: 12,
     paddingHorizontal: 20,
     paddingBottom: 16,
-    backgroundColor: colors.forest,
+    backgroundColor: colors.brandMid,
   },
   list: { padding: 20, gap: 14 },
   cardHead: { flexDirection: 'row', alignItems: 'flex-start', gap: 12 },
@@ -270,7 +271,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 10,
     borderRadius: 999,
-    backgroundColor: 'rgba(201,75,75,0.12)',
+    backgroundColor: dangerTint(0.12),
   },
   legRow: { flexDirection: 'row', alignItems: 'center', gap: 9 },
   legDot: { width: 8, height: 8, borderRadius: 999 },
@@ -286,20 +287,20 @@ const styles = StyleSheet.create({
   pendingRoastery: {
     padding: 12,
     borderRadius: 12,
-    backgroundColor: 'rgba(197,139,85,0.1)',
+    backgroundColor: accentTint(0.1),
     alignItems: 'center',
   },
   notice: {
     padding: 12,
     borderRadius: 12,
-    backgroundColor: 'rgba(201,75,75,0.09)',
+    backgroundColor: dangerTint(0.09),
   },
   mark: {
     width: 26,
     height: 34,
     borderRadius: 14,
     borderWidth: 1.5,
-    borderColor: 'rgba(90,56,38,0.28)',
+    borderColor: brandTint(0.28),
     transform: [{ rotate: '-18deg' }],
   },
 });

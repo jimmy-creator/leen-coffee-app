@@ -8,6 +8,7 @@ import { fetchAddresses, setDefaultAddress } from '../lib/queries';
 import { supabase } from '../lib/supabase';
 import { useSession } from '../lib/session';
 import { colors, border, font } from '../lib/theme';
+import { onSurface, brandTint } from '@leen/ui/palette';
 import { PinIcon } from '../components/icons';
 import { BackButton, Card, EmptyState, PrimaryButton, T } from '../components/primitives';
 
@@ -63,14 +64,14 @@ export default function Addresses() {
 
       {!userId ? (
         <EmptyState
-          icon={<PinIcon size={26} color={colors.caramel} />}
+          icon={<PinIcon size={26} color={colors.accent} />}
           title={t('profile.guest')}
           body={t('profile.guestBody')}
           action={<PrimaryButton label={t('auth.signIn')} onPress={() => router.push('/auth')} />}
         />
       ) : addresses.length === 0 ? (
         <EmptyState
-          icon={<PinIcon size={26} color={colors.caramel} />}
+          icon={<PinIcon size={26} color={colors.accent} />}
           title={t('addresses.emptyTitle')}
           body={t('addresses.emptyBody')}
           action={
@@ -88,7 +89,7 @@ export default function Addresses() {
               key={address.id}
               style={[
                 styles.card,
-                address.is_default && { borderColor: colors.espresso, borderWidth: 1.5 },
+                address.is_default && { borderColor: colors.brand, borderWidth: 1.5 },
               ]}
             >
               <View style={styles.cardHead}>
@@ -127,7 +128,7 @@ export default function Addresses() {
           ))}
 
           <Pressable onPress={() => router.push('/address-form')} style={styles.addButton}>
-            <T variant="label" color={colors.brown} style={{ fontSize: 14 }}>
+            <T variant="label" color={colors.brandMid} style={{ fontSize: 14 }}>
               {t('addresses.add')}
             </T>
           </Pressable>
@@ -146,7 +147,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingBottom: 14,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(33,23,18,0.06)',
+    borderBottomColor: onSurface(0.06),
   },
   scroll: { padding: 20, gap: 12 },
   card: { padding: 16, gap: 0 },
@@ -155,7 +156,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 10,
     borderRadius: 999,
-    backgroundColor: 'rgba(59,36,24,0.9)',
+    backgroundColor: brandTint(0.9),
   },
   actions: {
     flexDirection: 'row',
@@ -179,7 +180,7 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     borderWidth: 1,
     borderStyle: 'dashed',
-    borderColor: 'rgba(33,23,18,0.25)',
+    borderColor: onSurface(0.25),
     alignItems: 'center',
     justifyContent: 'center',
   },

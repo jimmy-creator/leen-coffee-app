@@ -9,10 +9,11 @@ import { ImageSlot } from '../components/cards';
 import { OutlineButton, PrimaryButton, T } from '../components/primitives';
 import { setAppLanguage } from '../lib/i18n';
 import { colors, font } from '../lib/theme';
+import { onBrand, onSurface, brandTint } from '@leen/ui/palette';
 import { SEEN_ONBOARDING_KEY } from './index';
 
 /**
- * Onboarding. Full-bleed roastery photograph, an espresso scrim so the type
+ * Onboarding. Full-bleed roastery photograph, a brand-green scrim so the type
  * stays legible over whatever image the marketing team drops in, and the two
  * ways into the app: create an account, or browse as a guest.
  */
@@ -36,7 +37,7 @@ export default function Welcome() {
         <ImageSlot />
       </View>
       {/* Three-stop scrim: light at the top so the photograph reads, opaque at
-          the bottom so the buttons sit on solid espresso. */}
+          the bottom so the buttons sit on solid brand green. */}
       <View style={styles.scrim} pointerEvents="none" />
 
       {/*
@@ -69,13 +70,13 @@ export default function Welcome() {
 
       <View style={[styles.content, { paddingBottom: insets.bottom + 46 }]}>
         <View style={{ gap: 14 }}>
-          <T variant="kicker" color={colors.caramel} style={{ letterSpacing: 3.7 }}>
+          <T variant="kicker" color={colors.accent} style={{ letterSpacing: 3.7 }}>
             LEEN · لين
           </T>
           <T variant="display" color={colors.bg}>
             {t('onboarding.title')}
           </T>
-          <T variant="bodyLg" color="rgba(248,244,238,0.72)" style={{ maxWidth: 300 }}>
+          <T variant="bodyLg" color={onBrand(0.72)} style={{ maxWidth: 300 }}>
             {t('onboarding.subtitle')}
           </T>
         </View>
@@ -91,7 +92,7 @@ export default function Welcome() {
         <View style={{ gap: 11 }}>
           <PrimaryButton
             label={t('onboarding.getStarted')}
-            tone="cream"
+            tone="light"
             onPress={() => void go('/auth')}
           />
           <OutlineButton
@@ -107,10 +108,10 @@ export default function Welcome() {
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: colors.espresso },
+  root: { flex: 1, backgroundColor: colors.brand },
   scrim: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(59,36,24,0.62)',
+    backgroundColor: brandTint(0.62),
   },
   content: {
     flex: 1,
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
     gap: 4,
     padding: 3,
     borderRadius: 10,
-    backgroundColor: 'rgba(33,23,18,0.4)',
+    backgroundColor: onSurface(0.4),
   },
   langPill: { paddingVertical: 6, paddingHorizontal: 12, borderRadius: 8 },
   langPillActive: { backgroundColor: colors.bg },
@@ -135,7 +136,7 @@ const styles = StyleSheet.create({
     width: 8,
     height: 3,
     borderRadius: 2,
-    backgroundColor: 'rgba(248,244,238,0.3)',
+    backgroundColor: onBrand(0.3),
   },
-  dotActive: { width: 26, backgroundColor: colors.caramel },
+  dotActive: { width: 26, backgroundColor: colors.accent },
 });

@@ -7,6 +7,7 @@ import { fetchCategories, fetchHomeFeed } from '../../lib/queries';
 import { useCart } from '../../lib/cart';
 import { useFormat } from '../../lib/format';
 import { colors, border, font } from '../../lib/theme';
+import { onBrand, onSurface, accentTint, dangerTint } from '@leen/ui/palette';
 import { ImageSlot, MerchantCard, ProductCard } from '../../components/cards';
 import { BellIcon, ChevronIcon, SearchIcon, StarIcon } from '../../components/icons';
 import { Card, Chip, EmptyState, PrimaryButton, Skeleton, T } from '../../components/primitives';
@@ -69,8 +70,8 @@ export default function Home() {
 
           <View style={{ flexDirection: 'row', gap: 9 }}>
             <Pressable onPress={() => router.push('/loyalty')} style={styles.rewardsPill}>
-              <StarIcon color={colors.caramel} />
-              <T variant="micro" color={colors.brown} style={{ fontFamily: font.semibold }}>
+              <StarIcon color={colors.accent} />
+              <T variant="micro" color={colors.brandMid} style={{ fontFamily: font.semibold }}>
                 {t('loyalty.title')}
               </T>
             </Pressable>
@@ -95,7 +96,7 @@ export default function Home() {
           <RefreshControl
             refreshing={refreshing}
             onRefresh={() => void onRefresh()}
-            tintColor={colors.brown}
+            tintColor={colors.brandMid}
           />
         }
       >
@@ -107,15 +108,15 @@ export default function Home() {
               </T>
             </View>
             <View style={{ flex: 1, gap: 5 }}>
-              <T variant="label" color="#8E2F2F">
+              <T variant="label" color={colors.dangerInk}>
                 {t('home.errorTitle')}
               </T>
-              <T variant="caption" color="#96524F">
+              <T variant="caption" color={colors.dangerInk}>
                 {t('home.errorBody')}
               </T>
             </View>
             <Pressable onPress={() => void load()} hitSlop={8}>
-              <T variant="caption" color={colors.red} style={{ fontFamily: font.semibold }}>
+              <T variant="caption" color={colors.danger} style={{ fontFamily: font.semibold }}>
                 {t('common.retry')}
               </T>
             </Pressable>
@@ -143,7 +144,7 @@ export default function Home() {
                     <T variant="h3" color={colors.bg}>
                       {f.pick(banner.title_en, banner.title_ar)}
                     </T>
-                    <T variant="caption" color="rgba(248,244,238,0.72)">
+                    <T variant="caption" color={onBrand(0.72)}>
                       {f.pick(banner.subtitle_en, banner.subtitle_ar)}
                     </T>
                   </View>
@@ -177,7 +178,11 @@ export default function Home() {
               <View style={styles.sectionHead}>
                 <T variant="title">{t('home.roasters')}</T>
                 <Pressable onPress={() => router.push('/(tabs)/explore')} hitSlop={8}>
-                  <T variant="caption" color={colors.brown} style={{ fontFamily: font.semibold }}>
+                  <T
+                    variant="caption"
+                    color={colors.brandMid}
+                    style={{ fontFamily: font.semibold }}
+                  >
                     {t('common.seeAll')}
                   </T>
                 </Pressable>
@@ -212,7 +217,7 @@ export default function Home() {
 
               {feed.freshRoast.length === 0 ? (
                 <EmptyState
-                  icon={<SearchIcon size={26} color={colors.caramel} />}
+                  icon={<SearchIcon size={26} color={colors.accent} />}
                   title={t('home.emptyTitle')}
                   body={t('home.emptyBody')}
                 />
@@ -233,16 +238,16 @@ export default function Home() {
 
             <Pressable onPress={() => router.push('/(tabs)/subscribe')} style={styles.subsCard}>
               <View style={styles.subsGlow} pointerEvents="none" />
-              <T variant="kicker" color="rgba(248,244,238,0.6)">
+              <T variant="kicker" color={onBrand(0.6)}>
                 {t('subscriptions.kicker')}
               </T>
               <T variant="h3" color={colors.bg} style={{ fontSize: 19, maxWidth: 250 }}>
                 {t('subscriptions.title')}
               </T>
-              <T variant="caption" color="rgba(248,244,238,0.72)" style={{ maxWidth: 260 }}>
+              <T variant="caption" color={onBrand(0.72)} style={{ maxWidth: 260 }}>
                 {t('subscriptions.subtitle')}
               </T>
-              <T variant="label" color={colors.caramel} style={{ marginTop: 6 }}>
+              <T variant="label" color={colors.accent} style={{ marginTop: 6 }}>
                 {t('subscriptions.cta')}
               </T>
             </Pressable>
@@ -279,7 +284,7 @@ const styles = StyleSheet.create({
     paddingBottom: 14,
     backgroundColor: colors.bg,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(33,23,18,0.05)',
+    borderBottomColor: onSurface(0.05),
     gap: 14,
   },
   headerTop: {
@@ -294,8 +299,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     borderRadius: 999,
     borderWidth: 1,
-    borderColor: 'rgba(197,139,85,0.4)',
-    backgroundColor: 'rgba(197,139,85,0.12)',
+    borderColor: accentTint(0.4),
+    backgroundColor: accentTint(0.12),
     flexDirection: 'row',
     alignItems: 'center',
     gap: 5,
@@ -305,7 +310,7 @@ const styles = StyleSheet.create({
     height: 38,
     borderRadius: 999,
     borderWidth: 1,
-    borderColor: 'rgba(33,23,18,0.1)',
+    borderColor: onSurface(0.1),
     backgroundColor: colors.surface,
     alignItems: 'center',
     justifyContent: 'center',
@@ -314,7 +319,7 @@ const styles = StyleSheet.create({
     height: 46,
     borderRadius: 14,
     borderWidth: 1,
-    borderColor: 'rgba(33,23,18,0.1)',
+    borderColor: onSurface(0.1),
     backgroundColor: colors.surface,
     flexDirection: 'row',
     alignItems: 'center',
@@ -329,15 +334,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 10,
     alignItems: 'flex-start',
-    backgroundColor: 'rgba(201,75,75,0.09)',
-    borderColor: 'rgba(201,75,75,0.25)',
+    backgroundColor: dangerTint(0.09),
+    borderColor: dangerTint(0.25),
     borderRadius: 13,
   },
   errorBadge: {
     width: 18,
     height: 18,
     borderRadius: 9,
-    backgroundColor: colors.red,
+    backgroundColor: colors.danger,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -347,11 +352,11 @@ const styles = StyleSheet.create({
     height: 186,
     borderRadius: 20,
     overflow: 'hidden',
-    backgroundColor: colors.espresso,
+    backgroundColor: colors.brand,
   },
   heroScrim: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(33,23,18,0.55)',
+    backgroundColor: onSurface(0.55),
   },
   heroContent: {
     ...StyleSheet.absoluteFillObject,
@@ -363,7 +368,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 10,
     borderRadius: 999,
-    backgroundColor: 'rgba(248,244,238,0.16)',
+    backgroundColor: onBrand(0.16),
   },
 
   chipRow: { gap: 9, paddingHorizontal: 20 },
@@ -387,7 +392,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     padding: 20,
     borderRadius: 18,
-    backgroundColor: colors.forest,
+    backgroundColor: colors.brandMid,
     gap: 9,
     overflow: 'hidden',
   },
@@ -398,6 +403,6 @@ const styles = StyleSheet.create({
     width: 118,
     height: 118,
     borderRadius: 99,
-    backgroundColor: 'rgba(248,244,238,0.06)',
+    backgroundColor: onBrand(0.06),
   },
 });
