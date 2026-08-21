@@ -15,6 +15,8 @@ import {
 } from '@expo-google-fonts/ibm-plex-sans-arabic';
 import { SessionProvider } from '../lib/session';
 import { CartProvider } from '../lib/cart';
+import { AddressProvider } from '../lib/address';
+import { NotificationProvider } from '../lib/notifications';
 import { colors } from '../lib/theme';
 
 // Hold the native splash until the fonts are in memory. Without this the first
@@ -46,29 +48,34 @@ export default function RootLayout() {
       <StatusBar style="dark" />
       <SessionProvider>
         <CartProvider>
-          {/* Screens draw their own headers — the design has no system header
+          <AddressProvider>
+            <NotificationProvider>
+              {/* Screens draw their own headers — the design has no system header
               anywhere, and several screens run artwork under the status bar. */}
-          <Stack
-            screenOptions={{
-              headerShown: false,
-              contentStyle: { backgroundColor: colors.bg },
-            }}
-          >
-            <Stack.Screen name="index" />
-            <Stack.Screen name="welcome" />
-            <Stack.Screen name="auth" />
-            <Stack.Screen name="otp" />
-            <Stack.Screen name="(tabs)" />
-            <Stack.Screen name="store/[id]" />
-            <Stack.Screen name="product/[id]" />
-            <Stack.Screen name="checkout" />
-            <Stack.Screen name="order-confirmed" options={{ gestureEnabled: false }} />
-            <Stack.Screen name="track/[code]" />
-            <Stack.Screen name="orders" />
-            <Stack.Screen name="loyalty" />
-            <Stack.Screen name="addresses" />
-            <Stack.Screen name="address-form" options={{ presentation: 'modal' }} />
-          </Stack>
+              <Stack
+                screenOptions={{
+                  headerShown: false,
+                  contentStyle: { backgroundColor: colors.bg },
+                }}
+              >
+                <Stack.Screen name="index" />
+                <Stack.Screen name="welcome" />
+                <Stack.Screen name="auth" />
+                <Stack.Screen name="otp" />
+                <Stack.Screen name="(tabs)" />
+                <Stack.Screen name="store/[id]" />
+                <Stack.Screen name="product/[id]" />
+                <Stack.Screen name="checkout" />
+                <Stack.Screen name="order-confirmed" options={{ gestureEnabled: false }} />
+                <Stack.Screen name="track/[code]" />
+                <Stack.Screen name="orders" />
+                <Stack.Screen name="loyalty" />
+                <Stack.Screen name="notifications" />
+                <Stack.Screen name="addresses" />
+                <Stack.Screen name="address-form" options={{ presentation: 'modal' }} />
+              </Stack>
+            </NotificationProvider>
+          </AddressProvider>
         </CartProvider>
       </SessionProvider>
     </SafeAreaProvider>

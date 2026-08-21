@@ -305,5 +305,15 @@
     "subscribe": "Subscribe",
     "cart": "Cart",
     "profile": "Profile"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "emptyTitle": "Nothing yet",
+    "emptyBody": "Order updates and offers from Leen will appear here.",
+    "orderConfirmedTitle": "Order confirmed",
+    "orderRoastingTitle": "Roasting your order",
+    "orderReadyTitle": "Ready for the driver",
+    "orderPickedUpTitle": "Out for delivery",
+    "orderDeliveredTitle": "Delivered"
   }
 }

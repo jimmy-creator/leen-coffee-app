@@ -317,5 +317,15 @@
     "subscribe": "اشتراك",
     "cart": "السلة",
     "profile": "حسابي"
+  },
+  "notifications": {
+    "title": "الإشعارات",
+    "emptyTitle": "لا يوجد شيء بعد",
+    "emptyBody": "ستظهر هنا تحديثات طلباتك وعروض لين.",
+    "orderConfirmedTitle": "تم تأكيد الطلب",
+    "orderRoastingTitle": "نحمّص طلبك",
+    "orderReadyTitle": "جاهز للمندوب",
+    "orderPickedUpTitle": "في الطريق إليك",
+    "orderDeliveredTitle": "تم التوصيل"
   }
 }

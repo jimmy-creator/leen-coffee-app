@@ -180,3 +180,58 @@ export function TruckIcon({ size = 18, color = colors.bg }: IconProps) {
     </Svg>
   );
 }
+
+/* ---------------------------------------------------------------------------
+ * Profile row glyphs
+ *
+ * Same 20x20 line set and stroke weight as the tab bar, so a row of them reads
+ * as one family rather than a pile of borrowed icons.
+ * ------------------------------------------------------------------------- */
+
+export function BoxIcon({ size = 18, color = colors.brandMid }: IconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 20 20" fill="none">
+      <Path
+        d="M10 2.6l6.4 3.2v8.4L10 17.4 3.6 14.2V5.8L10 2.6z"
+        stroke={color}
+        strokeWidth={1.5}
+        strokeLinejoin="round"
+      />
+      <Path
+        d="M3.6 5.8L10 9l6.4-3.2M10 9v8.4"
+        stroke={color}
+        strokeWidth={1.5}
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
+}
+
+export function CardIcon({ size = 18, color = colors.brandMid }: IconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 20 20" fill="none">
+      <Path
+        d="M2.8 6.2a1.6 1.6 0 011.6-1.6h11.2a1.6 1.6 0 011.6 1.6v7.6a1.6 1.6 0 01-1.6 1.6H4.4a1.6 1.6 0 01-1.6-1.6V6.2z"
+        stroke={color}
+        strokeWidth={1.5}
+      />
+      <Path d="M2.8 8.4h14.4" stroke={color} strokeWidth={1.5} />
+      <Path d="M5.8 12.4h3" stroke={color} strokeWidth={1.5} strokeLinecap="round" />
+    </Svg>
+  );
+}
+
+export function HelpIcon({ size = 18, color = colors.brandMid }: IconProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 20 20" fill="none">
+      <Circle cx={10} cy={10} r={7.2} stroke={color} strokeWidth={1.5} />
+      <Path
+        d="M8.2 8a1.9 1.9 0 013.6.8c0 1.3-1.8 1.6-1.8 2.9"
+        stroke={color}
+        strokeWidth={1.5}
+        strokeLinecap="round"
+      />
+      <Circle cx={10} cy={14.2} r={0.85} fill={color} />
+    </Svg>
+  );
+}

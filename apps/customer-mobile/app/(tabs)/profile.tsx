@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { I18nManager, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useRouter, type Href } from 'expo-router';
 import { useTranslation } from 'react-i18next';
@@ -12,11 +12,21 @@ import { colors, border, font } from '../../lib/theme';
 import { onSurface, accentTint } from '@leen/ui/palette';
 import { ImageSlot } from '../../components/cards';
 import { Card, OutlineButton, PrimaryButton, T } from '../../components/primitives';
-import { UserIcon } from '../../components/icons';
+import {
+  BagIcon,
+  BoxIcon,
+  CardIcon,
+  HelpIcon,
+  PinIcon,
+  StarIcon,
+  SubscribeIcon,
+  UserIcon,
+} from '../../components/icons';
 
 interface RowSpec {
   key: string;
   href: Href;
+  icon: ReactNode;
   meta?: string;
 }
 
@@ -60,18 +70,41 @@ export default function Profile() {
   }, [userId]);
 
   const rows: RowSpec[] = [
-    { key: 'orders', href: '/orders', meta: f.num(counts.orders) },
+    {
+      key: 'orders',
+      href: '/orders',
+      icon: <BoxIcon />,
+      meta: f.num(counts.orders),
+    },
     {
       key: 'subscriptions',
       href: '/(tabs)/subscribe',
+      icon: <SubscribeIcon size={18} color={colors.brandMid} />,
       meta: t('subscriptions.activeCount', { count: counts.subscriptions }),
     },
     {
       key: 'rewards',
       href: '/loyalty',
+      // Brass, not green — rewards are the one place the accent earns its keep.
+      icon: <StarIcon size={16} color={colors.accent} />,
       meta: points === null ? undefined : `${f.num(points)} ${t('loyalty.points')}`,
     },
-    { key: 'addresses', href: '/addresses', meta: f.num(counts.addresses) },
+    {
+      key: 'addresses',
+      href: '/addresses',
+      icon: <PinIcon size={18} color={colors.brandMid} />,
+      meta: f.num(counts.addresses),
+    },
+    {
+      key: 'payment',
+      href: '/checkout',
+      icon: <CardIcon />,
+    },
+    {
+      key: 'support',
+      href: '/(tabs)/profile',
+      icon: <HelpIcon />,
+    },
   ];
 
   return (
@@ -135,7 +168,7 @@ export default function Profile() {
                     pressed && { backgroundColor: colors.surfaceMuted },
                   ]}
                 >
-                  <View style={styles.rowMark} />
+                  <View style={styles.rowMark}>{row.icon}</View>
                   <T variant="bodyLg" style={{ flex: 1, fontFamily: font.medium, fontSize: 14 }}>
                     {t(`profile.rows.${row.key}`)}
                   </T>
@@ -235,7 +268,14 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: onSurface(0.05),
   },
-  rowMark: { width: 34, height: 34, borderRadius: 11, backgroundColor: colors.surfaceSoft },
+  rowMark: {
+    width: 34,
+    height: 34,
+    borderRadius: 11,
+    backgroundColor: colors.surfaceSoft,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
   languageRow: {
     flexDirection: 'row',

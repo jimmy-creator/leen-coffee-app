@@ -4,6 +4,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from 'react';
@@ -15,25 +16,28 @@ import { useSession } from './session';
 
 const GUEST_CART_KEY = 'leen.cart.guest.v1';
 
-/** A cart line as the UI needs it: the choice plus enough product to render it. */
+/** Joined product detail, enough to render a cart row without another read. */
+export interface CartProduct {
+  id: number;
+  nameEn: string;
+  nameAr: string | null;
+  basePriceMinor: number;
+  imageUrl: string | null;
+  merchantId: number;
+  merchantNameEn: string;
+  merchantNameAr: string | null;
+  etaMinMinutes: number;
+  etaMaxMinutes: number;
+}
+
+/** A cart line: the choice, plus enough product to render it. */
 export interface CartLine {
   productId: number;
   qty: number;
   grind: GrindOption;
   weightG: BagWeight;
-  /** Joined product/merchant detail. Absent until the product row loads. */
-  product?: {
-    id: number;
-    nameEn: string;
-    nameAr: string | null;
-    basePriceMinor: number;
-    imageUrl: string | null;
-    merchantId: number;
-    merchantNameEn: string;
-    merchantNameAr: string | null;
-    etaMinMinutes: number;
-    etaMaxMinutes: number;
-  };
+  /** Absent only for the instant between an optimistic add and its hydration. */
+  product?: CartProduct;
 }
 
 interface CartValue {
@@ -62,7 +66,12 @@ const CartContext = createContext<CartValue | null>(null);
 const lineKey = (productId: number, grind: string, weightG: number) =>
   `${productId}:${grind}:${weightG}`;
 
+const MAX_QTY = 99;
+
 type StoredGuestLine = Pick<CartLine, 'productId' | 'qty' | 'grind' | 'weightG'>;
+
+const strip = (lines: CartLine[]): StoredGuestLine[] =>
+  lines.map(({ productId, qty, grind, weightG }) => ({ productId, qty, grind, weightG }));
 
 async function readGuestCart(): Promise<StoredGuestLine[]> {
   const raw = await AsyncStorage.getItem(GUEST_CART_KEY);
@@ -75,35 +84,40 @@ async function readGuestCart(): Promise<StoredGuestLine[]> {
   }
 }
 
-async function writeGuestCart(lines: StoredGuestLine[]): Promise<void> {
-  await AsyncStorage.setItem(GUEST_CART_KEY, JSON.stringify(lines));
-}
-
 /**
  * The cart, in two halves.
  *
  * Signed in, it is `public.cart_items` — so the basket survives a reinstall and
  * is the same basket `place_order` reads on the server. Signed out it lives in
- * AsyncStorage, because "Browse as a guest" is a real entry point in the design
- * and a guest has no `user_id` for RLS to key on.
+ * AsyncStorage, because "Browse as a guest" is a real entry point and a guest
+ * has no `user_id` for RLS to key on. On sign-in the guest cart merges into the
+ * server cart and is dropped.
  *
- * On sign-in the guest cart is merged into the server cart and then dropped:
- * whatever the customer put in the basket before creating an account is still
- * there afterwards.
+ * **Every mutation is optimistic.** Local state moves first and the write goes
+ * out behind it, because the alternative — await the write, then re-read the
+ * cart, then re-read the products to hydrate it — is three round trips before
+ * a "+" tap does anything visible, which felt broken on a phone. A failed write
+ * resyncs from the server, so the optimism is never load-bearing.
  */
 export function CartProvider({ children }: { children: ReactNode }) {
   const { userId, ready } = useSession();
   const [lines, setLines] = useState<CartLine[]>([]);
   const [loading, setLoading] = useState(true);
 
-  /** Attach product + merchant detail to a set of bare lines. */
-  const hydrate = useCallback(async (bare: StoredGuestLine[]): Promise<CartLine[]> => {
-    if (bare.length === 0) return [];
-    const ids = [...new Set(bare.map((l) => l.productId))];
+  /**
+   * Product detail keyed by id, so re-adding something already in the basket
+   * needs no fetch at all. A ref rather than state: it feeds renders through
+   * `lines`, and writing it must not itself cause one.
+   */
+  const productCache = useRef(new Map<number, CartProduct>());
+
+  const cacheProducts = useCallback(async (ids: number[]) => {
+    const missing = ids.filter((id) => !productCache.current.has(id));
+    if (missing.length === 0) return;
 
     // One template literal, not a concatenation: supabase-js reads the row type
     // off the literal type of this string. See lib/queries.ts for the full note.
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from('products')
       .select(
         `
@@ -111,32 +125,41 @@ export function CartProvider({ children }: { children: ReactNode }) {
           merchants ( id, name_en, name_ar, eta_min_minutes, eta_max_minutes )
         `,
       )
-      .in('id', ids);
+      .in('id', missing);
 
-    if (error || !data) return bare;
-
-    const byId = new Map(data.map((p) => [p.id, p]));
-    return bare.map((l) => {
-      const p = byId.get(l.productId);
-      if (!p) return l;
-      const m = p.merchants;
-      return {
-        ...l,
-        product: {
-          id: p.id,
-          nameEn: p.name_en,
-          nameAr: p.name_ar,
-          basePriceMinor: p.base_price_minor,
-          imageUrl: p.image_url,
-          merchantId: p.merchant_id,
-          merchantNameEn: m?.name_en ?? '',
-          merchantNameAr: m?.name_ar ?? null,
-          etaMinMinutes: m?.eta_min_minutes ?? 35,
-          etaMaxMinutes: m?.eta_max_minutes ?? 60,
-        },
-      };
-    });
+    for (const p of data ?? []) {
+      productCache.current.set(p.id, {
+        id: p.id,
+        nameEn: p.name_en,
+        nameAr: p.name_ar,
+        basePriceMinor: p.base_price_minor,
+        imageUrl: p.image_url,
+        merchantId: p.merchant_id,
+        merchantNameEn: p.merchants?.name_en ?? '',
+        merchantNameAr: p.merchants?.name_ar ?? null,
+        etaMinMinutes: p.merchants?.eta_min_minutes ?? 35,
+        etaMaxMinutes: p.merchants?.eta_max_minutes ?? 60,
+      });
+    }
   }, []);
+
+  /** Attach cached product detail to a set of bare lines. */
+  const dress = useCallback(
+    (bare: StoredGuestLine[]): CartLine[] =>
+      bare.map((l) => {
+        const product = productCache.current.get(l.productId);
+        return product ? { ...l, product } : l;
+      }),
+    [],
+  );
+
+  const hydrate = useCallback(
+    async (bare: StoredGuestLine[]): Promise<CartLine[]> => {
+      await cacheProducts(bare.map((l) => l.productId));
+      return dress(bare);
+    },
+    [cacheProducts, dress],
+  );
 
   const refresh = useCallback(async () => {
     setLoading(true);
@@ -178,35 +201,33 @@ export function CartProvider({ children }: { children: ReactNode }) {
     void (async () => {
       if (userId) {
         const guest = await readGuestCart();
-        if (guest.length > 0) {
-          for (const line of guest) {
-            // Read-then-write rather than an upsert: the qty has to be summed,
-            // not replaced, and a guest cart is a handful of lines at most.
-            const { data: existing } = await supabase
-              .from('cart_items')
-              .select('id, qty')
-              .eq('product_id', line.productId)
-              .eq('grind', line.grind)
-              .eq('weight_g', line.weightG)
-              .maybeSingle();
+        for (const line of guest) {
+          // Read-then-write rather than an upsert: the qty has to be summed,
+          // not replaced, and a guest cart is a handful of lines at most.
+          const { data: existing } = await supabase
+            .from('cart_items')
+            .select('id, qty')
+            .eq('product_id', line.productId)
+            .eq('grind', line.grind)
+            .eq('weight_g', line.weightG)
+            .maybeSingle();
 
-            if (existing) {
-              await supabase
-                .from('cart_items')
-                .update({ qty: Math.min(99, existing.qty + line.qty) })
-                .eq('id', existing.id);
-            } else {
-              await supabase.from('cart_items').insert({
-                user_id: userId,
-                product_id: line.productId,
-                qty: line.qty,
-                grind: line.grind,
-                weight_g: line.weightG,
-              });
-            }
+          if (existing) {
+            await supabase
+              .from('cart_items')
+              .update({ qty: Math.min(MAX_QTY, existing.qty + line.qty) })
+              .eq('id', existing.id);
+          } else {
+            await supabase.from('cart_items').insert({
+              user_id: userId,
+              product_id: line.productId,
+              qty: line.qty,
+              grind: line.grind,
+              weight_g: line.weightG,
+            });
           }
-          await AsyncStorage.removeItem(GUEST_CART_KEY);
         }
+        if (guest.length > 0) await AsyncStorage.removeItem(GUEST_CART_KEY);
       }
       if (!cancelled) await refresh();
     })();
@@ -216,112 +237,141 @@ export function CartProvider({ children }: { children: ReactNode }) {
     };
   }, [ready, userId, refresh]);
 
-  const add: CartValue['add'] = useCallback(
-    async (productId, grind, weightG, qty = 1) => {
+  /**
+   * Apply a change to local state now, persist behind it, and resync only if
+   * the write fails. `next` receives the current lines and returns the new set.
+   *
+   * `persist` is handed the signed-in id rather than closing over it, because
+   * it only ever runs on the signed-in branch — passing it makes that an
+   * invariant the type system checks instead of one each caller has to assert.
+   */
+  const optimistic = useCallback(
+    async (
+      next: (current: CartLine[]) => CartLine[],
+      persist: (uid: string) => Promise<unknown>,
+    ) => {
+      let applied: CartLine[] = [];
+      setLines((current) => {
+        applied = next(current);
+        return applied;
+      });
+
+      // A guest's basket lives only in storage, so that write *is* the persist.
       if (!userId) {
-        const guest = await readGuestCart();
-        const key = lineKey(productId, grind, weightG);
-        const found = guest.find((l) => lineKey(l.productId, l.grind, l.weightG) === key);
-        const next = found
-          ? guest.map((l) =>
-              lineKey(l.productId, l.grind, l.weightG) === key
-                ? { ...l, qty: Math.min(99, l.qty + qty) }
-                : l,
-            )
-          : [...guest, { productId, qty, grind, weightG }];
-        await writeGuestCart(next);
-        setLines(await hydrate(next));
+        await AsyncStorage.setItem(GUEST_CART_KEY, JSON.stringify(strip(applied)));
         return;
       }
 
-      const { data: existing } = await supabase
-        .from('cart_items')
-        .select('id, qty')
-        .eq('product_id', productId)
-        .eq('grind', grind)
-        .eq('weight_g', weightG)
-        .maybeSingle();
-
-      if (existing) {
-        await supabase
-          .from('cart_items')
-          .update({ qty: Math.min(99, existing.qty + qty) })
-          .eq('id', existing.id);
-      } else {
-        await supabase.from('cart_items').insert({
-          user_id: userId,
-          product_id: productId,
-          qty,
-          grind,
-          weight_g: weightG,
-        });
+      try {
+        await persist(userId);
+      } catch {
+        await refresh();
       }
-      await refresh();
     },
-    [userId, hydrate, refresh],
+    [userId, refresh],
+  );
+
+  const add: CartValue['add'] = useCallback(
+    async (productId, grind, weightG, qty = 1) => {
+      const key = lineKey(productId, grind, weightG);
+
+      // Warm the cache first when this product is new to the basket, so the
+      // optimistic line renders with its name and price rather than blank.
+      if (!productCache.current.has(productId)) await cacheProducts([productId]);
+
+      await optimistic(
+        (current) => {
+          const found = current.find((l) => lineKey(l.productId, l.grind, l.weightG) === key);
+          const bare = found
+            ? current.map((l) =>
+                lineKey(l.productId, l.grind, l.weightG) === key
+                  ? { ...l, qty: Math.min(MAX_QTY, l.qty + qty) }
+                  : l,
+              )
+            : [...current, { productId, qty, grind, weightG }];
+          return dress(strip(bare));
+        },
+        async (uid) => {
+          const { data: existing } = await supabase
+            .from('cart_items')
+            .select('id, qty')
+            .eq('product_id', productId)
+            .eq('grind', grind)
+            .eq('weight_g', weightG)
+            .maybeSingle();
+
+          if (existing) {
+            const { error } = await supabase
+              .from('cart_items')
+              .update({ qty: Math.min(MAX_QTY, existing.qty + qty) })
+              .eq('id', existing.id);
+            if (error) throw error;
+          } else {
+            const { error } = await supabase.from('cart_items').insert({
+              user_id: uid,
+              product_id: productId,
+              qty,
+              grind,
+              weight_g: weightG,
+            });
+            if (error) throw error;
+          }
+        },
+      );
+    },
+    [optimistic, cacheProducts, dress],
   );
 
   const setQty: CartValue['setQty'] = useCallback(
     async (productId, grind, weightG, qty) => {
-      if (qty <= 0) {
-        await removeLine(productId, grind, weightG);
-        return;
-      }
-      if (!userId) {
-        const guest = await readGuestCart();
-        const key = lineKey(productId, grind, weightG);
-        const next = guest.map((l) =>
-          lineKey(l.productId, l.grind, l.weightG) === key ? { ...l, qty } : l,
-        );
-        await writeGuestCart(next);
-        setLines(await hydrate(next));
-        return;
-      }
-      await supabase
-        .from('cart_items')
-        .update({ qty })
-        .eq('product_id', productId)
-        .eq('grind', grind)
-        .eq('weight_g', weightG);
-      await refresh();
+      const key = lineKey(productId, grind, weightG);
+      const clamped = Math.min(MAX_QTY, qty);
+
+      await optimistic(
+        (current) =>
+          clamped <= 0
+            ? current.filter((l) => lineKey(l.productId, l.grind, l.weightG) !== key)
+            : current.map((l) =>
+                lineKey(l.productId, l.grind, l.weightG) === key ? { ...l, qty: clamped } : l,
+              ),
+        async () => {
+          if (clamped <= 0) {
+            const { error } = await supabase
+              .from('cart_items')
+              .delete()
+              .eq('product_id', productId)
+              .eq('grind', grind)
+              .eq('weight_g', weightG);
+            if (error) throw error;
+            return;
+          }
+          const { error } = await supabase
+            .from('cart_items')
+            .update({ qty: clamped })
+            .eq('product_id', productId)
+            .eq('grind', grind)
+            .eq('weight_g', weightG);
+          if (error) throw error;
+        },
+      );
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [userId, hydrate, refresh],
+    [optimistic],
   );
 
-  async function removeLine(productId: number, grind: GrindOption, weightG: BagWeight) {
-    if (!userId) {
-      const guest = await readGuestCart();
-      const key = lineKey(productId, grind, weightG);
-      const next = guest.filter((l) => lineKey(l.productId, l.grind, l.weightG) !== key);
-      await writeGuestCart(next);
-      setLines(await hydrate(next));
-      return;
-    }
-    await supabase
-      .from('cart_items')
-      .delete()
-      .eq('product_id', productId)
-      .eq('grind', grind)
-      .eq('weight_g', weightG);
-    await refresh();
-  }
-
   const remove: CartValue['remove'] = useCallback(
-    (productId, grind, weightG) => removeLine(productId, grind, weightG),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [userId, hydrate, refresh],
+    (productId, grind, weightG) => setQty(productId, grind, weightG, 0),
+    [setQty],
   );
 
   const clear: CartValue['clear'] = useCallback(async () => {
-    if (!userId) {
-      await AsyncStorage.removeItem(GUEST_CART_KEY);
-      setLines([]);
-      return;
-    }
-    await supabase.from('cart_items').delete().eq('user_id', userId);
-    setLines([]);
-  }, [userId]);
+    await optimistic(
+      () => [],
+      async (uid) => {
+        const { error } = await supabase.from('cart_items').delete().eq('user_id', uid);
+        if (error) throw error;
+      },
+    );
+  }, [optimistic]);
 
   const value = useMemo<CartValue>(() => {
     const count = lines.reduce((n, l) => n + l.qty, 0);
@@ -341,6 +391,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         sum + (l.product ? variantPriceMinor(l.product.basePriceMinor, l.weightG) * l.qty : 0),
       0,
     );
+
     return { lines, count, subtotalMinor, loading, qtyOf, add, setQty, remove, clear, refresh };
   }, [lines, loading, add, setQty, remove, clear, refresh]);
 

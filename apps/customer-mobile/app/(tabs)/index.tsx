@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { fetchCategories, fetchHomeFeed } from '../../lib/queries';
 import { useCart } from '../../lib/cart';
+import { useAddresses } from '../../lib/address';
+import { useNotifications } from '../../lib/notifications';
 import { useFormat } from '../../lib/format';
 import { colors, border, font } from '../../lib/theme';
 import { onBrand, onSurface, accentTint, dangerTint } from '@leen/ui/palette';
@@ -21,6 +23,8 @@ export default function Home() {
   const insets = useSafeAreaInsets();
   const f = useFormat();
   const { add, qtyOf } = useCart();
+  const { selectedLabel } = useAddresses();
+  const { unread } = useNotifications();
 
   const [feed, setFeed] = useState<Feed | null>(null);
   const [categories, setCategories] = useState<Category[]>([]);
@@ -61,8 +65,9 @@ export default function Home() {
               {t('home.deliverTo')}
             </T>
             <View style={styles.inlineRow}>
-              <T variant="label" style={{ fontSize: 15 }}>
-                {t('home.pickAddress')}
+              <T variant="label" style={{ fontSize: 15 }} numberOfLines={1}>
+                {/* The saved address once there is one; the prompt until then. */}
+                {selectedLabel ?? t('home.pickAddress')}
               </T>
               <ChevronIcon />
             </View>
@@ -75,8 +80,9 @@ export default function Home() {
                 {t('loyalty.title')}
               </T>
             </Pressable>
-            <Pressable style={styles.iconCircle}>
+            <Pressable onPress={() => router.push('/notifications')} style={styles.iconCircle}>
               <BellIcon />
+              {unread > 0 ? <View style={styles.bellDot} /> : null}
             </Pressable>
           </View>
         </View>
@@ -315,6 +321,17 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  bellDot: {
+    position: 'absolute',
+    top: 8,
+    end: 9,
+    width: 8,
+    height: 8,
+    borderRadius: 999,
+    backgroundColor: colors.danger,
+    borderWidth: 1.5,
+    borderColor: colors.surface,
   },
   searchBar: {
     height: 46,
