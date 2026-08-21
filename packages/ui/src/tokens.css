@@ -1,0 +1,40 @@
+/**
+ * Leen design tokens for the three web apps. Mirrors packages/ui/src/palette.ts —
+ * update both together.
+ */
+:root {
+  --leen-espresso: #3b2418;
+  --leen-ink: #211712;
+  --leen-ink-2: #75675f;
+  --leen-ink-3: #8a7a6e;
+  --leen-brown: #5a3826;
+  --leen-caramel: #c58b55;
+  --leen-forest: #1f4d3a;
+  --leen-green: #2e7d5b;
+  --leen-red: #c94b4b;
+  --leen-gold: #d9902f;
+
+  --leen-bg: #f8f4ee;
+  --leen-canvas: #e7dfd4;
+  --leen-surface: #ffffff;
+  --leen-surface-alt: #f1ebe3;
+  --leen-surface-soft: #f4efe8;
+
+  --leen-hair: rgba(33, 23, 18, 0.07);
+  --leen-border: rgba(33, 23, 18, 0.12);
+
+  --radius: 0.875rem;
+}
+
+.dark {
+  --leen-bg: #1a120d;
+  --leen-canvas: #120c08;
+  --leen-surface: #241811;
+  --leen-surface-alt: #2e2019;
+  --leen-surface-soft: #2e2019;
+  --leen-ink: #f8f4ee;
+  --leen-ink-2: rgba(248, 244, 238, 0.68);
+  --leen-ink-3: rgba(248, 244, 238, 0.46);
+  --leen-hair: rgba(248, 244, 238, 0.08);
+  --leen-border: rgba(248, 244, 238, 0.14);
+}

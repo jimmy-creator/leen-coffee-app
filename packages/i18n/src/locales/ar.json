@@ -1,0 +1,320 @@
+{
+  "common": {
+    "appName": "لين",
+    "retry": "إعادة",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "close": "إغلاق",
+    "seeAll": "الكل",
+    "change": "تغيير",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "confirm": "تأكيد",
+    "back": "رجوع",
+    "done": "تم",
+    "free": "مجاني",
+    "or": "أو",
+    "somethingWrong": "حدث خطأ ما",
+    "language": "اللغة",
+    "arabic": "عربي",
+    "english": "EN"
+  },
+  "onboarding": {
+    "title": "قهوة سعودية مختصة، من المحمصة إلى بابك.",
+    "subtitle": "سلة واحدة من عشرات المحامص السعودية المستقلة، مع تاريخ التحميص قبل الشراء.",
+    "getStarted": "إنشاء حساب",
+    "browseGuest": "التصفح كزائر"
+  },
+  "auth": {
+    "title": "رقم جوالك",
+    "subtitle": "نرسل رمزاً من أربعة أرقام، بلا كلمة مرور.",
+    "phoneLabel": "رقم الجوال",
+    "phonePlaceholder": "٥× ××× ××××",
+    "sendCode": "إرسال الرمز",
+    "continueApple": "المتابعة عبر Apple",
+    "continueNafath": "المتابعة عبر نفاذ",
+    "legal": "بالمتابعة أنت توافق على شروط الاستخدام وسياسة الخصوصية في لين.",
+    "otpTitle": "أدخل الرمز",
+    "resendIn": "إعادة الإرسال بعد {{seconds}} ثانية",
+    "resend": "إعادة إرسال الرمز",
+    "invalidPhone": "أدخل رقم جوال سعودي يبدأ بـ ٥.",
+    "invalidOtp": "الرمز غير مطابق، حاول مرة أخرى.",
+    "sendFailed": "تعذر إرسال الرمز، حاول بعد قليل.",
+    "signOut": "تسجيل الخروج",
+    "signIn": "تسجيل الدخول",
+    "signInToContinue": "سجّل الدخول للمتابعة"
+  },
+  "home": {
+    "deliverTo": "التوصيل إلى",
+    "pickAddress": "اختر عنواناً",
+    "searchPlaceholder": "ابحث عن حبوب، محامص، أدوات",
+    "thisWeek": "هذا الأسبوع",
+    "roasters": "محامص قريبة منك",
+    "freshRoast": "تحميص طازج",
+    "freshRoastSub": "محمّصة خلال آخر خمسة أيام",
+    "errorTitle": "تعذر تحديث الصفحة",
+    "errorBody": "أنت غير متصل. نعرض آخر نسخة محفوظة.",
+    "emptyTitle": "لا يوجد شيء بعد",
+    "emptyBody": "محامص جديدة تنضم إلى لين كل أسبوع، عد إلينا قريباً."
+  },
+  "categories": {
+    "all": "الكل",
+    "beans": "حبوب",
+    "espresso": "إسبريسو",
+    "filter": "تقطير",
+    "saudiCoffee": "قهوة سعودية",
+    "gear": "أدوات"
+  },
+  "search": {
+    "resultCount_one": "نتيجة واحدة",
+    "resultCount_two": "نتيجتان",
+    "resultCount_few": "{{count}} نتائج",
+    "resultCount_many": "{{count}} نتيجة",
+    "resultCount_other": "{{count}} نتيجة",
+    "emptyTitle": "لا نتائج",
+    "emptyBody": "جرّب تصفية أوسع، أو ابحث بالمنشأ مثل جازان أو جوجي.",
+    "clearFilters": "إزالة التصفية",
+    "filters": {
+      "saudiOrigin": "منشأ سعودي",
+      "lightRoast": "تحميص فاتح",
+      "underEighty": "أقل من ٨٠ ر.س",
+      "espresso": "إسبريسو",
+      "freeDelivery": "توصيل مجاني"
+    }
+  },
+  "store": {
+    "delivery": "التوصيل",
+    "products": "المنتجات",
+    "since": "منذ",
+    "tabs": {
+      "all": "الكل",
+      "beans": "حبوب",
+      "subscriptions": "اشتراكات",
+      "gear": "أدوات",
+      "about": "عن المحمصة"
+    },
+    "closed": "مغلقة الآن",
+    "closedBody": "هذه المحمصة لا تستقبل الطلبات حالياً."
+  },
+  "product": {
+    "perWeight": "لـ {{weight}} · شامل الضريبة",
+    "grind": "الطحن",
+    "weight": "الوزن",
+    "roastedAgo_one": "محمّصة قبل يوم",
+    "roastedAgo_two": "محمّصة قبل يومين",
+    "roastedAgo_few": "محمّصة قبل {{count}} أيام",
+    "roastedAgo_many": "محمّصة قبل {{count}} يوماً",
+    "roastedAgo_other": "محمّصة قبل {{count}} يوم",
+    "roastedToday": "محمّصة اليوم",
+    "freshnessNote": "كل كيس في لين يعرض تاريخ تحميصه، ولا نرسل ما مضى عليه أكثر من ٢١ يوماً.",
+    "about": "عن هذه القهوة",
+    "addToCart": "أضف للسلة",
+    "outOfStock": "غير متوفرة",
+    "specs": {
+      "origin": "المنشأ",
+      "process": "المعالجة",
+      "altitude": "الارتفاع",
+      "variety": "الصنف"
+    },
+    "grinds": {
+      "whole_bean": "حبوب كاملة",
+      "espresso": "إسبريسو",
+      "filter": "في٦٠ / تقطير",
+      "turkish": "تركي / سعودي"
+    },
+    "roasts": {
+      "light": "فاتح",
+      "medium": "وسط",
+      "medium_dark": "وسط غامق",
+      "dark": "غامق"
+    },
+    "processes": {
+      "washed": "مغسول",
+      "natural": "طبيعي",
+      "honey": "عسلي",
+      "anaerobic": "لاهوائي",
+      "pulped_natural": "طبيعي مقشور"
+    },
+    "weights": {
+      "250": "٢٥٠ جم",
+      "500": "٥٠٠ جم",
+      "1000": "١ كجم"
+    }
+  },
+  "cart": {
+    "title": "السلة",
+    "emptyTitle": "سلتك فارغة",
+    "emptyBody": "حبوب وأدوات تحضير من محامص سعودية على بعد لمسة.",
+    "startShopping": "ابدأ التسوق",
+    "merchantSubtotal": "مجموع التاجر",
+    "promoPlaceholder": "رمز الخصم",
+    "apply": "تطبيق",
+    "promoApplied": "تم تطبيق الخصم",
+    "promoInvalid": "هذا الرمز غير صالح.",
+    "checkout": "إتمام الشراء"
+  },
+  "totals": {
+    "subtotal": "المجموع",
+    "delivery": "التوصيل",
+    "vat": "ضريبة ١٥٪",
+    "promo": "الخصم",
+    "total": "الإجمالي"
+  },
+  "checkout": {
+    "title": "إتمام الشراء",
+    "deliveryAddress": "عنوان التوصيل",
+    "deliveryMethod": "التوصيل",
+    "payment": "الدفع",
+    "vatNote": "الأسعار تشمل ضريبة القيمة المضافة ١٥٪. كل تاجر يشحن طلبه منفصلاً.",
+    "placeOrder": "تأكيد الطلب",
+    "placing": "جارٍ تأكيد طلبك…",
+    "noAddress": "أضف عنوان توصيل للمتابعة",
+    "failed": "تعذر تأكيد الطلب، ولم يتم خصم أي مبلغ.",
+    "ship": {
+      "standard": "عادي",
+      "standardSub": "اليوم، ٣٥–٦٠ دقيقة",
+      "express": "سريع",
+      "expressSub": "خلال ٣٠ دقيقة",
+      "pickup": "استلام من المحمصة",
+      "pickupSub": "جاهز خلال ٢٠ دقيقة"
+    },
+    "pay": {
+      "mada": "مدى",
+      "apple_pay": "Apple Pay",
+      "stc_pay": "stc pay",
+      "cash_on_delivery": "الدفع عند الاستلام"
+    },
+    "payBadge": {
+      "mada": "مدى",
+      "apple_pay": "NFC",
+      "stc_pay": "محفظة",
+      "cash_on_delivery": "نقداً"
+    }
+  },
+  "orderDone": {
+    "title": "تم تأكيد طلبك",
+    "subtitle": "{{merchant}} تطحن طلبك الآن، وسنبلغك عند انطلاق المندوب.",
+    "trackOrder": "تتبع الطلب",
+    "keepShopping": "متابعة التسوق"
+  },
+  "tracking": {
+    "orderNo": "الطلب رقم {{code}}",
+    "arrives": "الوصول {{time}}",
+    "steps": {
+      "pending": "تم الطلب",
+      "confirmed": "تأكيد المحمصة",
+      "roasting": "التحميص والطحن",
+      "ready": "جاهز للاستلام",
+      "picked_up": "استلام المندوب {{name}}",
+      "delivered": "عند بابك",
+      "cancelled": "ملغي"
+    },
+    "statusTitle": {
+      "pending": "بانتظار المحمصة",
+      "confirmed": "تم التأكيد",
+      "roasting": "نحمّص طلبك",
+      "ready": "جاهز للمندوب",
+      "picked_up": "في الطريق إليك",
+      "delivered": "تم التوصيل",
+      "cancelled": "تم إلغاء الطلب"
+    },
+    "driver": "مندوبك",
+    "callDriver": "اتصل بالمندوب",
+    "noOrders": "لا توجد طلبات بعد",
+    "noOrdersBody": "ستظهر طلباتك هنا بعد أول طلب."
+  },
+  "orders": {
+    "title": "طلباتي",
+    "itemCount_one": "منتج واحد",
+    "itemCount_two": "منتجان",
+    "itemCount_few": "{{count}} منتجات",
+    "itemCount_many": "{{count}} منتجاً",
+    "itemCount_other": "{{count}} منتج"
+  },
+  "subscriptions": {
+    "kicker": "الاشتراك",
+    "title": "حبوب عند بابك كل أسبوعين",
+    "subtitle": "اختر مستوى التحميص ونتولى تغيير المنشأ. أوقف أو أجّل متى شئت.",
+    "cta": "تصفح الخطط ←",
+    "frequency": "التكرار",
+    "perDelivery": "لكل توصيل",
+    "subscribe": "اشترك",
+    "mostPopular": "الأكثر اختياراً — اشترك",
+    "note": "طلبات الاشتراك تُشحن في اليوم التالي للتحميص. غيّر المحمصة أو الطحن أو أوقف الاشتراك من حسابك.",
+    "freq": {
+      "weekly": "أسبوعي",
+      "biweekly": "كل أسبوعين",
+      "monthly": "شهري"
+    },
+    "mine": "اشتراكاتي",
+    "active": "نشط",
+    "paused": "موقوف",
+    "pause": "إيقاف مؤقت",
+    "resume": "استئناف",
+    "activeCount_one": "اشتراك نشط",
+    "activeCount_two": "اشتراكان نشطان",
+    "activeCount_few": "{{count}} اشتراكات نشطة",
+    "activeCount_many": "{{count}} اشتراكاً نشطاً",
+    "activeCount_other": "{{count}} اشتراك نشط",
+    "nextDelivery": "التوصيل القادم {{date}}"
+  },
+  "loyalty": {
+    "title": "مكافآت لين",
+    "points": "نقطة",
+    "tier": "المستوى",
+    "toNextTier": "{{count}} نقطة تفصلك عن المستوى التالي وتوصيل مجاني لسنة.",
+    "topTier": "أنت في أعلى مستوى، وتوصيلك مجاني دائماً.",
+    "redeem": "استبدال",
+    "locked": "مقفل",
+    "pointsCost": "{{count}} نقطة",
+    "redeemed": "تم استبدال المكافأة",
+    "tiers": {
+      "qahwa_bronze": "قهوة برونزي",
+      "qahwa_silver": "قهوة فضي",
+      "qahwa_gold": "قهوة ذهبي",
+      "qahwa_black": "قهوة أسود"
+    }
+  },
+  "profile": {
+    "title": "حسابي",
+    "guest": "زائر",
+    "guestBody": "سجّل الدخول لعرض طلباتك ومكافآتك وعناوينك.",
+    "rows": {
+      "orders": "طلباتي",
+      "subscriptions": "اشتراكاتي",
+      "rewards": "مكافآت لين",
+      "addresses": "العناوين",
+      "payment": "طرق الدفع",
+      "support": "المساعدة والدعم"
+    }
+  },
+  "addresses": {
+    "title": "العناوين",
+    "setDefault": "تعيين افتراضي",
+    "default": "افتراضي",
+    "add": "+ إضافة عنوان جديد",
+    "emptyTitle": "لا توجد عناوين",
+    "emptyBody": "أضف عنواناً لنعرف أين نوصل القهوة.",
+    "form": {
+      "title": "عنوان جديد",
+      "label": "التسمية",
+      "labelPlaceholder": "المنزل، المكتب…",
+      "street": "الشارع",
+      "district": "الحي",
+      "city": "المدينة",
+      "buildingNumber": "رقم المبنى",
+      "postalCode": "الرمز البريدي",
+      "additionalNumber": "الرقم الإضافي",
+      "notes": "ملاحظات للمندوب",
+      "saveAddress": "حفظ العنوان",
+      "required": "الشارع والحي والمدينة حقول مطلوبة."
+    }
+  },
+  "tabs": {
+    "home": "الرئيسية",
+    "explore": "استكشف",
+    "subscribe": "اشتراك",
+    "cart": "السلة",
+    "profile": "حسابي"
+  }
+}

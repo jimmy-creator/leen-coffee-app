@@ -1,0 +1,308 @@
+{
+  "common": {
+    "appName": "Leen Coffee",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "close": "Close",
+    "seeAll": "See all",
+    "change": "Change",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "back": "Back",
+    "done": "Done",
+    "free": "Free",
+    "or": "or",
+    "somethingWrong": "Something went wrong",
+    "language": "Language",
+    "arabic": "عربي",
+    "english": "EN"
+  },
+  "onboarding": {
+    "title": "Saudi specialty coffee, from the roaster to your door.",
+    "subtitle": "One basket across dozens of independent Saudi roasters. Roast dates shown before you buy.",
+    "getStarted": "Create an account",
+    "browseGuest": "Browse as a guest"
+  },
+  "auth": {
+    "title": "Your phone number",
+    "subtitle": "We send a four-digit code. No password to remember.",
+    "phoneLabel": "Mobile number",
+    "phonePlaceholder": "5X XXX XXXX",
+    "sendCode": "Send the code",
+    "continueApple": "Continue with Apple",
+    "continueNafath": "Continue with Nafath",
+    "legal": "By continuing you agree to the Terms of Use and Privacy Policy of Leen Coffee.",
+    "otpTitle": "Enter the code",
+    "resendIn": "Resend available in {{seconds}}s",
+    "resend": "Resend the code",
+    "invalidPhone": "Enter a Saudi mobile number starting with 5.",
+    "invalidOtp": "That code did not match. Try again.",
+    "sendFailed": "We could not send the code. Try again in a moment.",
+    "signOut": "Sign out",
+    "signIn": "Sign in",
+    "signInToContinue": "Sign in to continue"
+  },
+  "home": {
+    "deliverTo": "DELIVER TO",
+    "pickAddress": "Pick an address",
+    "searchPlaceholder": "Search beans, roasters, tools",
+    "thisWeek": "THIS WEEK",
+    "roasters": "Roasters near you",
+    "freshRoast": "Fresh roast",
+    "freshRoastSub": "Roasted in the last five days",
+    "errorTitle": "Could not refresh your feed",
+    "errorBody": "You are offline. Showing the last saved version.",
+    "emptyTitle": "Nothing here yet",
+    "emptyBody": "New roasters are joining Leen every week. Check back soon."
+  },
+  "categories": {
+    "all": "All",
+    "beans": "Beans",
+    "espresso": "Espresso",
+    "filter": "Filter",
+    "saudiCoffee": "Saudi coffee",
+    "gear": "Brew gear"
+  },
+  "search": {
+    "resultCount_one": "{{count}} result",
+    "resultCount_other": "{{count}} results",
+    "emptyTitle": "Nothing matched",
+    "emptyBody": "Try a wider filter, or search by origin like Jazan or Guji.",
+    "clearFilters": "Clear filters",
+    "filters": {
+      "saudiOrigin": "Saudi origin",
+      "lightRoast": "Light roast",
+      "underEighty": "Under 80 SAR",
+      "espresso": "Espresso",
+      "freeDelivery": "Free delivery"
+    }
+  },
+  "store": {
+    "delivery": "Delivery",
+    "products": "Products",
+    "since": "Since",
+    "tabs": {
+      "all": "All",
+      "beans": "Beans",
+      "subscriptions": "Subscriptions",
+      "gear": "Gear",
+      "about": "About"
+    },
+    "closed": "Closed right now",
+    "closedBody": "This roastery is not taking orders at the moment."
+  },
+  "product": {
+    "perWeight": "for {{weight}} · incl. VAT",
+    "grind": "Grind",
+    "weight": "Weight",
+    "roastedAgo_one": "Roasted {{count}} day ago",
+    "roastedAgo_other": "Roasted {{count}} days ago",
+    "roastedToday": "Roasted today",
+    "freshnessNote": "Every Leen bag shows its roast date. Nothing older than 21 days ships.",
+    "about": "About this coffee",
+    "addToCart": "Add to cart",
+    "outOfStock": "Out of stock",
+    "specs": {
+      "origin": "Origin",
+      "process": "Process",
+      "altitude": "Altitude",
+      "variety": "Variety"
+    },
+    "grinds": {
+      "whole_bean": "Whole bean",
+      "espresso": "Espresso",
+      "filter": "V60 / filter",
+      "turkish": "Turkish / Saudi"
+    },
+    "roasts": {
+      "light": "LIGHT",
+      "medium": "MEDIUM",
+      "medium_dark": "MEDIUM DARK",
+      "dark": "DARK"
+    },
+    "processes": {
+      "washed": "Washed",
+      "natural": "Natural",
+      "honey": "Honey",
+      "anaerobic": "Anaerobic",
+      "pulped_natural": "Pulped natural"
+    },
+    "weights": {
+      "250": "250 g",
+      "500": "500 g",
+      "1000": "1 kg"
+    }
+  },
+  "cart": {
+    "title": "Cart",
+    "emptyTitle": "Your cart is empty",
+    "emptyBody": "Beans, tools and brew gear from Saudi roasters are a tap away.",
+    "startShopping": "Start shopping",
+    "merchantSubtotal": "Merchant subtotal",
+    "promoPlaceholder": "Promo code",
+    "apply": "Apply",
+    "promoApplied": "Promo applied",
+    "promoInvalid": "That code is not valid.",
+    "checkout": "Checkout"
+  },
+  "totals": {
+    "subtotal": "Subtotal",
+    "delivery": "Delivery",
+    "vat": "VAT 15%",
+    "promo": "Promo",
+    "total": "Total"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "deliveryAddress": "DELIVERY ADDRESS",
+    "deliveryMethod": "DELIVERY",
+    "payment": "PAYMENT",
+    "vatNote": "Prices include 15% VAT. Each merchant ships separately.",
+    "placeOrder": "Place order",
+    "placing": "Placing your order…",
+    "noAddress": "Add a delivery address to continue",
+    "failed": "We could not place the order. Nothing was charged.",
+    "ship": {
+      "standard": "Standard",
+      "standardSub": "Today, 35–60 min",
+      "express": "Express",
+      "expressSub": "Within 30 min",
+      "pickup": "Pick up from roaster",
+      "pickupSub": "Ready in 20 min"
+    },
+    "pay": {
+      "mada": "mada debit",
+      "apple_pay": "Apple Pay",
+      "stc_pay": "stc pay",
+      "cash_on_delivery": "Cash on delivery"
+    },
+    "payBadge": {
+      "mada": "MADA",
+      "apple_pay": "NFC",
+      "stc_pay": "WALLET",
+      "cash_on_delivery": "CASH"
+    }
+  },
+  "orderDone": {
+    "title": "Order confirmed",
+    "subtitle": "{{merchant}} is grinding to order. You will get a message when the driver is on the way.",
+    "trackOrder": "Track the order",
+    "keepShopping": "Keep shopping"
+  },
+  "tracking": {
+    "orderNo": "ORDER #{{code}}",
+    "arrives": "Arrives {{time}}",
+    "steps": {
+      "pending": "Order placed",
+      "confirmed": "Confirmed by the roastery",
+      "roasting": "Roasted & ground to order",
+      "ready": "Ready for pickup",
+      "picked_up": "Picked up by {{name}}",
+      "delivered": "At your door",
+      "cancelled": "Cancelled"
+    },
+    "statusTitle": {
+      "pending": "Waiting for the roastery",
+      "confirmed": "Confirmed",
+      "roasting": "Roasting your order",
+      "ready": "Ready for the driver",
+      "picked_up": "Out for delivery",
+      "delivered": "Delivered",
+      "cancelled": "Order cancelled"
+    },
+    "driver": "Your driver",
+    "callDriver": "Call the driver",
+    "noOrders": "No orders yet",
+    "noOrdersBody": "Your orders will show up here once you place one."
+  },
+  "orders": {
+    "title": "My orders",
+    "itemCount_one": "{{count}} item",
+    "itemCount_other": "{{count}} items"
+  },
+  "subscriptions": {
+    "kicker": "SUBSCRIPTION",
+    "title": "Beans at your door, every two weeks",
+    "subtitle": "Pick a roast profile, we rotate the origin. Skip or pause any time.",
+    "cta": "See plans →",
+    "frequency": "FREQUENCY",
+    "perDelivery": "per delivery",
+    "subscribe": "Subscribe",
+    "mostPopular": "Most popular — subscribe",
+    "note": "Subscription orders ship the day after roasting. Change roaster, grind or pause from your profile.",
+    "freq": {
+      "weekly": "Weekly",
+      "biweekly": "Every 2 weeks",
+      "monthly": "Monthly"
+    },
+    "mine": "My subscriptions",
+    "active": "Active",
+    "paused": "Paused",
+    "pause": "Pause",
+    "resume": "Resume",
+    "activeCount_one": "{{count}} active",
+    "activeCount_other": "{{count}} active",
+    "nextDelivery": "Next delivery {{date}}"
+  },
+  "loyalty": {
+    "title": "Leen Rewards",
+    "points": "points",
+    "tier": "TIER",
+    "toNextTier": "{{count}} points to the next tier and free delivery for a year.",
+    "topTier": "You are at the top tier. Free delivery, always.",
+    "redeem": "Redeem",
+    "locked": "Locked",
+    "pointsCost": "{{count}} points",
+    "redeemed": "Reward redeemed",
+    "tiers": {
+      "qahwa_bronze": "Qahwa Bronze",
+      "qahwa_silver": "Qahwa Silver",
+      "qahwa_gold": "Qahwa Gold",
+      "qahwa_black": "Qahwa Black"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "guest": "Guest",
+    "guestBody": "Sign in to see your orders, rewards and addresses.",
+    "rows": {
+      "orders": "Orders",
+      "subscriptions": "Subscriptions",
+      "rewards": "Leen Rewards",
+      "addresses": "Addresses",
+      "payment": "Payment methods",
+      "support": "Help & support"
+    }
+  },
+  "addresses": {
+    "title": "Addresses",
+    "setDefault": "Set default",
+    "default": "Default",
+    "add": "+ Add a new address",
+    "emptyTitle": "No addresses yet",
+    "emptyBody": "Add one so we know where to bring the coffee.",
+    "form": {
+      "title": "New address",
+      "label": "Label",
+      "labelPlaceholder": "Home, Office…",
+      "street": "Street",
+      "district": "District",
+      "city": "City",
+      "buildingNumber": "Building number",
+      "postalCode": "Postal code",
+      "additionalNumber": "Additional number",
+      "notes": "Notes for the driver",
+      "saveAddress": "Save address",
+      "required": "Street, district and city are required."
+    }
+  },
+  "tabs": {
+    "home": "Home",
+    "explore": "Explore",
+    "subscribe": "Subscribe",
+    "cart": "Cart",
+    "profile": "Profile"
+  }
+}

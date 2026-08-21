@@ -1,0 +1,65 @@
+{
+  "expo": {
+    "name": "Leen Rider",
+    "slug": "leen-delivery",
+    "scheme": "leenrider",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "icon": "./assets/icon.png",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.leencoffee.delivery"
+    },
+    "android": {
+      "package": "com.leencoffee.delivery",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon-adaptive.png",
+        "backgroundColor": "#1F4D3A"
+      },
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "updates": {
+      "enabled": true,
+      "checkAutomatically": "NEVER"
+    },
+    "owner": "jimmycreators-team",
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/leen-logo.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#1F4D3A"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Allow Leen Rider to use your location so customers can follow their delivery."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#3B2418"
+        }
+      ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "d46eca7e-c0e4-4b71-aba8-0292048edef5"
+      }
+    }
+  }
+}

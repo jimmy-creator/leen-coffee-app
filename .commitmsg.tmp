@@ -1,0 +1,42 @@
+feat: Leen Coffee monorepo — schema, customer app, and five app scaffolds
+
+Sets up the Leen Coffee marketplace as a pnpm + Turborepo workspace on the
+same shape as aljahis: six apps and five shared packages over one Supabase
+database.
+
+Database (supabase/, live on nwedptckqbcktdqgoixr)
+  Roasteries, coffees, carts, orders, subscriptions, loyalty, riders and
+  reviews. Money is integer halalas throughout. RLS on every table, with
+  auth.uid() wrapped as (select auth.uid()) and role checks behind SECURITY
+  DEFINER helpers in a `private` schema that PostgREST does not expose.
+
+  `orders` has no INSERT policy at all: the only way to create one is
+  place_order, which prices the cart from the product rows, applies VAT and
+  promo, splits the basket into one sub-order per roastery, captures
+  commission, decrements stock under a deterministic row lock, awards loyalty
+  points and empties the cart — all in one transaction. The client says what
+  it wants, never what it costs.
+
+  Guard triggers cover what policies cannot: a merchant cannot list itself on
+  the storefront or set its own commission, a rider cannot approve itself, and
+  nobody can promote their own profile to admin.
+
+Customer app (apps/customer-mobile)
+  All fifteen screens from the Claude design, wired to the live database:
+  onboarding, phone + OTP auth, home, explore, roastery, product, cart,
+  checkout, confirmation, live tracking, subscriptions, rewards, profile and
+  addresses. Arabic-first with real RTL mirroring, Arabic-Indic digits via
+  Intl, and diacritic-folding search implemented on both sides of the wire.
+
+Scaffolds
+  merchant-mobile (live order board), delivery-mobile (job board with
+  race-safe claiming), and three Next.js apps — storefront, merchant order
+  desk, admin console — each signed in and reading real data.
+
+Verification
+  pnpm build and pnpm typecheck are green across all sixteen tasks; 12 unit
+  tests in @leen/lib; scripts/e2e-order.mjs runs nineteen checks against the
+  live database as a real signed-in customer, including that a direct INSERT
+  into orders is refused and that promo codes are not enumerable.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

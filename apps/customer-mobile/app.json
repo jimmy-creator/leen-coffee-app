@@ -1,0 +1,65 @@
+{
+  "expo": {
+    "name": "Leen Coffee",
+    "slug": "leen-customer",
+    "scheme": "leen",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "icon": "./assets/icon.png",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.leencoffee.customer"
+    },
+    "android": {
+      "package": "com.leencoffee.customer",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon-adaptive.png",
+        "backgroundColor": "#F8F4EE"
+      },
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "updates": {
+      "enabled": true,
+      "checkAutomatically": "NEVER"
+    },
+    "owner": "jimmycreators-team",
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/leen-logo.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#F8F4EE"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Allow Leen to use your location to show nearby roasteries and set your delivery address."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#3B2418"
+        }
+      ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "70f8c309-af3c-4ef3-9890-91c51676dd19"
+      }
+    }
+  }
+}

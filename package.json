@@ -1,0 +1,36 @@
+{
+  "name": "leen-coffee",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@8.14.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "typecheck": "turbo typecheck",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
+    "db:start": "supabase start",
+    "db:reset": "supabase db reset",
+    "db:diff": "supabase db diff",
+    "db:push": "supabase db push",
+    "db:types": "supabase gen types typescript --local > packages/api-client/src/database.types.ts",
+    "db:link": "supabase link --project-ref nwedptckqbcktdqgoixr",
+    "db:types:remote": "supabase gen types typescript --linked --schema public > packages/api-client/src/database.types.ts",
+    "test:e2e": "scripts/e2e.sh"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "turbo": "^2.1.0",
+    "typescript": "^5.5.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "react": "19.1.0",
+      "react-dom": "19.1.0"
+    }
+  }
+}

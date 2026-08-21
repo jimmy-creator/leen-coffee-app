@@ -1,0 +1,65 @@
+{
+  "expo": {
+    "name": "Leen Merchant",
+    "slug": "leen-merchant",
+    "scheme": "leenmerchant",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "icon": "./assets/icon.png",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.leencoffee.merchant"
+    },
+    "android": {
+      "package": "com.leencoffee.merchant",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon-adaptive.png",
+        "backgroundColor": "#3B2418"
+      },
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "updates": {
+      "enabled": true,
+      "checkAutomatically": "NEVER"
+    },
+    "owner": "jimmycreators-team",
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/leen-logo.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#3B2418"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Allow Leen Merchant to use your location so riders can find your roastery."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#3B2418"
+        }
+      ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "82616946-3b61-46ea-8ced-a5c9c2e766fe"
+      }
+    }
+  }
+}
