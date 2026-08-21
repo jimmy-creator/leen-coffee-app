@@ -10,7 +10,7 @@ import { setAppLanguage } from '../../lib/i18n';
 import { useFormat } from '../../lib/format';
 import { colors, border, font } from '../../lib/theme';
 import { ImageSlot } from '../../components/cards';
-import { Card, EmptyState, OutlineButton, PrimaryButton, T } from '../../components/primitives';
+import { Card, OutlineButton, PrimaryButton, T } from '../../components/primitives';
 import { UserIcon } from '../../components/icons';
 
 interface RowSpec {
@@ -20,7 +20,7 @@ interface RowSpec {
 }
 
 export default function Profile() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const f = useFormat();
@@ -84,18 +84,27 @@ export default function Profile() {
         </View>
 
         {!userId ? (
-          <EmptyState
-            icon={<UserIcon size={28} color={colors.caramel} />}
-            title={t('profile.guest')}
-            body={t('profile.guestBody')}
-            action={
+          // Language has to stay reachable here. Gating it behind sign-in left a
+          // guest — which is every first-time visitor, and anyone who tapped
+          // "Browse as a guest" — with no way to switch out of Arabic at all.
+          <View style={styles.body}>
+            <Card style={styles.guestCard}>
+              <View style={styles.guestIcon}>
+                <UserIcon size={28} color={colors.caramel} />
+              </View>
+              <T variant="title">{t('profile.guest')}</T>
+              <T variant="body" color={colors.ink2} style={{ textAlign: 'center', maxWidth: 250 }}>
+                {t('profile.guestBody')}
+              </T>
               <PrimaryButton
                 label={t('auth.signIn')}
                 onPress={() => router.push('/auth')}
-                style={{ paddingHorizontal: 30 }}
+                style={{ paddingHorizontal: 30, alignSelf: 'stretch' }}
               />
-            }
-          />
+            </Card>
+
+            <LanguageCard />
+          </View>
         ) : (
           <View style={styles.body}>
             <Card style={styles.identity}>
@@ -141,31 +150,7 @@ export default function Profile() {
               ))}
             </Card>
 
-            <Card style={styles.languageRow}>
-              <T variant="bodyLg" style={{ fontFamily: font.medium, fontSize: 14 }}>
-                {t('common.language')}
-              </T>
-              <View style={styles.segment}>
-                {(['ar', 'en'] as Locale[]).map((locale) => {
-                  const active = i18n.language === locale;
-                  return (
-                    <Pressable
-                      key={locale}
-                      onPress={() => void setAppLanguage(locale)}
-                      style={[styles.segmentItem, active && styles.segmentItemActive]}
-                    >
-                      <T
-                        variant="micro"
-                        color={active ? colors.ink : colors.ink3}
-                        style={{ fontSize: 12.5 }}
-                      >
-                        {t(locale === 'ar' ? 'common.arabic' : 'common.english')}
-                      </T>
-                    </Pressable>
-                  );
-                })}
-              </View>
-            </Card>
+            <LanguageCard />
 
             <OutlineButton
               label={t('auth.signOut')}
@@ -181,8 +166,54 @@ export default function Profile() {
   );
 }
 
+/**
+ * Arabic / English switch. Rendered for signed-in customers *and* guests —
+ * a first-time visitor has no account yet and still has to be able to read
+ * the app.
+ */
+function LanguageCard() {
+  const { t, i18n } = useTranslation();
+
+  return (
+    <Card style={styles.languageRow}>
+      <T variant="bodyLg" style={{ fontFamily: font.medium, fontSize: 14 }}>
+        {t('common.language')}
+      </T>
+      <View style={styles.segment}>
+        {(['ar', 'en'] as Locale[]).map((locale) => {
+          const active = i18n.language === locale;
+          return (
+            <Pressable
+              key={locale}
+              onPress={() => void setAppLanguage(locale)}
+              style={[styles.segmentItem, active && styles.segmentItemActive]}
+            >
+              <T
+                variant="micro"
+                color={active ? colors.ink : colors.ink3}
+                style={{ fontSize: 12.5 }}
+              >
+                {t(locale === 'ar' ? 'common.arabic' : 'common.english')}
+              </T>
+            </Pressable>
+          );
+        })}
+      </View>
+    </Card>
+  );
+}
+
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: colors.bg },
+  guestCard: { alignItems: 'center', gap: 14, paddingVertical: 32, paddingHorizontal: 24 },
+  guestIcon: {
+    width: 74,
+    height: 74,
+    borderRadius: 999,
+    backgroundColor: 'rgba(197,139,85,0.14)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   header: { paddingHorizontal: 20, paddingBottom: 18 },
   body: { paddingHorizontal: 20, gap: 20 },
 

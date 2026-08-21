@@ -1,11 +1,13 @@
-import { StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useTranslation } from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import type { Locale } from '@leen/types';
 import { ImageSlot } from '../components/cards';
 import { OutlineButton, PrimaryButton, T } from '../components/primitives';
+import { setAppLanguage } from '../lib/i18n';
 import { colors, font } from '../lib/theme';
 import { SEEN_ONBOARDING_KEY } from './index';
 
@@ -15,7 +17,7 @@ import { SEEN_ONBOARDING_KEY } from './index';
  * ways into the app: create an account, or browse as a guest.
  */
 export default function Welcome() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const router = useRouter();
   const insets = useSafeAreaInsets();
 
@@ -36,6 +38,34 @@ export default function Welcome() {
       {/* Three-stop scrim: light at the top so the photograph reads, opaque at
           the bottom so the buttons sit on solid espresso. */}
       <View style={styles.scrim} pointerEvents="none" />
+
+      {/*
+        Language switch, before anything else on screen. Arabic is the default,
+        and without this the first thing a non-Arabic reader sees is a screen
+        they cannot navigate — the switch in Profile is several taps away and
+        also in Arabic.
+      */}
+      <View style={[styles.langBar, { top: insets.top + 10 }]}>
+        {(['ar', 'en'] as Locale[]).map((locale) => {
+          const active = i18n.language === locale;
+          return (
+            <Pressable
+              key={locale}
+              onPress={() => void setAppLanguage(locale)}
+              hitSlop={6}
+              style={[styles.langPill, active && styles.langPillActive]}
+            >
+              <T
+                variant="micro"
+                color={active ? colors.ink : colors.bg}
+                style={{ fontSize: 12.5, fontFamily: font.semibold }}
+              >
+                {t(locale === 'ar' ? 'common.arabic' : 'common.english')}
+              </T>
+            </Pressable>
+          );
+        })}
+      </View>
 
       <View style={[styles.content, { paddingBottom: insets.bottom + 46 }]}>
         <View style={{ gap: 14 }}>
@@ -88,6 +118,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 26,
     gap: 26,
   },
+  langBar: {
+    position: 'absolute',
+    end: 20,
+    flexDirection: 'row',
+    gap: 4,
+    padding: 3,
+    borderRadius: 10,
+    backgroundColor: 'rgba(33,23,18,0.4)',
+  },
+  langPill: { paddingVertical: 6, paddingHorizontal: 12, borderRadius: 8 },
+  langPillActive: { backgroundColor: colors.bg },
+
   dots: { flexDirection: 'row', gap: 6 },
   dot: {
     width: 8,
