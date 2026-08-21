@@ -9,7 +9,6 @@ import {
 } from 'react';
 import { Platform } from 'react-native';
 import * as Notifications from 'expo-notifications';
-import * as Device from 'expo-device';
 import Constants from 'expo-constants';
 import type { Tables } from '@leen/api-client';
 import { supabase } from './supabase';
@@ -58,9 +57,11 @@ Notifications.setNotificationHandler({
  * interrupt someone who just wanted to browse coffee.
  */
 export async function registerForPush(userId: string): Promise<string | null> {
-  // Push needs real hardware; a simulator has no APNs/FCM token to give.
-  if (!Device.isDevice) return null;
-
+  // No expo-device check for a simulator here, deliberately. It is a native
+  // module, so adding one for a single early-return means every tester needs a
+  // fresh development build before the app will even open — a steep price for
+  // skipping one permission prompt on a simulator. The token request below
+  // already fails harmlessly there, which is the same outcome.
   if (Platform.OS === 'android') {
     // Android 8+ ignores any notification that arrives without a channel.
     await Notifications.setNotificationChannelAsync('orders', {
