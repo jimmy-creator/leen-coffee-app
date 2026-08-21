@@ -69,17 +69,21 @@ export function ProductCard({
   onPress,
   onAdd,
   showMerchant = true,
+  cartQty = 0,
   style,
 }: {
   product: ProductLike;
   onPress: () => void;
   onAdd?: () => void;
   showMerchant?: boolean;
+  /** How many of this product are already in the cart, across all variants. */
+  cartQty?: number;
   style?: StyleProp<ViewStyle>;
 }) {
   const { t } = useTranslation();
   const f = useFormat();
   const soldOut = product.stock_qty <= 0;
+  const inCart = cartQty > 0;
 
   return (
     <Pressable
@@ -119,12 +123,34 @@ export function ProductCard({
               onPress={onAdd}
               disabled={soldOut}
               hitSlop={6}
+              // Once something is in the cart the control widens into a pill
+              // carrying the count, so the customer can see what they have
+              // without opening the cart. Tapping still adds one.
+              accessibilityLabel={
+                inCart ? t('product.inCartAdd', { count: cartQty }) : t('product.addToCart')
+              }
               style={({ pressed }) => [
-                styles.addButton,
+                inCart ? styles.addPill : styles.addButton,
                 soldOut && { backgroundColor: colors.surfaceAlt },
                 pressed && { opacity: 0.7 },
               ]}
             >
+              {inCart ? (
+                <>
+                  {/* Sold out turns the pill into a light disabled chip, so the
+                      count has to follow the glyph colour or it vanishes. */}
+                  <Num
+                    variant="micro"
+                    color={soldOut ? colors.ink4 : colors.bg}
+                    style={{ fontSize: 12.5 }}
+                  >
+                    {f.num(cartQty)}
+                  </Num>
+                  <View
+                    style={[styles.pillDivider, soldOut && { backgroundColor: onSurface(0.15) }]}
+                  />
+                </>
+              ) : null}
               <T
                 variant="title"
                 color={soldOut ? colors.ink4 : colors.bg}
@@ -280,6 +306,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  // Same height as the square so the footer baseline does not shift when the
+  // first bag goes in; it only grows sideways.
+  addPill: {
+    height: 30,
+    minWidth: 30,
+    paddingHorizontal: 9,
+    borderRadius: 10,
+    backgroundColor: colors.brand,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 7,
+  },
+  pillDivider: { width: 1, height: 14, backgroundColor: onBrand(0.3) },
 
   row: {
     flexDirection: 'row',

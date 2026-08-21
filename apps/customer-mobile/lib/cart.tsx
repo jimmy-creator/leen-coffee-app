@@ -42,6 +42,13 @@ interface CartValue {
   /** Goods subtotal in halalas. Delivery, VAT and promo are priced server-side. */
   subtotalMinor: number;
   loading: boolean;
+  /**
+   * How many bags of this product are in the cart, summed across every grind
+   * and bag size. A card asks "how much of this do I have", not "how much of
+   * this exact configuration" — the same bean at 250 g whole-bean and 500 g
+   * ground is two lines but one product to the customer.
+   */
+  qtyOf: (productId: number) => number;
   add: (productId: number, grind: GrindOption, weightG: BagWeight, qty?: number) => Promise<void>;
   setQty: (productId: number, grind: GrindOption, weightG: BagWeight, qty: number) => Promise<void>;
   remove: (productId: number, grind: GrindOption, weightG: BagWeight) => Promise<void>;
@@ -318,6 +325,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo<CartValue>(() => {
     const count = lines.reduce((n, l) => n + l.qty, 0);
+
+    // Built once per cart change rather than scanned per card: the home grid
+    // and the roastery page both call this for every tile they render.
+    const byProduct = new Map<number, number>();
+    for (const line of lines) {
+      byProduct.set(line.productId, (byProduct.get(line.productId) ?? 0) + line.qty);
+    }
+    const qtyOf = (productId: number) => byProduct.get(productId) ?? 0;
+
     // Display figure only. The authoritative subtotal — and every other line of
     // the bill — comes back from `preview_cart_total` / `place_order`.
     const subtotalMinor = lines.reduce(
@@ -325,7 +341,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         sum + (l.product ? variantPriceMinor(l.product.basePriceMinor, l.weightG) * l.qty : 0),
       0,
     );
-    return { lines, count, subtotalMinor, loading, add, setQty, remove, clear, refresh };
+    return { lines, count, subtotalMinor, loading, qtyOf, add, setQty, remove, clear, refresh };
   }, [lines, loading, add, setQty, remove, clear, refresh]);
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

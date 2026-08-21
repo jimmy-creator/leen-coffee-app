@@ -133,7 +133,8 @@
       "250": "250 g",
       "500": "500 g",
       "1000": "1 kg"
-    }
+    },
+    "inCartAdd": "{{count}} in cart — add another"
   },
   "cart": {
     "title": "Cart",

@@ -23,7 +23,7 @@ export default function Store() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const f = useFormat();
-  const { add } = useCart();
+  const { add, qtyOf } = useCart();
   const { id } = useLocalSearchParams<{ id: string }>();
 
   const [data, setData] = useState<Data | null>(null);
@@ -139,6 +139,7 @@ export default function Store() {
                   showMerchant={false}
                   onPress={() => router.push(`/product/${p.id}`)}
                   onAdd={() => void add(p.id, 'whole_bean', 250)}
+                  cartQty={qtyOf(p.id)}
                   style={styles.gridItem}
                 />
               ))}

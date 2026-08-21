@@ -20,7 +20,7 @@ export default function Home() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const f = useFormat();
-  const { add } = useCart();
+  const { add, qtyOf } = useCart();
 
   const [feed, setFeed] = useState<Feed | null>(null);
   const [categories, setCategories] = useState<Category[]>([]);
@@ -229,6 +229,7 @@ export default function Home() {
                       product={p}
                       onPress={() => router.push(`/product/${p.id}`)}
                       onAdd={() => void add(p.id, 'whole_bean', 250)}
+                      cartQty={qtyOf(p.id)}
                       style={styles.gridItem}
                     />
                   ))}
