@@ -325,5 +325,13 @@
     "orderReadyTitle": "ड्राइवर के लिए तैयार",
     "orderPickedUpTitle": "डिलीवरी के लिए निकला",
     "orderDeliveredTitle": "पहुँचा दिया गया"
+  },
+  "roasters": {
+    "title": "भट्टियाँ",
+    "searchPlaceholder": "नाम या शहर से खोजें",
+    "count_one": "{{count}} भट्टी",
+    "count_other": "{{count}} भट्टियाँ",
+    "emptyTitle": "कोई भट्टी नहीं मिली",
+    "emptyBody": "दूसरा नाम आज़माएँ, या रियाध या जेद्दा जैसे शहर से खोजें।"
   }
 }

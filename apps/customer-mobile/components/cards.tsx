@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { variantPriceMinor } from '@leen/lib';
 import { useFormat } from '../lib/format';
 import { colors, border, font } from '../lib/theme';
-import { onBrand, onSurface, brandTint } from '@leen/ui/palette';
+import { onBrand, onSurface, brandTint, accentTint } from '@leen/ui/palette';
 import { Num, T } from './primitives';
 import { StarIcon } from './icons';
 
@@ -253,6 +253,38 @@ export function MerchantCard({
 }
 
 const styles = StyleSheet.create({
+  wideCard: {
+    backgroundColor: colors.surface,
+    borderRadius: 18,
+    borderWidth: 1,
+    borderColor: border.hair,
+    overflow: 'hidden',
+  },
+  wideCover: { height: 140, backgroundColor: colors.surfaceAlt },
+  closedVeil: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: onSurface(0.45),
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  closedPill: {
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 999,
+    backgroundColor: colors.surface,
+  },
+  wideHead: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  ratingPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    paddingVertical: 5,
+    paddingHorizontal: 9,
+    borderRadius: 999,
+    backgroundColor: accentTint(0.16),
+  },
+  wideMeta: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 2 },
+
   slot: {
     width: '100%',
     height: '100%',
@@ -344,3 +376,80 @@ const styles = StyleSheet.create({
   inlineRow: { flexDirection: 'row', alignItems: 'center', gap: 3 },
   dot: { width: 3, height: 3, borderRadius: 3, backgroundColor: onSurface(0.2) },
 });
+
+interface MerchantListItem extends MerchantLike {
+  tagline_en: string | null;
+  tagline_ar: string | null;
+  rating_count: number;
+  is_open: boolean;
+}
+
+/**
+ * Full-width roastery card for the "all roasters" list.
+ *
+ * Separate from `MerchantCard` rather than a variant of it: the carousel card
+ * is fixed at 216 px wide and stacks its cover above the text, which is right
+ * for scanning sideways and wrong for a vertical list. This one runs the cover
+ * full-bleed and has room for the tagline, which is what tells a customer why
+ * they would tap one roastery over another.
+ */
+export function MerchantWideCard({
+  merchant,
+  onPress,
+}: {
+  merchant: MerchantListItem;
+  onPress: () => void;
+}) {
+  const { t } = useTranslation();
+  const f = useFormat();
+  const city = f.pick(merchant.city_en, merchant.city_ar);
+  const district = f.pick(merchant.district_en, merchant.district_ar);
+
+  return (
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [styles.wideCard, pressed && { opacity: 0.85 }]}
+    >
+      <View style={styles.wideCover}>
+        <ImageSlot uri={merchant.cover_url} />
+        {!merchant.is_open ? (
+          <View style={styles.closedVeil}>
+            <View style={styles.closedPill}>
+              <T variant="micro" color={colors.ink}>
+                {t('store.closed')}
+              </T>
+            </View>
+          </View>
+        ) : null}
+      </View>
+
+      <View style={{ padding: 15, gap: 7 }}>
+        <View style={styles.wideHead}>
+          <T variant="title" style={{ flex: 1, fontSize: 16 }} numberOfLines={1}>
+            {f.pick(merchant.name_en, merchant.name_ar)}
+          </T>
+          <View style={styles.ratingPill}>
+            <StarIcon />
+            <Num variant="caption" style={{ fontFamily: font.semibold, fontSize: 12 }}>
+              {f.num(merchant.rating)}
+            </Num>
+          </View>
+        </View>
+
+        <T variant="caption" color={colors.ink2} numberOfLines={2}>
+          {f.pick(merchant.tagline_en, merchant.tagline_ar)}
+        </T>
+
+        <View style={styles.wideMeta}>
+          <T variant="caption" color={colors.ink3} numberOfLines={1} style={{ flex: 1 }}>
+            {district ? `${city} · ${district}` : city}
+          </T>
+          <View style={styles.dot} />
+          <T variant="caption" color={colors.brandMid} style={{ fontFamily: font.medium }}>
+            {`${f.num(merchant.eta_min_minutes)}–${f.num(merchant.eta_max_minutes)}`}
+          </T>
+        </View>
+      </View>
+    </Pressable>
+  );
+}

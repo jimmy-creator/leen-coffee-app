@@ -337,5 +337,16 @@
     "orderReadyTitle": "جاهز للمندوب",
     "orderPickedUpTitle": "في الطريق إليك",
     "orderDeliveredTitle": "تم التوصيل"
+  },
+  "roasters": {
+    "title": "المحامص",
+    "searchPlaceholder": "ابحث بالاسم أو المدينة",
+    "count_one": "محمصة واحدة",
+    "count_two": "محمصتان",
+    "count_few": "{{count}} محامص",
+    "count_many": "{{count}} محمصة",
+    "count_other": "{{count}} محمصة",
+    "emptyTitle": "لا توجد محامص",
+    "emptyBody": "جرّب اسماً آخر، أو ابحث بالمدينة مثل الرياض أو جدة."
   }
 }

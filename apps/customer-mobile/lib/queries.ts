@@ -33,6 +33,12 @@ const MERCHANT_CARD_COLUMNS = `
   rating, eta_min_minutes, eta_max_minutes, cover_url, logo_url
 `;
 
+const MERCHANT_LIST_COLUMNS = `
+  id, name_en, name_ar, tagline_en, tagline_ar, city_en, city_ar,
+  district_en, district_ar, rating, rating_count,
+  eta_min_minutes, eta_max_minutes, cover_url, logo_url, is_open
+`;
+
 const MERCHANT_DETAIL_COLUMNS = `
   id, name_en, name_ar, tagline_en, tagline_ar, about_en, about_ar,
   city_en, city_ar, district_en, district_ar, rating, rating_count,
@@ -138,6 +144,26 @@ export async function searchProducts(query: string, filters: SearchFilters = {})
   }
 
   const { data, error } = await q;
+  if (error) throw error;
+  return data ?? [];
+}
+
+/**
+ * Every listed roastery, for the "Roasters near you → See all" page.
+ *
+ * Ordered by rating rather than distance despite the section's name: the app
+ * does not yet know where the customer is until they save an address, and
+ * "near you" ordered arbitrarily would be worse than "best first". Sorting by
+ * real distance is a change to make once addresses carry coordinates for
+ * everyone — `merchants.lat/lng` and `addresses.lat/lng` are both already
+ * populated, and `distanceKm` in `@leen/lib` is waiting for it.
+ */
+export async function fetchAllMerchants() {
+  const { data, error } = await supabase
+    .from('merchants')
+    .select(MERCHANT_LIST_COLUMNS)
+    .order('rating', { ascending: false })
+    .order('rating_count', { ascending: false });
   if (error) throw error;
   return data ?? [];
 }

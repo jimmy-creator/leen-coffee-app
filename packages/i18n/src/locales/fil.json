@@ -325,5 +325,13 @@
     "orderReadyTitle": "Handa na para sa driver",
     "orderPickedUpTitle": "Papunta na",
     "orderDeliveredTitle": "Naihatid na"
+  },
+  "roasters": {
+    "title": "Mga roaster",
+    "searchPlaceholder": "Maghanap ayon sa pangalan o lungsod",
+    "count_one": "{{count}} roastery",
+    "count_other": "{{count}} na roastery",
+    "emptyTitle": "Walang nakitang roastery",
+    "emptyBody": "Subukan ang ibang pangalan, o maghanap ayon sa lungsod tulad ng Riyadh o Jeddah."
   }
 }

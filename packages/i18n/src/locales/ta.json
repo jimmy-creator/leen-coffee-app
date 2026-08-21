@@ -325,5 +325,13 @@
     "orderReadyTitle": "ஓட்டுநருக்குத் தயார்",
     "orderPickedUpTitle": "வழங்கலுக்குப் புறப்பட்டது",
     "orderDeliveredTitle": "வழங்கப்பட்டது"
+  },
+  "roasters": {
+    "title": "வறுப்பகங்கள்",
+    "searchPlaceholder": "பெயர் அல்லது நகரத்தால் தேடு",
+    "count_one": "{{count}} வறுப்பகம்",
+    "count_other": "{{count}} வறுப்பகங்கள்",
+    "emptyTitle": "வறுப்பகம் எதுவும் இல்லை",
+    "emptyBody": "வேறு பெயரை முயற்சிக்கவும், அல்லது ரியாத் அல்லது ஜெத்தா போன்ற நகரத்தால் தேடவும்."
   }
 }

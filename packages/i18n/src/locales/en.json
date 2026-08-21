@@ -325,5 +325,13 @@
     "orderReadyTitle": "Ready for the driver",
     "orderPickedUpTitle": "Out for delivery",
     "orderDeliveredTitle": "Delivered"
+  },
+  "roasters": {
+    "title": "Roasters",
+    "searchPlaceholder": "Search by name or city",
+    "count_one": "{{count}} roastery",
+    "count_other": "{{count}} roasteries",
+    "emptyTitle": "No roasteries found",
+    "emptyBody": "Try a different name, or search by city like Riyadh or Jeddah."
   }
 }

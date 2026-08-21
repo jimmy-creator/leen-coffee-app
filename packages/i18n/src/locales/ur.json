@@ -325,5 +325,13 @@
     "orderReadyTitle": "ڈرائیور کے لیے تیار",
     "orderPickedUpTitle": "ترسیل کے لیے روانہ",
     "orderDeliveredTitle": "پہنچا دیا گیا"
+  },
+  "roasters": {
+    "title": "محامص",
+    "searchPlaceholder": "نام یا شہر سے تلاش کریں",
+    "count_one": "{{count}} بھٹی",
+    "count_other": "{{count}} بھٹیاں",
+    "emptyTitle": "کوئی بھٹی نہیں ملی",
+    "emptyBody": "دوسرا نام آزمائیں، یا ریاض یا جدہ جیسے شہر سے تلاش کریں۔"
   }
 }

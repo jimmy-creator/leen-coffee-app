@@ -183,7 +183,7 @@ export default function Home() {
             <View style={{ gap: 13 }}>
               <View style={styles.sectionHead}>
                 <T variant="title">{t('home.roasters')}</T>
-                <Pressable onPress={() => router.push('/(tabs)/explore')} hitSlop={8}>
+                <Pressable onPress={() => router.push('/roasters')} hitSlop={8}>
                   <T
                     variant="caption"
                     color={colors.brandMid}

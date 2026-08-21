@@ -325,5 +325,13 @@
     "orderReadyTitle": "آماده برای راننده",
     "orderPickedUpTitle": "در راه شماست",
     "orderDeliveredTitle": "تحویل داده شد"
+  },
+  "roasters": {
+    "title": "بریانگاه‌ها",
+    "searchPlaceholder": "جستجو با نام یا شهر",
+    "count_one": "{{count}} بریانگاه",
+    "count_other": "{{count}} بریانگاه",
+    "emptyTitle": "بریانگاهی پیدا نشد",
+    "emptyBody": "نام دیگری امتحان کنید، یا با شهر مانند ریاض یا جده جستجو کنید."
   }
 }

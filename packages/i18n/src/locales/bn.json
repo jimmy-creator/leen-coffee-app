@@ -325,5 +325,13 @@
     "orderReadyTitle": "ড্রাইভারের জন্য প্রস্তুত",
     "orderPickedUpTitle": "ডেলিভারির পথে",
     "orderDeliveredTitle": "পৌঁছে দেওয়া হয়েছে"
+  },
+  "roasters": {
+    "title": "রোস্টারি",
+    "searchPlaceholder": "নাম বা শহর দিয়ে খুঁজুন",
+    "count_one": "{{count}} রোস্টারি",
+    "count_other": "{{count}} রোস্টারি",
+    "emptyTitle": "কোনো রোস্টারি পাওয়া যায়নি",
+    "emptyBody": "অন্য নাম চেষ্টা করুন, বা রিয়াদ বা জেদ্দার মতো শহর দিয়ে খুঁজুন।"
   }
 }
