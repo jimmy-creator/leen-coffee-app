@@ -1158,7 +1158,12 @@ export type Database = {
         Args: { p_order_code: string };
         Returns: {
           code: string;
+          dest_lat: number;
+          dest_lng: number;
           eta_minutes: number;
+          fulfilment: string;
+          merchant_lat: number;
+          merchant_lng: number;
           merchant_name_ar: string;
           merchant_name_en: string;
           merchant_phone: string;

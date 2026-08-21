@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Linking, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Image } from 'expo-image';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { OrderStatus } from '@leen/types';
 import { fetchOrderTracking } from '../../lib/queries';
+import { staticMapWithMarkers, type MapMarker } from '../../lib/mapbox';
 import { supabase } from '../../lib/supabase';
 import { useFormat } from '../../lib/format';
 import { colors, border, font } from '../../lib/theme';
@@ -87,6 +89,39 @@ export default function Track() {
     ? Math.min(...rows.map((r) => Math.max(0, STEPS.indexOf(r.sub_order_status as OrderStatus))))
     : 0;
   const currentStatus = STEPS[currentIndex] ?? 'pending';
+  /**
+   * Three pins, in the order they matter to someone waiting: where it is
+   * coming from, where it is now, where it is going. The rider only appears
+   * once one has picked the order up and reported a position.
+   *
+   * Brass for the roastery, brand green for the rider, live green for the
+   * door — the same meanings those colours carry everywhere else in the app.
+   */
+  const markers: MapMarker[] = [];
+  if (primary?.merchant_lat != null && primary?.merchant_lng != null) {
+    markers.push({
+      point: { lat: primary.merchant_lat, lng: primary.merchant_lng },
+      color: 'C8A45C',
+      label: 'cafe',
+    });
+  }
+  const withRider = rows.find((r) => r.rider_lat != null && r.rider_lng != null);
+  if (withRider?.rider_lat != null && withRider?.rider_lng != null) {
+    markers.push({
+      point: { lat: withRider.rider_lat, lng: withRider.rider_lng },
+      color: '1C3819',
+      label: 'car',
+    });
+  }
+  if (primary?.dest_lat != null && primary?.dest_lng != null) {
+    markers.push({
+      point: { lat: primary.dest_lat, lng: primary.dest_lng },
+      color: '4C9A5E',
+      label: 'home',
+    });
+  }
+  const mapUrl = staticMapWithMarkers(markers, 402 * 2, 330 * 2);
+
   const riderName = rows.find((r) => r.rider_name)?.rider_name ?? null;
   const riderVehicle = rows.find((r) => r.rider_vehicle)?.rider_vehicle ?? null;
   const riderRating = rows.find((r) => r.rider_rating)?.rider_rating ?? null;
@@ -99,17 +134,30 @@ export default function Track() {
         contentContainerStyle={{ paddingBottom: 40 }}
       >
         {/*
-          Map placeholder. A real map needs a tile provider key the client has to
-          supply, so this renders the same abstract street grid the design used
-          rather than an empty grey box or a hard dependency on an unset token.
+          Real map when there are coordinates and a token, and the design's
+          stylised street grid when there are not — a pickup order has no
+          destination, and a roastery that has not set its position yet would
+          otherwise frame the map on null island.
         */}
         <View style={styles.map}>
-          <View style={styles.mapRoadV} />
-          <View style={styles.mapRoadH} />
-          <View style={styles.mapRoadH2} />
-          <View style={styles.driverPin}>
-            <TruckIcon />
-          </View>
+          {mapUrl ? (
+            <Image
+              source={{ uri: mapUrl }}
+              style={StyleSheet.absoluteFill}
+              contentFit="cover"
+              transition={180}
+              cachePolicy="memory-disk"
+            />
+          ) : (
+            <>
+              <View style={styles.mapRoadV} />
+              <View style={styles.mapRoadH} />
+              <View style={styles.mapRoadH2} />
+              <View style={styles.driverPin}>
+                <TruckIcon />
+              </View>
+            </>
+          )}
 
           <View style={[styles.mapTop, { top: insets.top + 8 }]}>
             <BackButton tone="floating" onPress={() => router.back()} />

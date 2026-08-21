@@ -80,6 +80,47 @@ export function staticMapUrl(
   );
 }
 
+export interface MapMarker {
+  point: LatLng;
+  /** Mapbox pin colour, hex without the leading #. */
+  color: string;
+  /** Small letter or digit shown inside the pin. */
+  label?: string;
+}
+
+/**
+ * A static map showing one or more markers, auto-framed around them.
+ *
+ * Used by order tracking, where the interesting thing is the relationship
+ * between the roastery, the rider and the door — so the frame is derived from
+ * the markers rather than a fixed centre and zoom. Mapbox's `auto` viewport
+ * does that server-side and handles the single-marker case sensibly too.
+ */
+export function staticMapWithMarkers(
+  markers: MapMarker[],
+  width: number,
+  height: number,
+): string | null {
+  if (!TOKEN || markers.length === 0) return null;
+
+  const w = Math.min(1280, Math.round(width));
+  const h = Math.min(1280, Math.round(height));
+
+  const overlay = markers
+    .map((m) => {
+      const label = m.label ? `-${m.label}` : '';
+      return `pin-l${label}+${m.color}(${m.point.lng.toFixed(5)},${m.point.lat.toFixed(5)})`;
+    })
+    .join(',');
+
+  // `auto` frames the overlay. With a single marker Mapbox falls back to a
+  // sensible default zoom rather than filling the screen with one street.
+  return (
+    `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/` +
+    `${overlay}/auto/${w}x${h}@2x?access_token=${TOKEN}&attribution=false&logo=false&padding=60`
+  );
+}
+
 export interface ReverseGeocodeResult {
   /** Best-effort street line, e.g. "Al Urubah Rd". */
   street: string | null;
